@@ -92,7 +92,7 @@ export default function Home() {
         <h2>Sıkça Sorulan Sorular</h2>
         <div className="faq-list">
           <details>
-            <summary>Varsapp'tan nasıl kiralama yapabilirim?</summary>
+            <summary>Varsapp&apos;tan nasıl kiralama yapabilirim?</summary>
             <p>Beğendiğiniz ürünü seçip, kiralama tarihlerinizi belirledikten sonra güvenli ödeme adımını tamamlayarak kolayca kiralama talebi oluşturabilirsiniz.</p>
           </details>
           <details>

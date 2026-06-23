@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   CalendarDays,
-  CheckCircle2,
   Heart,
   MapPinned,
   PackageCheck,

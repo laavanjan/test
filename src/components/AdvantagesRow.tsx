@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
@@ -32,54 +32,35 @@ const features = [
 ];
 
 export function AdvantagesRow() {
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const [clickedId, setClickedId] = useState<string | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Click outside to close locked description
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setClickedId(null);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  const activeId = hoveredId || clickedId;
+  const [activeId, setActiveId] = useState<string | null>(null);
 
   return (
     <section className="advantages-section shell" aria-label="Varsapp avantajları">
-      <div className="feature-row" ref={containerRef}>
+      <div className="feature-row">
         {features.map(({ id, label, image, description }) => {
           const isActive = activeId === id;
+          const descriptionId = `advantage-description-${id}`;
+
           return (
-            <div
-              className="feature-card-wrapper"
-              key={id}
-              onMouseEnter={() => setHoveredId(id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >
+            <div className="feature-card-wrapper" key={id}>
               <button
                 type="button"
                 className={`feature-card${isActive ? " active" : ""}`}
-                onClick={() => setClickedId((prev) => (prev === id ? null : id))}
+                onClick={() => setActiveId((prev) => (prev === id ? null : id))}
                 aria-expanded={isActive}
+                aria-controls={descriptionId}
               >
                 <span className="feature-visual">
                   <Image src={image} alt="" width={28} height={28} />
                 </span>
-                <strong>{label}</strong>
+                <span className="feature-copy">
+                  <strong className="feature-title">{label}</strong>
+                  <span className="feature-description-inline" id={descriptionId}>
+                    {description}
+                  </span>
+                </span>
                 <ChevronDown size={18} className={`arrow-icon${isActive ? " rotated" : ""}`} />
               </button>
-              {isActive && (
-                <div className="feature-description-bubble">
-                  {description}
-                </div>
-              )}
             </div>
           );
         })}

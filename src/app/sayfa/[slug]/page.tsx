@@ -15,7 +15,7 @@ export default async function StaticPage({
           <h1 style={{ textAlign: "center", marginBottom: "32px", fontSize: "28px", fontWeight: 800 }}>Sıkça Sorulan Sorular</h1>
           <div className="faq-list">
             <details open style={{ border: "1px solid rgba(227, 231, 238, 0.95)", borderRadius: "8px", background: "#fff", padding: "16px", marginBottom: "12px" }}>
-              <summary style={{ fontSize: "15px", fontWeight: 750, color: "#33363d", cursor: "pointer", userSelect: "none" }}>Varsapp'tan nasıl kiralama yapabilirim?</summary>
+              <summary style={{ fontSize: "15px", fontWeight: 750, color: "#33363d", cursor: "pointer", userSelect: "none" }}>Varsapp&apos;tan nasıl kiralama yapabilirim?</summary>
               <p style={{ margin: "12px 0 0", fontSize: "14px", lineHeight: "1.6", color: "#5d6675" }}>Beğendiğiniz ürünü seçip, kiralama tarihlerinizi belirledikten sonra güvenli ödeme adımını tamamlayarak kolayca kiralama talebi oluşturabilirsiniz.</p>
             </details>
             <details style={{ border: "1px solid rgba(227, 231, 238, 0.95)", borderRadius: "8px", background: "#fff", padding: "16px", marginBottom: "12px" }}>
@@ -81,7 +81,7 @@ export default async function StaticPage({
                 <div style={{ fontSize: "12px", color: "#9a9da5", marginBottom: "8px" }}>
                   {review.product} kiraladı - {review.date}
                 </div>
-                <p style={{ fontSize: "14px", color: "#5d6675", lineHeight: "1.5", margin: 0 }}>"{review.text}"</p>
+                <p style={{ fontSize: "14px", color: "#5d6675", lineHeight: "1.5", margin: 0 }}>“{review.text}”</p>
               </div>
             ))}
           </div>
@@ -96,10 +96,10 @@ export default async function StaticPage({
         <section className="static-page shell points-page" style={{ padding: "48px 0" }}>
           <h1 style={{ fontSize: "28px", fontWeight: 800, marginBottom: "24px" }}>Varsapp Kiralama Puan Sistemi</h1>
           <div style={{ lineHeight: "1.8", color: "#5d6675", maxWidth: "800px" }}>
-            <p>Varsapp'tan kiraladıkça kazanın! Kiralajınız her ürün ve yaptığınız her işlem size puan kazandırır. Bu puanları sonraki kiralamalarınızda indirim olarak kullanabilirsiniz.</p>
+            <p>Varsapp&apos;tan kiraladıkça kazanın! Kiraladığınız her ürün ve yaptığınız her işlem size puan kazandırır. Bu puanları sonraki kiralamalarınızda indirim olarak kullanabilirsiniz.</p>
             <h3 style={{ color: "#33363d", marginTop: "24px", marginBottom: "12px" }}>Nasıl Puan Kazanılır?</h3>
             <ul style={{ paddingLeft: "20px" }}>
-              <li style={{ marginBottom: "8px" }}><strong>Her Kiralama:</strong> Kiralama tutarının %5'i kadar puan hesabınıza eklenir.</li>
+              <li style={{ marginBottom: "8px" }}><strong>Her Kiralama:</strong> Kiralama tutarının %5&apos;i kadar puan hesabınıza eklenir.</li>
               <li style={{ marginBottom: "8px" }}><strong>Yorum Yapma:</strong> Kiraladığınız ürüne yorum ekleyerek ekstra 50 puan kazanırsınız.</li>
               <li style={{ marginBottom: "8px" }}><strong>Arkadaşını Davet Et:</strong> Davet kodunuzla üye olan arkadaşınızın ilk kiralamasında her ikiniz de 100 puan kazanırsınız.</li>
             </ul>
