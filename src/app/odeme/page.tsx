@@ -2,8 +2,9 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { PageShell } from "@/components/PageShell";
 import { PaytrCheckout } from "@/components/PaytrCheckout";
-import { findProduct, type Product } from "@/data/products";
+import type { Product } from "@/data/products";
 import { getCurrentCustomerAccount } from "@/lib/customer-auth";
+import { getStoreProduct } from "@/lib/store-catalog";
 import {
   createPaytrDirectPaymentForm,
   getAppBaseUrl,
@@ -61,8 +62,8 @@ async function prepareCheckout(searchParams: {
   try {
     const headerList = await headers();
     const account = await getCurrentCustomerAccount();
-    const product = searchParams.product ? findProduct(searchParams.product) : undefined;
-    const cartItems = parseCheckoutItems(searchParams.items);
+    const product = searchParams.product ? await getStoreProduct(searchParams.product) : undefined;
+    const cartItems = await parseCheckoutItems(searchParams.items);
     const order = createRentalOrderDraft({
       cardStorageRequested: isPaytrCardStorageEnabled(),
       cartItems,
@@ -100,7 +101,7 @@ async function prepareCheckout(searchParams: {
   }
 }
 
-function parseCheckoutItems(value?: string) {
+async function parseCheckoutItems(value?: string) {
   if (!value) {
     return undefined;
   }
@@ -111,8 +112,8 @@ function parseCheckoutItems(value?: string) {
       return undefined;
     }
 
-    return parsed
-      .map((item) => {
+    const resolved = await Promise.all(
+      parsed.map(async (item) => {
         if (!item || typeof item !== "object") {
           return null;
         }
@@ -123,7 +124,7 @@ function parseCheckoutItems(value?: string) {
           productSlug?: unknown;
           startDate?: unknown;
         };
-        const product = findProduct(String(candidate.productSlug || ""));
+        const product = await getStoreProduct(String(candidate.productSlug || ""));
 
         if (!product) {
           return null;
@@ -143,8 +144,10 @@ function parseCheckoutItems(value?: string) {
           product: Product;
           rentalDates: { days?: number; endDate?: string; startDate?: string };
         };
-      })
-      .filter((item): item is NonNullable<typeof item> => item !== null);
+      }),
+    );
+
+    return resolved.filter((item): item is NonNullable<typeof item> => item !== null);
   } catch {
     return undefined;
   }

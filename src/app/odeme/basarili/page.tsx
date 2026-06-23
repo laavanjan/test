@@ -3,6 +3,8 @@ import { PageShell } from "@/components/PageShell";
 import { getRentalOrder } from "@/lib/rental-orders";
 import { getSupabaseRentalOrder } from "@/lib/supabase-admin";
 
+export const dynamic = "force-dynamic";
+
 export default async function PaymentSuccessPage({
   searchParams,
 }: {

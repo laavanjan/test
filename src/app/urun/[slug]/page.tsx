@@ -15,11 +15,9 @@ import { ProductRentPanel } from "@/components/ProductRentPanel";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductGallery } from "@/components/ProductGallery";
 import { RentProductButton } from "@/components/RentProductButton";
-import { findProduct, products } from "@/data/products";
+import { getStoreProduct, getStoreProducts } from "@/lib/store-catalog";
 
-export function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export default async function ProductPage({
   params,
@@ -27,7 +25,10 @@ export default async function ProductPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const product = findProduct(slug);
+  const [product, relatedProducts] = await Promise.all([
+    getStoreProduct(slug),
+    getStoreProducts(),
+  ]);
 
   if (!product) {
     notFound();
@@ -126,7 +127,7 @@ export default async function ProductPage({
         <section className="shell related">
           <h2>Bu Ürünü Kiralayanlar Bunları da Kiraladı</h2>
           <div className="product-grid">
-            {products
+            {relatedProducts
               .filter((item) => item.slug !== product.slug)
               .slice(0, 4)
               .map((item) => (

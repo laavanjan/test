@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { PageShell } from "@/components/PageShell";
 
+export const dynamic = "force-dynamic";
+
 export default async function StaticPage({
   params,
 }: {

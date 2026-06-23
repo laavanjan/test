@@ -5,7 +5,10 @@ import { HeroSlider } from "@/components/HeroSlider";
 import { PageShell } from "@/components/PageShell";
 import { ProductCard } from "@/components/ProductCard";
 import { AdvantagesRow } from "@/components/AdvantagesRow";
-import { products, type Product } from "@/data/products";
+import type { Product } from "@/data/products";
+import { getStoreProducts } from "@/lib/store-catalog";
+
+export const dynamic = "force-dynamic";
 
 const steps = [
   ["Denemek istediğin ürünü seç", "Kategorileri gez, ihtiyacına uygun ürünü bul."],
@@ -26,7 +29,9 @@ const quickUseCases = [
   { label: "Denemeden alma", value: "Teknoloji ve hobi ürünleri" },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const products = await getStoreProducts();
+
   return (
     <PageShell>
       <HeroSlider />

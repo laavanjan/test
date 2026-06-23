@@ -2,14 +2,9 @@ import Link from "next/link";
 import { CalendarDays, ChevronDown, PackageCheck, ShieldCheck, SlidersHorizontal, Truck } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { ProductCard } from "@/components/ProductCard";
-import { categories, productsByCategory } from "@/data/products";
+import { getStoreCategories, getStoreProductsByCategory } from "@/lib/store-catalog";
 
-export function generateStaticParams() {
-  return [
-    { slug: "tum-kategoriler" },
-    ...categories.map((category) => ({ slug: category.slug })),
-  ];
-}
+export const dynamic = "force-dynamic";
 
 export default async function CategoryPage({
   params,
@@ -20,11 +15,14 @@ export default async function CategoryPage({
 }) {
   const { slug } = await params;
   const { tarih } = await searchParams;
+  const [storeCategories, list] = await Promise.all([
+    getStoreCategories(),
+    getStoreProductsByCategory(slug),
+  ]);
   const category =
     slug === "tum-kategoriler"
       ? { name: "Tüm Kategoriler", slug: "tum-kategoriler" }
-      : categories.find((item) => item.slug === slug);
-  const list = productsByCategory(slug);
+      : storeCategories.find((item) => item.slug === slug);
   const activeDateFilter =
     tarih === "bu-hafta" || tarih === "hafta-sonu" ? tarih : undefined;
   const filteredList = activeDateFilter

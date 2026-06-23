@@ -3,13 +3,18 @@ import type { ReactNode } from "react";
 import { headers } from "next/headers";
 import {
   AlertCircle,
+  ArrowRight,
   Banknote,
   CreditCard,
   Database,
-  PackageCheck,
+  RefreshCw,
+  Search,
+  ShoppingCart,
+  TrendingUp,
   UsersRound,
 } from "lucide-react";
 import { AdminImportPanel } from "@/components/AdminImportPanel";
+import { AdminShell } from "@/components/AdminShell";
 import { isAdminAuthConfigured, isAdminRequestAuthorized } from "@/lib/admin-auth";
 import {
   getAdminDashboard,
@@ -17,6 +22,7 @@ import {
   type AdminPagination,
   type AdminUser,
 } from "@/lib/admin-store";
+import { AdminLocked } from "@/components/AdminLocked";
 import { formatKurusAsCurrency } from "@/lib/money";
 
 export const dynamic = "force-dynamic";
@@ -39,71 +45,221 @@ export default async function AdminPage({
     query,
     usersPage: parsePage(params.usersPage),
   });
+  const recentOrders = dashboard.orders.slice(0, 6);
+  const paidOrders = dashboard.orders.filter((order) => order.paymentStatus === "paid").length;
+  const failedOrders = dashboard.orders.filter((order) => order.paymentStatus === "failed").length;
+  const importShare = dashboard.metrics.orders
+    ? Math.round((dashboard.metrics.importedOrders / dashboard.metrics.orders) * 100)
+    : 0;
 
   return (
-    <main className="admin-page">
-      <header className="admin-topbar">
-        <div>
-          <p>Varsapp operasyon</p>
-          <h1>Admin Panel</h1>
-        </div>
-        <nav>
-          {isAdminAuthConfigured() ? <span>Yetkili oturum</span> : <span>Demo erisim</span>}
-          <Link href="/">Magaza</Link>
-          <Link href="/odeme">Odeme testi</Link>
-          {isAdminAuthConfigured() ? <a href="/api/admin/logout">Cikis</a> : null}
-        </nav>
-      </header>
+    <AdminShell authConfigured={isAdminAuthConfigured()}>
+      <main className="mx-auto flex w-full max-w-[1480px] flex-col gap-6 px-4 py-6 pt-16 md:px-8 md:pt-8">
+        <header className="flex flex-col gap-4 border-b border-slate-100 pb-5 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="text-[10px] font-black uppercase tracking-[0.18em] text-rose-500">Varsapp operasyon</p>
+            <h1 className="mt-1 text-2xl font-black tracking-tight text-slate-950 md:text-3xl">Finans ve Kiralama Paneli</h1>
+            <p className="mt-1 text-sm font-semibold text-slate-500">
+              Sipariş, kullanıcı, PayTR ve IdeaSoft akışlarını tek ekranda izle.
+            </p>
+          </div>
 
-      <section className="admin-metrics" aria-label="Operasyon ozeti">
-        <Metric icon={<UsersRound size={20} />} label="Kullanici" value={dashboard.metrics.users} />
-        <Metric icon={<PackageCheck size={20} />} label="Siparis" value={dashboard.metrics.orders} />
-        <Metric icon={<CreditCard size={20} />} label="Onay bekleyen" value={dashboard.metrics.pendingOwnerApproval} />
-        <Metric icon={<Banknote size={20} />} label="Odenen toplam" value={dashboard.metrics.revenue} />
-        <Metric icon={<Database size={20} />} label="IdeaSoft import" value={dashboard.metrics.importedOrders} />
-        <Metric icon={<AlertCircle size={20} />} label="Basarisiz odeme" value={dashboard.metrics.failedPayments} />
-      </section>
+          <div className="flex flex-wrap items-center gap-2">
+            <Link
+              className="inline-flex h-10 items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-black text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50"
+              href="/"
+              style={{ color: "#334155" }}
+            >
+              Mağaza
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              className="inline-flex h-10 items-center gap-2 rounded-xl bg-slate-900 px-4 text-sm font-black text-white shadow-lg shadow-slate-200 transition hover:bg-slate-800"
+              href="/odeme"
+              style={{ color: "#ffffff" }}
+            >
+              Ödeme testi
+              <CreditCard className="h-4 w-4" />
+            </Link>
+            <a
+              className="inline-flex h-10 items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-sm font-black text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50"
+              href="/admin"
+              style={{ color: "#334155" }}
+            >
+              Yenile
+              <RefreshCw className="h-4 w-4" />
+            </a>
+          </div>
+        </header>
 
-      <div className="admin-workspace">
+        <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4" aria-label="Operasyon özeti">
+          <MetricCard
+            icon={<Banknote className="h-5 w-5" />}
+            label="Ödenen toplam"
+            sub="PayTR ve import satışları"
+            tone="indigo"
+            value={dashboard.metrics.revenue}
+          />
+          <MetricCard
+            icon={<ShoppingCart className="h-5 w-5" />}
+            label="Toplam sipariş"
+            sub={`${paidOrders} ödendi, ${failedOrders} başarısız`}
+            tone="emerald"
+            value={dashboard.metrics.orders}
+          />
+          <MetricCard
+            icon={<UsersRound className="h-5 w-5" />}
+            label="Kullanıcı"
+            sub="Kayıtlı ve import edilen"
+            tone="blue"
+            value={dashboard.metrics.users}
+          />
+          <MetricCard
+            icon={<AlertCircle className="h-5 w-5" />}
+            label="Aksiyon bekleyen"
+            sub="Ürün sahibi/onay takibi"
+            tone="amber"
+            value={dashboard.metrics.pendingOwnerApproval}
+          />
+        </section>
+
+        <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_420px]">
+          <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Durum dağılımı</p>
+                <h2 className="mt-1 text-lg font-black text-slate-900">Sipariş sağlığı</h2>
+              </div>
+              <TrendingUp className="h-5 w-5 text-rose-500" />
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <StatusTile label="Onay bekleyen" tone="amber" value={dashboard.metrics.pendingOwnerApproval} />
+              <StatusTile label="Başarısız ödeme" tone="rose" value={dashboard.metrics.failedPayments} />
+              <StatusTile label="Import payı" tone="slate" value={`%${importShare}`} />
+            </div>
+            <div className="mt-5 grid gap-2">
+              {recentOrders.slice(0, 5).map((order, index) => (
+                <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-xl border border-slate-100 bg-slate-50/70 px-3 py-2" key={`${order.source}-${order.id}`}>
+                  <span className="grid h-8 w-8 place-items-center rounded-lg bg-white text-xs font-black text-slate-500 shadow-sm">
+                    {index + 1}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-black text-slate-800">{order.platformOrderNo}</p>
+                    <p className="truncate text-xs font-semibold text-slate-400">{order.customerName}</p>
+                  </div>
+                  <PaymentBadge status={order.paymentStatus} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-slate-100 bg-slate-950 p-5 text-white shadow-sm">
+            <div className="mb-5 flex items-center justify-between">
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Veri kapsamı</p>
+                <h2 className="mt-1 text-lg font-black">Kaynak özeti</h2>
+              </div>
+              <Database className="h-5 w-5 text-rose-300" />
+            </div>
+            <div className="grid gap-3">
+              <SourceRow label="IdeaSoft import" value={dashboard.metrics.importedOrders} />
+              <SourceRow label="PayTR / canli akış" value={dashboard.orders.filter((order) => order.source === "paytr").length} />
+              <SourceRow label="Demo/mock kayıt" value={dashboard.orders.filter((order) => order.source === "mock").length} />
+            </div>
+          </div>
+        </section>
+
         <AdminImportPanel />
 
-        <form className="admin-search" action="/admin">
-          <input
-            defaultValue={query}
-            name="q"
-            placeholder="Siparis no, musteri, e-posta, telefon veya urun ara"
-          />
-          <button type="submit">Ara</button>
-          {query ? <Link href="/admin">Temizle</Link> : null}
+        <form className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm" action="/admin">
+          <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_auto_auto] lg:items-center">
+            <label className="relative block min-w-0">
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+              <input
+                className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50 pl-10 pr-4 text-sm font-semibold text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-slate-400 focus:bg-white focus:ring-4 focus:ring-slate-100"
+                defaultValue={query}
+                name="q"
+                placeholder="Sipariş no, müşteri, e-posta, telefon veya ürün ara"
+              />
+            </label>
+            <button
+              className="inline-flex h-11 items-center justify-center rounded-xl bg-slate-900 px-5 text-sm font-black text-white shadow-lg shadow-slate-200 transition hover:bg-slate-800"
+              type="submit"
+            >
+              Ara
+            </button>
+            {query ? (
+              <Link
+                className="inline-flex h-11 items-center justify-center rounded-xl border border-slate-200 bg-white px-5 text-sm font-black text-slate-600 transition hover:bg-slate-50"
+                href="/admin"
+              >
+                Temizle
+              </Link>
+            ) : null}
+          </div>
         </form>
 
-        <section className="admin-panel">
-          <div className="admin-section-heading">
-            <div>
-              <p>Siparisler</p>
-              <h2>Tum kiralama siparisleri</h2>
-              <span>{dashboard.pagination.orders.total} kayit</span>
-            </div>
-            <a href={`/api/admin/orders?${buildApiParams(dashboard.pagination.orders)}`} target="_blank">JSON</a>
-          </div>
-          <OrdersTable orders={dashboard.orders} />
-          <AdminPager pagination={dashboard.pagination.orders} pageKey="ordersPage" />
-        </section>
+        <section className="grid gap-6">
+          <AdminPanel
+            count={dashboard.pagination.orders.total}
+            eyebrow="Siparişler"
+            href={`/api/admin/orders?${buildApiParams(dashboard.pagination.orders)}`}
+            id="orders"
+            title="Tüm kiralama siparişleri"
+          >
+            <OrdersTable orders={dashboard.orders} />
+            <AdminPager pagination={dashboard.pagination.orders} pageKey="ordersPage" />
+          </AdminPanel>
 
-        <section className="admin-panel">
-          <div className="admin-section-heading">
-            <div>
-              <p>Kullanicilar</p>
-              <h2>Musteri listesi</h2>
-              <span>{dashboard.pagination.users.total} kayit</span>
-            </div>
-            <a href={`/api/admin/users?${buildApiParams(dashboard.pagination.users)}`} target="_blank">JSON</a>
-          </div>
-          <UsersTable users={dashboard.users} />
-          <AdminPager pagination={dashboard.pagination.users} pageKey="usersPage" />
+          <AdminPanel
+            count={dashboard.pagination.users.total}
+            eyebrow="Kullanıcılar"
+            href={`/api/admin/users?${buildApiParams(dashboard.pagination.users)}`}
+            id="users"
+            title="Müşteri listesi"
+          >
+            <UsersTable users={dashboard.users} />
+            <AdminPager pagination={dashboard.pagination.users} pageKey="usersPage" />
+          </AdminPanel>
         </section>
+      </main>
+    </AdminShell>
+  );
+}
+
+function AdminPanel({
+  children,
+  count,
+  eyebrow,
+  href,
+  id,
+  title,
+}: {
+  children: ReactNode;
+  count: number;
+  eyebrow: string;
+  href: string;
+  id: string;
+  title: string;
+}) {
+  return (
+    <section className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm" id={id}>
+      <div className="flex flex-col gap-3 border-b border-slate-100 p-5 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">{eyebrow}</p>
+          <h2 className="mt-1 text-lg font-black text-slate-900">{title}</h2>
+          <span className="mt-1 block text-sm font-semibold text-slate-500">{count} kayıt</span>
+        </div>
+        <a
+          className="inline-flex h-9 w-fit items-center justify-center rounded-xl border border-slate-200 bg-slate-50 px-4 text-xs font-black text-slate-600 transition hover:bg-white"
+          href={href}
+          target="_blank"
+        >
+          JSON
+        </a>
       </div>
-    </main>
+      {children}
+    </section>
   );
 }
 
@@ -118,25 +274,234 @@ function AdminPager({
   const nextPage = Math.min(pagination.totalPages, pagination.page + 1);
 
   return (
-    <nav className="admin-pager" aria-label="Sayfalama">
-      <span>
+    <nav className="flex flex-col gap-3 border-t border-slate-100 px-5 py-4 sm:flex-row sm:items-center sm:justify-between" aria-label="Sayfalama">
+      <span className="text-sm font-black text-slate-500">
         Sayfa {pagination.page} / {pagination.totalPages}
       </span>
-      <div>
-        <Link
-          aria-disabled={pagination.page <= 1}
-          href={buildAdminHref({ page: previousPage, pageKey, pagination })}
-        >
-          Onceki
+      <div className="flex gap-2">
+          <Link
+            aria-disabled={pagination.page <= 1}
+            className="inline-flex h-9 min-w-24 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-black text-slate-600 transition hover:bg-slate-50 aria-disabled:pointer-events-none aria-disabled:opacity-40"
+            href={buildAdminHref({ page: previousPage, pageKey, pagination })}
+            style={{ color: "#475569" }}
+          >
+          Önceki
         </Link>
-        <Link
-          aria-disabled={pagination.page >= pagination.totalPages}
-          href={buildAdminHref({ page: nextPage, pageKey, pagination })}
-        >
+          <Link
+            aria-disabled={pagination.page >= pagination.totalPages}
+            className="inline-flex h-9 min-w-24 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 text-sm font-black text-slate-600 transition hover:bg-slate-50 aria-disabled:pointer-events-none aria-disabled:opacity-40"
+            href={buildAdminHref({ page: nextPage, pageKey, pagination })}
+            style={{ color: "#475569" }}
+          >
           Sonraki
         </Link>
       </div>
     </nav>
+  );
+}
+
+function MetricCard({
+  icon,
+  label,
+  sub,
+  tone,
+  value,
+}: {
+  icon: ReactNode;
+  label: string;
+  sub: string;
+  tone: "amber" | "blue" | "emerald" | "indigo";
+  value: number | string;
+}) {
+  const tones = {
+    amber: "bg-amber-50 text-amber-600",
+    blue: "bg-blue-50 text-blue-600",
+    emerald: "bg-emerald-50 text-emerald-600",
+    indigo: "bg-indigo-50 text-indigo-600",
+  };
+
+  return (
+    <article className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-4 rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+      <span className={`grid h-11 w-11 place-items-center rounded-xl ${tones[tone]}`}>{icon}</span>
+      <div className="min-w-0">
+        <p className="text-[10px] font-black uppercase tracking-wide text-slate-400">{label}</p>
+        <strong className="mt-1 block truncate text-xl font-black text-slate-900">{value}</strong>
+        <span className="mt-1 block truncate text-xs font-semibold text-slate-400">{sub}</span>
+      </div>
+    </article>
+  );
+}
+
+function StatusTile({
+  label,
+  tone,
+  value,
+}: {
+  label: string;
+  tone: "amber" | "rose" | "slate";
+  value: number | string;
+}) {
+  const tones = {
+    amber: "border-amber-100 bg-amber-50 text-amber-700",
+    rose: "border-rose-100 bg-rose-50 text-rose-700",
+    slate: "border-slate-100 bg-slate-50 text-slate-700",
+  };
+
+  return (
+    <div className={`rounded-xl border px-4 py-3 ${tones[tone]}`}>
+      <p className="text-xs font-bold opacity-75">{label}</p>
+      <strong className="mt-1 block text-2xl font-black">{value}</strong>
+    </div>
+  );
+}
+
+function SourceRow({ label, value }: { label: string; value: number }) {
+  return (
+    <div className="flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+      <span className="text-sm font-bold text-slate-300">{label}</span>
+      <strong className="text-lg font-black text-white">{value}</strong>
+    </div>
+  );
+}
+
+function OrdersTable({ orders }: { orders: AdminOrder[] }) {
+  return (
+    <div className="overflow-x-auto">
+      <table className="min-w-[1040px] w-full text-left text-sm">
+        <thead className="bg-slate-50 text-[10px] font-black uppercase tracking-wide text-slate-400">
+          <tr>
+            <th className="px-5 py-3">Sipariş</th>
+            <th className="px-5 py-3">Müşteri</th>
+            <th className="px-5 py-3">Ürün</th>
+            <th className="px-5 py-3">Kiralama</th>
+            <th className="px-5 py-3">Ödeme</th>
+            <th className="px-5 py-3">Tutar</th>
+            <th className="px-5 py-3">Kaynak</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-slate-100">
+          {orders.map((order) => (
+            <tr className="transition hover:bg-slate-50/60" key={`${order.source}-${order.id}`}>
+              <td className="px-5 py-4 align-top">
+                <strong className="block font-black text-slate-900">{order.platformOrderNo}</strong>
+                <span className="mt-1 block text-xs font-semibold text-slate-400">{order.status}</span>
+              </td>
+              <td className="px-5 py-4 align-top">
+                <strong className="block font-black text-slate-800">{order.customerName}</strong>
+                <span className="mt-1 block text-xs font-semibold text-slate-400">{order.customerEmail}</span>
+              </td>
+              <td className="max-w-[260px] px-5 py-4 align-top font-semibold text-slate-600">{order.productName}</td>
+              <td className="px-5 py-4 align-top">
+                <span className="block font-bold text-slate-700">{formatShortDate(order.rentalStart)}</span>
+                <span className="mt-1 block text-xs font-semibold text-slate-400">{formatShortDate(order.rentalEnd)}</span>
+              </td>
+              <td className="px-5 py-4 align-top">
+                <PaymentBadge status={order.paymentStatus} />
+              </td>
+              <td className="px-5 py-4 align-top font-black text-slate-900">{formatKurusAsCurrency(order.amountKurus)}</td>
+              <td className="px-5 py-4 align-top">
+                <SourceBadge source={order.source} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function UsersTable({ users }: { users: AdminUser[] }) {
+  return (
+    <div className="overflow-x-auto">
+      <table className="min-w-[980px] w-full text-left text-sm">
+        <thead className="bg-slate-50 text-[10px] font-black uppercase tracking-wide text-slate-400">
+          <tr>
+            <th className="px-5 py-3">Kullanıcı</th>
+            <th className="px-5 py-3">Telefon</th>
+            <th className="px-5 py-3">Şehir</th>
+            <th className="px-5 py-3">Kiralama</th>
+            <th className="px-5 py-3">Kart</th>
+            <th className="px-5 py-3">Kayıt</th>
+            <th className="px-5 py-3">Kaynak</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-slate-100">
+          {users.map((user) => (
+            <tr className="transition hover:bg-slate-50/60" key={`${user.source}-${user.id}`}>
+              <td className="px-5 py-4 align-top">
+                <div className="flex items-center gap-3">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-slate-100 text-xs font-black text-slate-500">
+                    {user.name.slice(0, 1).toUpperCase()}
+                  </span>
+                  <div className="min-w-0">
+                    <strong className="block truncate font-black text-slate-900">{user.name}</strong>
+                    <span className="mt-1 block truncate text-xs font-semibold text-slate-400">{user.email}</span>
+                  </div>
+                </div>
+              </td>
+              <td className="px-5 py-4 align-top font-semibold text-slate-600">{user.phone}</td>
+              <td className="px-5 py-4 align-top font-semibold text-slate-600">{user.city}</td>
+              <td className="px-5 py-4 align-top font-black text-slate-900">{user.rentals}</td>
+              <td className="px-5 py-4 align-top">
+                <StoredCardBadge status={user.storedCard} />
+              </td>
+              <td className="px-5 py-4 align-top font-semibold text-slate-600">{formatShortDate(user.createdAt)}</td>
+              <td className="px-5 py-4 align-top">
+                <SourceBadge source={user.source} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function PaymentBadge({ status }: { status: AdminOrder["paymentStatus"] }) {
+  const labels: Record<AdminOrder["paymentStatus"], string> = {
+    failed: "Basarisiz",
+    paid: "Odendi",
+    pending: "Bekliyor",
+    refunded: "Iade",
+  };
+  const classes: Record<AdminOrder["paymentStatus"], string> = {
+    failed: "border-rose-100 bg-rose-50 text-rose-700",
+    paid: "border-emerald-100 bg-emerald-50 text-emerald-700",
+    pending: "border-amber-100 bg-amber-50 text-amber-700",
+    refunded: "border-slate-100 bg-slate-50 text-slate-600",
+  };
+
+  return (
+    <span className={`inline-flex min-h-7 items-center rounded-full border px-3 text-xs font-black ${classes[status]}`}>
+      {labels[status]}
+    </span>
+  );
+}
+
+function StoredCardBadge({ status }: { status: AdminUser["storedCard"] }) {
+  const labels: Record<AdminUser["storedCard"], string> = {
+    none: "Yok",
+    pending: "Bekliyor",
+    verified: "Kayitli",
+  };
+  const classes: Record<AdminUser["storedCard"], string> = {
+    none: "border-slate-100 bg-slate-50 text-slate-600",
+    pending: "border-amber-100 bg-amber-50 text-amber-700",
+    verified: "border-emerald-100 bg-emerald-50 text-emerald-700",
+  };
+
+  return (
+    <span className={`inline-flex min-h-7 items-center rounded-full border px-3 text-xs font-black ${classes[status]}`}>
+      {labels[status]}
+    </span>
+  );
+}
+
+function SourceBadge({ source }: { source: AdminOrder["source"] | AdminUser["source"] }) {
+  return (
+    <span className="inline-flex min-h-7 items-center rounded-full border border-indigo-100 bg-indigo-50 px-3 text-xs font-black text-indigo-700">
+      {source}
+    </span>
   );
 }
 
@@ -177,155 +542,6 @@ function parsePage(value?: string) {
   const parsed = Number.parseInt(value || "1", 10);
 
   return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
-}
-
-function AdminLocked({ failed }: { failed: boolean }) {
-  return (
-    <main className="admin-page">
-      <section className="admin-locked">
-        <p>Admin Panel</p>
-        <h1>Giris yap</h1>
-        <span>Admin panelini acmak icin demo admin bilgilerini gir.</span>
-        <form action="/api/admin/login" className="admin-login-form" method="post">
-          <label>
-            Kullanici adi
-            <input autoComplete="username" name="username" required />
-          </label>
-          <label>
-            Parola
-            <input autoComplete="current-password" name="password" required type="password" />
-          </label>
-          {failed ? <strong>Kullanici adi veya parola hatali.</strong> : null}
-          <button type="submit">Admin paneline gir</button>
-        </form>
-      </section>
-    </main>
-  );
-}
-
-function Metric({
-  icon,
-  label,
-  value,
-}: {
-  icon: ReactNode;
-  label: string;
-  value: number | string;
-}) {
-  return (
-    <article>
-      <span>{icon}</span>
-      <div>
-        <p>{label}</p>
-        <strong>{value}</strong>
-      </div>
-    </article>
-  );
-}
-
-function OrdersTable({ orders }: { orders: AdminOrder[] }) {
-  return (
-    <div className="admin-table-wrap">
-      <table className="admin-table">
-        <thead>
-          <tr>
-            <th>Siparis</th>
-            <th>Musteri</th>
-            <th>Urun</th>
-            <th>Kiralama</th>
-            <th>Odeme</th>
-            <th>Tutar</th>
-            <th>Kaynak</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((order) => (
-            <tr key={`${order.source}-${order.id}`}>
-              <td>
-                <strong>{order.platformOrderNo}</strong>
-                <span>{order.status}</span>
-              </td>
-              <td>
-                <strong>{order.customerName}</strong>
-                <span>{order.customerEmail}</span>
-              </td>
-              <td>{order.productName}</td>
-              <td>
-                <span>{formatShortDate(order.rentalStart)}</span>
-                <span>{formatShortDate(order.rentalEnd)}</span>
-              </td>
-              <td>
-                <StatusBadge status={order.paymentStatus} />
-              </td>
-              <td>{formatKurusAsCurrency(order.amountKurus)}</td>
-              <td><SourceBadge source={order.source} /></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-function UsersTable({ users }: { users: AdminUser[] }) {
-  return (
-    <div className="admin-table-wrap">
-      <table className="admin-table">
-        <thead>
-          <tr>
-            <th>Kullanici</th>
-            <th>Telefon</th>
-            <th>Sehir</th>
-            <th>Kiralama</th>
-            <th>Kart</th>
-            <th>Kayıt</th>
-            <th>Kaynak</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={`${user.source}-${user.id}`}>
-              <td>
-                <strong>{user.name}</strong>
-                <span>{user.email}</span>
-              </td>
-              <td>{user.phone}</td>
-              <td>{user.city}</td>
-              <td>{user.rentals}</td>
-              <td><StoredCardBadge status={user.storedCard} /></td>
-              <td>{formatShortDate(user.createdAt)}</td>
-              <td><SourceBadge source={user.source} /></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-function StatusBadge({ status }: { status: AdminOrder["paymentStatus"] }) {
-  const labels: Record<AdminOrder["paymentStatus"], string> = {
-    failed: "Basarisiz",
-    paid: "Odendi",
-    pending: "Bekliyor",
-    refunded: "Iade",
-  };
-
-  return <span className={`admin-badge ${status}`}>{labels[status]}</span>;
-}
-
-function SourceBadge({ source }: { source: AdminOrder["source"] | AdminUser["source"] }) {
-  return <span className="admin-source">{source}</span>;
-}
-
-function StoredCardBadge({ status }: { status: AdminUser["storedCard"] }) {
-  const labels: Record<AdminUser["storedCard"], string> = {
-    none: "Yok",
-    pending: "Bekliyor",
-    verified: "Kayitli",
-  };
-
-  return <span className={`admin-badge ${status}`}>{labels[status]}</span>;
 }
 
 function formatShortDate(value?: string) {

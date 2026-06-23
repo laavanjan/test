@@ -56,16 +56,22 @@ export function AdminImportPanel() {
   }
 
   return (
-    <section className="admin-import-panel">
-      <div>
-        <p>IdeaSoft import</p>
-        <h2>CSV veya JSON aktar</h2>
+    <section
+      className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm"
+      id="import"
+    >
+      <div className="mb-5 flex flex-col gap-1">
+        <p className="text-[10px] font-black uppercase tracking-[0.16em] text-slate-400">IdeaSoft import</p>
+        <h2 className="text-lg font-black tracking-tight text-slate-900">CSV veya JSON aktar</h2>
       </div>
 
-      <form onSubmit={submitImport}>
-        <div className="admin-segmented" aria-label="Import tipi">
+      <form className="grid gap-4 lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center" onSubmit={submitImport}>
+        <div className="inline-grid h-10 grid-cols-2 overflow-hidden rounded-xl border border-slate-200 bg-slate-50 p-1" aria-label="Import tipi">
           <button
-            className={kind === "orders" ? "active" : ""}
+            className={[
+              "inline-flex items-center justify-center gap-2 rounded-lg px-3 text-sm font-black transition",
+              kind === "orders" ? "bg-slate-900 text-white shadow-sm" : "text-slate-500 hover:text-slate-900",
+            ].join(" ")}
             onClick={() => setKind("orders")}
             type="button"
           >
@@ -73,7 +79,10 @@ export function AdminImportPanel() {
             Siparisler
           </button>
           <button
-            className={kind === "users" ? "active" : ""}
+            className={[
+              "inline-flex items-center justify-center gap-2 rounded-lg px-3 text-sm font-black transition",
+              kind === "users" ? "bg-slate-900 text-white shadow-sm" : "text-slate-500 hover:text-slate-900",
+            ].join(" ")}
             onClick={() => setKind("users")}
             type="button"
           >
@@ -82,25 +91,36 @@ export function AdminImportPanel() {
           </button>
         </div>
 
-        <label className="admin-file-input">
-          <FileUp size={18} />
-          <input accept=".csv,.json,text/csv,application/json" ref={fileRef} type="file" />
-          <span>Dosya sec</span>
+        <label className="grid min-h-11 cursor-pointer grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 text-sm font-bold text-slate-500 transition hover:border-slate-400 hover:bg-white">
+          <FileUp className="h-4 w-4 text-slate-400" />
+          <input
+            accept=".csv,.json,text/csv,application/json"
+            className="min-w-0 text-sm file:mr-3 file:rounded-lg file:border-0 file:bg-white file:px-3 file:py-1.5 file:text-xs file:font-black file:text-slate-700"
+            ref={fileRef}
+            type="file"
+          />
+          <span className="hidden whitespace-nowrap text-xs font-black uppercase tracking-wide text-slate-400 sm:inline">
+            Dosya sec
+          </span>
         </label>
 
-        <button className="admin-action-button" disabled={state.status === "loading"} type="submit">
-          {state.status === "loading" ? <Loader2 size={17} /> : <FileUp size={17} />}
+        <button
+          className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-rose-500 px-5 text-sm font-black text-white shadow-lg shadow-rose-100 transition hover:bg-rose-600 disabled:cursor-wait disabled:opacity-70"
+          disabled={state.status === "loading"}
+          type="submit"
+        >
+          {state.status === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : <FileUp className="h-4 w-4" />}
           Import et
         </button>
       </form>
 
       {state.status === "success" ? (
-        <p className="admin-import-result">
+        <p className="mt-4 rounded-xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-700">
           {state.imported} kayit alindi. Toplam {state.total} {state.kind === "orders" ? "siparis" : "kullanici"}.
         </p>
       ) : null}
       {state.status === "error" ? (
-        <p className="admin-import-result error">{state.message}</p>
+        <p className="mt-4 rounded-xl border border-rose-100 bg-rose-50 px-4 py-3 text-sm font-bold text-rose-700">{state.message}</p>
       ) : null}
     </section>
   );

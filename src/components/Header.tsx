@@ -14,8 +14,8 @@ import { CartBadge } from "@/components/CartBadge";
 import { LocationSelector } from "@/components/LocationSelector";
 import { LogoutButton } from "@/components/LogoutButton";
 import { SearchBox } from "@/components/SearchBox";
-import { categories } from "@/data/products";
 import { getCurrentCustomerAccount } from "@/lib/customer-auth";
+import { getStoreCategories } from "@/lib/store-catalog";
 
 const iconMap = {
   "ev-yasam": Home,
@@ -26,7 +26,10 @@ const iconMap = {
 };
 
 export async function Header() {
-  const account = await getCurrentCustomerAccount();
+  const [account, categories] = await Promise.all([
+    getCurrentCustomerAccount(),
+    getStoreCategories(),
+  ]);
 
   return (
     <header className="site-header">
