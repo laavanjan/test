@@ -1,19 +1,21 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, LocateFixed } from "lucide-react";
 
 const CITIES = [
-  "İstanbul",
-  "Ankara",
-  "İzmir",
-  "Bursa",
-  "Antalya",
-  "Adana",
-  "Konya",
-  "Gaziantep",
-  "Kocaeli",
-  "Mersin",
+  "Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Aksaray", "Amasya", "Ankara",
+  "Antalya", "Ardahan", "Artvin", "Aydın", "Balıkesir", "Bartın", "Batman",
+  "Bayburt", "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa",
+  "Çanakkale", "Çankırı", "Çorum", "Denizli", "Diyarbakır", "Düzce", "Edirne",
+  "Elazığ", "Erzincan", "Erzurum", "Eskişehir", "Gaziantep", "Giresun",
+  "Gümüşhane", "Hakkâri", "Hatay", "Iğdır", "Isparta", "İstanbul", "İzmir",
+  "Kahramanmaraş", "Karabük", "Karaman", "Kars", "Kastamonu", "Kayseri",
+  "Kırıkkale", "Kırklareli", "Kırşehir", "Kilis", "Kocaeli", "Konya",
+  "Kütahya", "Malatya", "Manisa", "Mardin", "Mersin", "Muğla", "Muş",
+  "Nevşehir", "Niğde", "Ordu", "Osmaniye", "Rize", "Sakarya", "Samsun",
+  "Siirt", "Sinop", "Sivas", "Şanlıurfa", "Şırnak", "Tekirdağ", "Tokat",
+  "Trabzon", "Tunceli", "Uşak", "Van", "Yalova", "Yozgat", "Zonguldak",
 ];
 
 const STORAGE_KEY = "varsapp-city";
@@ -22,6 +24,19 @@ export function LocationSelector() {
   const rootRef = useRef<HTMLDivElement>(null);
   const [city, setCity] = useState("İstanbul");
   const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState("");
+
+  const filteredCities = useMemo(() => {
+    const query = search.trim().toLocaleLowerCase("tr-TR");
+
+    if (!query) {
+      return CITIES;
+    }
+
+    return CITIES.filter((item) =>
+      item.toLocaleLowerCase("tr-TR").includes(query),
+    );
+  }, [search]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -49,6 +64,7 @@ export function LocationSelector() {
     setCity(nextCity);
     window.localStorage.setItem(STORAGE_KEY, nextCity);
     setOpen(false);
+    setSearch("");
   }
 
   return (
@@ -60,18 +76,32 @@ export function LocationSelector() {
       </button>
       {open ? (
         <div className="location-menu" role="listbox" aria-label="Şehir seç">
-          {CITIES.map((item) => (
-            <button
-              key={item}
-              type="button"
-              className={item === city ? "active" : undefined}
-              onClick={() => selectCity(item)}
-              role="option"
-              aria-selected={item === city}
-            >
-              {item}
-            </button>
-          ))}
+          <input
+            className="location-search"
+            type="text"
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+            placeholder="Şehir ara..."
+            aria-label="Şehir ara"
+            autoFocus
+          />
+          <div className="location-options">
+            {filteredCities.map((item) => (
+              <button
+                key={item}
+                type="button"
+                className={item === city ? "active" : undefined}
+                onClick={() => selectCity(item)}
+                role="option"
+                aria-selected={item === city}
+              >
+                {item}
+              </button>
+            ))}
+            {filteredCities.length === 0 ? (
+              <p className="location-empty">Şehir bulunamadı</p>
+            ) : null}
+          </div>
         </div>
       ) : null}
     </div>
