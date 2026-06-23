@@ -46,13 +46,14 @@ export async function Header() {
         <SearchBox />
 
         <div className="header-actions">
-          <Link className="icon-only" href="/hesabim/favorilerim" aria-label="Favoriler">
-            <Heart size={20} />
-          </Link>
           {account ? (
             <>
+              <Link className="icon-only" href="/hesabim/favorilerim" aria-label="Favoriler">
+                <Heart size={20} />
+              </Link>
               <span className="header-account">{account.name}</span>
               <LogoutButton />
+              <CartBadge />
             </>
           ) : (
             <>
@@ -66,7 +67,6 @@ export async function Header() {
               </Link>
             </>
           )}
-          <CartBadge />
         </div>
       </div>
 

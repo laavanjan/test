@@ -26,17 +26,23 @@ export function Footer() {
             mobil uygulamamızı hemen indir!
           </p>
           <div className="store-buttons">
-            <a href={STORE_LINKS.playStore} target="_blank" rel="noreferrer">
+            <a
+              href={STORE_LINKS.playStore}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Varsapp Google Play sayfasını aç"
+            >
               <Image src="/assets/ui/playstore.png" alt="Google Play" width={160} height={48} />
             </a>
-            <a href={STORE_LINKS.appStore} target="_blank" rel="noreferrer">
+            <a
+              href={STORE_LINKS.appStore}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Varsapp App Store sayfasını aç"
+            >
               <Image src="/assets/ui/appstore.png" alt="App Store" width={160} height={48} />
             </a>
           </div>
-        </div>
-        <div className="phone-mock">
-          <Image src="/assets/ui/app-1.webp" alt="" width={430} height={140} />
-          <Image src="/assets/ui/app-2.png" alt="" width={430} height={140} />
         </div>
       </div>
 

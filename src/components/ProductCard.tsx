@@ -22,7 +22,9 @@ export function ProductCard({ product }: { product: Product }) {
         />
       </Link>
       <div className="product-card-body">
-        <Link href={`/urun/${product.slug}`}>{product.name}</Link>
+        <Link className="product-card-title" href={`/urun/${product.slug}`}>
+          {product.name}
+        </Link>
         <div className="product-meta-row" aria-label="Kiralama bilgileri">
           <span>
             <CalendarDays size={13} />
@@ -38,9 +40,13 @@ export function ProductCard({ product }: { product: Product }) {
             <strong>{product.price}</strong>
             <span>/gün</span>
           </div>
-          <span className="card-cta">
+          <Link
+            className="card-cta"
+            href={`/urun/${product.slug}`}
+            aria-label={`${product.name} ürününü kirala`}
+          >
             Kirala <ArrowRight size={14} />
-          </span>
+          </Link>
         </div>
       </div>
     </article>

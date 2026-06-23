@@ -13,15 +13,30 @@ export function generateStaticParams() {
 
 export default async function CategoryPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ tarih?: string }>;
 }) {
   const { slug } = await params;
+  const { tarih } = await searchParams;
   const category =
     slug === "tum-kategoriler"
       ? { name: "Tüm Kategoriler", slug: "tum-kategoriler" }
       : categories.find((item) => item.slug === slug);
   const list = productsByCategory(slug);
+  const activeDateFilter =
+    tarih === "bu-hafta" || tarih === "hafta-sonu" ? tarih : undefined;
+  const filteredList = activeDateFilter
+    ? list.filter((product) =>
+        activeDateFilter === "hafta-sonu" ? product.minDays <= 3 : product.minDays <= 7,
+      )
+    : list;
+  const baseHref = `/kategori/${category?.slug ?? slug}`;
+  const dateFilters = [
+    { href: `${baseHref}?tarih=bu-hafta`, icon: CalendarDays, label: "Bu hafta müsait", value: "bu-hafta" },
+    { href: `${baseHref}?tarih=hafta-sonu`, icon: CalendarDays, label: "Hafta sonu", value: "hafta-sonu" },
+  ] as const;
 
   if (!category) {
     return (
@@ -51,7 +66,10 @@ export default async function CategoryPage({
           <div>
             <p className="section-kicker">Kiralık ürünler</p>
             <h1>{category.name}</h1>
-            <span>{list.length} ürün, minimum 3 günlük kiralama ve ücretsiz kargo seçenekleri.</span>
+            <span>
+              {filteredList.length} ürün, minimum 3 günlük kiralama ve ücretsiz kargo seçenekleri.
+              {activeDateFilter ? " Tarih filtresi aktif." : ""}
+            </span>
           </div>
           <button type="button">
             Önerilen sıralama <ChevronDown size={18} />
@@ -65,18 +83,21 @@ export default async function CategoryPage({
                 <SlidersHorizontal size={16} />
                 Filtreler
               </p>
-              <button type="button">Temizle</button>
+              <Link className="clear-filter" href={baseHref}>Temizle</Link>
             </div>
             <fieldset>
               <legend>Kiralama tarihi</legend>
-              <label>
-                <CalendarDays size={15} />
-                Bu hafta müsait
-              </label>
-              <label>
-                <CalendarDays size={15} />
-                Hafta sonu
-              </label>
+              {dateFilters.map(({ href, icon: Icon, label, value }) => (
+                <Link
+                  className={`filter-option${activeDateFilter === value ? " active" : ""}`}
+                  href={href}
+                  key={value}
+                  aria-current={activeDateFilter === value ? "true" : undefined}
+                >
+                  <Icon size={15} />
+                  {label}
+                </Link>
+              ))}
             </fieldset>
             <fieldset>
               <legend>Güvence</legend>
@@ -97,10 +118,13 @@ export default async function CategoryPage({
 
           <div className="category-results">
             <div className="category-filterbar" aria-label="Aktif filtreler">
-              <button type="button">
+              <Link
+                className={activeDateFilter ? "active" : undefined}
+                href={`${baseHref}?tarih=bu-hafta`}
+              >
                 <CalendarDays size={16} />
                 Tarih seç
-              </button>
+              </Link>
               <button type="button">
                 <Truck size={16} />
                 Kargo dahil
@@ -115,9 +139,9 @@ export default async function CategoryPage({
               </button>
             </div>
 
-            {list.length > 0 ? (
+            {filteredList.length > 0 ? (
               <div className="product-grid category-grid">
-                {list.map((product) => (
+                {filteredList.map((product) => (
                   <ProductCard product={product} key={product.slug} />
                 ))}
               </div>

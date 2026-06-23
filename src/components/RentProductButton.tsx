@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Product } from "@/data/products";
-import { addProductToCart } from "@/lib/cart-storage";
+import { addProductToCart, createDefaultCartItem } from "@/lib/cart-storage";
 import { validateRentalDates } from "@/lib/rental-dates";
 
 type RentProductButtonProps = {
@@ -23,20 +23,20 @@ export function RentProductButton({
   const [error, setError] = useState<string | null>(null);
 
   function handleClick() {
-    if (dates) {
-      const validationError = validateRentalDates({
-        startDate: dates.startDate,
-        endDate: dates.endDate,
-        minDays: product.minDays,
-      });
+    const rentalDates = dates ?? createDefaultCartItem(product);
+    const validationError = validateRentalDates({
+      startDate: rentalDates.startDate,
+      endDate: rentalDates.endDate,
+      minDays: product.minDays,
+    });
 
-      if (validationError) {
-        setError(validationError);
-        return;
-      }
+    if (validationError) {
+      setError(validationError);
+      return;
     }
 
-    addProductToCart(product, dates);
+    setError(null);
+    addProductToCart(product, rentalDates);
     router.push("/sepet");
   }
 
