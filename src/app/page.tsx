@@ -1,24 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ChevronDown,
-  MessageCircle,
-  ShieldCheck,
-  Truck,
-  Users,
-  WalletCards,
-} from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { HeroSlider } from "@/components/HeroSlider";
 import { PageShell } from "@/components/PageShell";
 import { ProductCard } from "@/components/ProductCard";
+import { AdvantagesRow } from "@/components/AdvantagesRow";
 import { products, type Product } from "@/data/products";
-
-const features = [
-  { label: "300.000+ Kullanıcı", icon: Users, image: "/assets/ui/feature-users.png" },
-  { label: "Depozito Yok", icon: WalletCards, image: "/assets/ui/feature-deposit.png" },
-  { label: "Güvenli Kiralama", icon: ShieldCheck, image: "/assets/ui/feature-safe.png" },
-  { label: "Ücretsiz Kargo", icon: Truck, image: "/assets/ui/feature-cargo.png" },
-];
 
 const steps = [
   ["Denemek istediğin ürünü seç", "Kategorileri gez, ihtiyacına uygun ürünü bul."],
@@ -44,21 +31,10 @@ export default function Home() {
     <PageShell>
       <HeroSlider />
 
-      <section className="feature-row shell" aria-label="Varsapp avantajları">
-        {features.map(({ label, icon: Icon, image }) => (
-          <button type="button" className="feature-card" key={label}>
-            <span className="feature-visual">
-              <Image src={image} alt="" width={28} height={28} />
-              <Icon size={20} />
-            </span>
-            <strong>{label}</strong>
-            <ChevronDown size={18} />
-          </button>
-        ))}
-      </section>
+      <AdvantagesRow />
 
       <ProductSection
-        title="En Çok Kiralanan Ürünler"
+        title="En Çok Kiralanan Ürünler ⭐"
         subtitle="Hafta sonu, tatil ve ev ihtiyaçları için hızlı teslim edilen seçenekler."
         marker="/assets/ui/feature-safe.png"
         products={products.slice(0, 8)}
