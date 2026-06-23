@@ -87,9 +87,9 @@ export function Footer() {
               href: "/sayfa/varsapp-teslimat-sureci-nasil-yapiliyor",
               label: "Teslimat Süreci Nasıl Yapılır?",
             },
-            { href: "/", label: "Sıkça Sorulan Sorular" },
-            { href: "/", label: "Puan Sistemi Nedir?" },
-            { href: "/", label: "Ürün Kullanım Bilgilendirmeleri" },
+            { href: "/sayfa/sikca-sorulan-sorular", label: "Sıkça Sorulan Sorular" },
+            { href: "/sayfa/puan-sistemi-nedir", label: "Puan Sistemi Nedir?" },
+            { href: "/sayfa/urun-kullanim-bilgilendirmeleri", label: "Ürün Kullanım Bilgilendirmeleri" },
           ]}
         />
       </div>

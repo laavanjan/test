@@ -11,10 +11,10 @@ import {
 import { HeroSlider } from "@/components/HeroSlider";
 import { PageShell } from "@/components/PageShell";
 import { ProductCard } from "@/components/ProductCard";
-import { categories, products, type Product } from "@/data/products";
+import { products, type Product } from "@/data/products";
 
 const features = [
-  { label: "100.000+ Kullanıcı", icon: Users, image: "/assets/ui/feature-users.png" },
+  { label: "300.000+ Kullanıcı", icon: Users, image: "/assets/ui/feature-users.png" },
   { label: "Depozito Yok", icon: WalletCards, image: "/assets/ui/feature-deposit.png" },
   { label: "Güvenli Kiralama", icon: ShieldCheck, image: "/assets/ui/feature-safe.png" },
   { label: "Ücretsiz Kargo", icon: Truck, image: "/assets/ui/feature-cargo.png" },
@@ -43,39 +43,6 @@ export default function Home() {
   return (
     <PageShell>
       <HeroSlider />
-
-      <section className="rental-planner shell" aria-label="Kiralama planlayıcısı">
-        <div className="planner-heading">
-          <p>Hızlı kiralama</p>
-          <h2>Ne zaman, nerede, neye ihtiyacın var?</h2>
-        </div>
-        <div className="planner-grid">
-          <label>
-            <span>Ürün veya kategori</span>
-            <input readOnly placeholder="Kamera, kano, temizlik..." />
-          </label>
-          <label>
-            <span>Başlangıç</span>
-            <input readOnly placeholder="Bugün" />
-          </label>
-          <label>
-            <span>Bitiş</span>
-            <input readOnly placeholder="3 gün sonra" />
-          </label>
-          <label>
-            <span>Şehir</span>
-            <input readOnly placeholder="İstanbul" />
-          </label>
-          <Link href="/kategori/ev-yasam">Uygun ürünleri bul</Link>
-        </div>
-        <div className="planner-categories">
-          {categories.map((category) => (
-            <Link href={`/kategori/${category.slug}`} key={category.slug}>
-              {category.name}
-            </Link>
-          ))}
-        </div>
-      </section>
 
       <section className="feature-row shell" aria-label="Varsapp avantajları">
         {features.map(({ label, icon: Icon, image }) => (
@@ -142,6 +109,32 @@ export default function Home() {
               <span>{product}</span>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="faq-section shell">
+        <h2>Sıkça Sorulan Sorular</h2>
+        <div className="faq-list">
+          <details>
+            <summary>Varsapp'tan nasıl kiralama yapabilirim?</summary>
+            <p>Beğendiğiniz ürünü seçip, kiralama tarihlerinizi belirledikten sonra güvenli ödeme adımını tamamlayarak kolayca kiralama talebi oluşturabilirsiniz.</p>
+          </details>
+          <details>
+            <summary>Kargo ve teslimat süreci nasıl işliyor?</summary>
+            <p>Tüm kiralama siparişlerinizde gidiş ve dönüş kargo süreçleri tamamen ücretsizdir. Ürününüz kargo ile kapınıza teslim edilir.</p>
+          </details>
+          <details>
+            <summary>Kiralama süresi bittiğinde ürünü nasıl teslim edeceğim?</summary>
+            <p>Kiralama süreniz bittiğinde, size verilen ücretsiz kargo gönderim kodu ile en yakın kargo şubesine teslim edebilir ya da kapıdan teslim alma talebi oluşturabilirsiniz.</p>
+          </details>
+          <details>
+            <summary>Kiralama süresini uzatabilir miyim?</summary>
+            <p>Evet! Kiralama süreniz dolmadan önce üye panelinizden ya da müşteri hizmetlerimizle iletişime geçerek kiralama sürenizi kolayca uzatabilirsiniz.</p>
+          </details>
+          <details>
+            <summary>Kiraladığım üründe hasar oluşursa ne olur?</summary>
+            <p>Varsapp güvence kapsamındaki ürünlerimizde, normal kullanım kaynaklı oluşabilecek hafif çizik ve yıpranmalar güvencemiz altındadır.</p>
+          </details>
         </div>
       </section>
 

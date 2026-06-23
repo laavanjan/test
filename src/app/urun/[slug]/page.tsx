@@ -51,7 +51,7 @@ export default async function ProductPage({
           <aside className="product-summary">
             <div className="product-summary-topline">
               <span>{product.category}</span>
-              <span>SKU {product.sku}</span>
+              <span className="free-shipping-badge">Ücretsiz Kargo</span>
             </div>
             <h1>{product.name}</h1>
             <div className="favorite-line">
@@ -72,23 +72,11 @@ export default async function ProductPage({
                 <CalendarDays size={20} /> İhtiyaç halinde süreni uzat
               </li>
               <li>
-                <RotateCcw size={20} /> Kiralama süren bittikten bir gün sonra iade et
+                <RotateCcw size={20} /> Kiralama süren bittikten bir gün sonra teslim et
               </li>
             </ul>
 
             <ProductRentPanel product={product} />
-
-            <div className="availability-strip">
-              <CheckCircle2 size={18} />
-              <span>Seçilen tarihler için ön rezervasyon alınabilir.</span>
-            </div>
-
-            <div className="rental-timeline" aria-label="Kiralama adımları">
-              <p><span>1</span>Tarih</p>
-              <p><span>2</span>Ödeme</p>
-              <p><span>3</span>Teslimat</p>
-              <p><span>4</span>İade</p>
-            </div>
 
             <div className="seller-notes">
               <p>

@@ -45,7 +45,9 @@ export const products: Product[] = [
     "owner": "Varsapp",
     "location": "81 İl ve Tüm İlçelerinde!",
     "description": [
-      "Instax Mini 9 & Instax 10'lu Film kiralama ürünü."
+      "Özel anlarınızı anında somut hatıralara dönüştürmek için tasarlanmış şık ve eğlenceli Instax Mini 9 şipşak fotoğraf makinesi.",
+      "Dahili flaş, otomatik pozlama ölçümü ve yakın çekim lens aparatı sayesinde en güzel portreleri ve selfieleri kolayca çekebilirsiniz.",
+      "Kiralama paketine 10 adet orijinal Instax film dahildir. Hem sevdiklerinizle geçireceğiniz özel günlerde hem de seyahatlerinizde yanınızdan ayırmak istemeyeceğiniz harika bir hobi arkadaşı."
     ]
   },
   {
@@ -68,7 +70,9 @@ export const products: Product[] = [
     "owner": "Varsapp",
     "location": "81 İl ve Tüm İlçelerinde!",
     "description": [
-      "Anker Nebula Apollo Akıllı Taşınabilir WiFi Kablosuz Pico Projeksiyon Cihazı ve Hoparlör, Siyah, D24 kiralama ürünü."
+      "Anker Nebula Apollo, cebinize sığacak boyutlardaki tasarımıyla sinema keyfini dilediğiniz her yere taşımanızı sağlıyor.",
+      "Android işletim sistemi, dahili WiFi ve güçlü hoparlörü sayesinde YouTube, Netflix gibi popüler platformlardan doğrudan içerik oynatabilir veya telefonunuzun ekranını kablosuz olarak yansıtabilirsiniz.",
+      "Tek şarjla 4 saate varan video oynatma süresi sunan bu akıllı Pico projeksiyon cihazı, açık hava sinemaları, sunumlar ve oyun geceleri için ideal bir tercihtir."
     ]
   },
   {
@@ -91,7 +95,9 @@ export const products: Product[] = [
     "owner": "Varsapp",
     "location": "81 İl ve Tüm İlçelerinde!",
     "description": [
-      "Arzum AR6001 Steamforce Buhar İstasyonlu Ütü kiralama ürünü."
+      "Yüksek buhar gücü ve geniş su haznesiyle en inatçı kırışıklıkları bile saniyeler içinde yok eden Arzum Steamforce Buhar İstasyonlu Ütü.",
+      "Güçlü buhar çıkışı sayesinde dikey ütüleme yapabilme olanağı sağlar, ceketlerinizi ve perdelerinizi askıdayken kolayca düzeltebilirsiniz.",
+      "Ergonomik tasarımı ve seramik taban teknolojisi ile kumaşlar üzerinde kayarcasına hareket ederek ütü yapmayı zahmetsiz ve keyifli bir sürece dönüştürür."
     ]
   },
   {
@@ -114,7 +120,9 @@ export const products: Product[] = [
     "owner": "Varsapp",
     "location": "81 İl ve Tüm İlçelerinde!",
     "description": [
-      "Arzum Crust Mix Lite Stand Mikser - Kırmızı kiralama ürünü."
+      "Mutfakta harikalar yaratmak isteyenler için Arzum Crust Mix Lite Stand Mikser, güçlü motoru ve geniş paslanmaz çelik haznesiyle yanınızda.",
+      "Farklı çırpma, karıştırma ve hamur yoğurma aparatları sayesinde ekmek hamurundan en hafif kremalara kadar her tarifi tam kıvamında hazırlayabilirsiniz.",
+      "Hız ayar kademeleri ve kaymaz taban yapısı ile en yoğun yoğurma işlemlerinde bile tezgahınızda güvenle ve stabil bir şekilde çalışır."
     ]
   },
   {
@@ -137,7 +145,9 @@ export const products: Product[] = [
     "owner": "Varsapp",
     "location": "81 İl ve Tüm İlçelerinde!",
     "description": [
-      "Arzum Okka Elite Türk Kahvesi Makinesi - Bakır - Yeni Ürün kiralama ürünü."
+      "Geleneksel Türk kahvesi lezzetini modern teknolojiyle buluşturan ve közde kahve tadında pişirme sunan şık bakır tasarımlı Arzum Okka Elite.",
+      "Doğrudan fincana servis yapabilme özelliği ve kendi kendini temizleme teknolojisi ile kahve keyfinizi zahmetsiz hale getirir.",
+      "Her fincanda ideal köpük, kıvam ve sıcaklığı garanti eden akıllı pişirme algılama sensörüne sahiptir."
     ],
     "badge": "Yeni"
   },
@@ -161,7 +171,9 @@ export const products: Product[] = [
     "owner": "Varsapp",
     "location": "81 İl ve Tüm İlçelerinde!",
     "description": [
-      "Arzum Okka Espresso Pro M Tam Otomatik Kahve Makinesi kiralama ürünü."
+      "Evinizin konforunda barista kalitesinde kahveler hazırlamak için Arzum Okka Espresso Pro M Tam Otomatik Kahve Makinesi.",
+      "Çekirdek öğütücülü yapısı, yüksek basınçlı süt köpürtme sistemi ve sezgisel kontrol paneli ile espresso, latte ve cappuccino hazırlar.",
+      "Kişiselleştirilebilir sertlik ve fincan boyutu ayarları sayesinde her seferinde tam zevkinize uygun bir kahve deneyimi sunar."
     ]
   },
   {
@@ -184,7 +196,9 @@ export const products: Product[] = [
     "owner": "Varsapp",
     "location": "81 İl ve Tüm İlçelerinde!",
     "description": [
-      "BabyBjörn Harmony 3D Mesh Antrasit Kanguru kiralama ürünü."
+      "Bebeğinizi taşırken hem onun hem de sizin maksimum konforunu sağlayan ergonomik ve lüks BabyBjörn Harmony 3D Mesh Kanguru.",
+      "Hava geçirebilen esnek 3D mesh kumaşı terlemeyi önler; yenidoğandan 3 yaşa kadar farklı taşıma pozisyonlarını destekler.",
+      "Bel desteği ve dolgulu omuz askıları sayesinde bebeğin ağırlığını vücudunuza eşit dağıtarak sırt ve omuz ağrılarının önüne geçer."
     ]
   },
   {
@@ -207,7 +221,9 @@ export const products: Product[] = [
     "owner": "Varsapp",
     "location": "81 İl ve Tüm İlçelerinde!",
     "description": [
-      "“Bir Oyun Daha Sonra Temizlik” Paketi (PlayStation 5 + Karcher SC 3 Buharlı Temizlik Makinesi) kiralama ürünü."
+      "Eğlence ve ev hijyenini bir arada sunan benzersiz kombi paket! PlayStation 5 ile en yeni oyunların tadını çıkarırken, Karcher SC 3 ile evinizde derinlemesine buharlı temizlik yapabilirsiniz.",
+      "PlayStation 5, Ultra yüksek hızlı SSD'si ve etkileyici 3D ses desteği ile sizi oyun dünyasının merkezine taşır.",
+      "Karcher SC 3 ise kimyasal kullanmadan sadece buhar gücüyle evdeki bakterilerin %99.99'unu yok eder; zeminler, fayanslar ve zorlu yüzeyler için mükemmeldir."
     ]
   },
   {
@@ -230,7 +246,9 @@ export const products: Product[] = [
     "owner": "Varsapp",
     "location": "81 İl ve Tüm İlçelerinde!",
     "description": [
-      "Bissell Crosswave C3 Halı, Kilim ve Zemin Makinesi + Kiwi Akıllı Cam Temizleme Robotu & 100 ML Karcher Halı Koltuk Deterjanı kiralama ürünü."
+      "Bissell Crosswave C3 ile sert zeminleri, halı ve kilimleri aynı anda süpürün, yıkayın ve kurutun. Çift tank sistemi temiz ve kirli suyu ayırır.",
+      "Pakete dahil Kiwi Akıllı Cam Temizleme Robotu ise ulaşılması zor yüksek camları, pencereleri ve aynaları otomatik olarak lekesiz temizler.",
+      "Ayrıca derinlemesine leke çıkarma için özel formüllü 100 ML Karcher Halı ve Koltuk deterjanı paket içeriğinde hediye olarak sunulmaktadır."
     ]
   },
   {
@@ -253,7 +271,9 @@ export const products: Product[] = [
     "owner": "Varsapp",
     "location": "81 İl ve Tüm İlçelerinde!",
     "description": [
-      "Bissell MultiClean Spot&Stain Halı - Koltuk Yıkama ve Leke Çıkarma Makinesi & 100 ML Halı Koltuk Deterjanı kiralama ürünü."
+      "Evcil hayvan lekeleri, dökülen içecekler ve koltuklardaki birikmiş kirler için özel olarak tasarlanmış taşınabilir Bissell MultiClean Spot&Stain.",
+      "Güçlü vakumlama ve püskürtme teknolojisiyle halı, koltuk, araç içi ve döşemelerdeki en derin lekelere doğrudan nüfuz ederek temizler.",
+      "Hafif ve kompakt tasarımı sayesinde evinizde kolayca taşıyabilir, 100 ML özel deterjanı ile anında leke çıkarma işlemine başlayabilirsiniz."
     ]
   },
   {

@@ -28,7 +28,7 @@ export function ProductRentPanel({ product }: ProductRentPanelProps) {
       <RentalDatePicker minDays={product.minDays} onChange={setDates} />
 
       <div className="rental-total-card">
-        <span>Tahmini toplam</span>
+        <span>Ücretsiz kargo dahil toplam</span>
         <strong>{estimatedTotal}</strong>
         <small>
           {dates.days} gün x {product.price} / gün
