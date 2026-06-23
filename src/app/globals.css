@@ -61,7 +61,7 @@ button {
 }
 
 .site-header {
-  position: static;
+  position: relative;
   z-index: 20;
   border-bottom: 1px solid rgba(227, 231, 238, 0.9);
   background: rgba(255, 255, 255, 0.94);
