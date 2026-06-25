@@ -734,6 +734,7 @@ button {
 }
 
 .product-card {
+  position: relative;
   min-width: 0;
   overflow: hidden;
   border: 1px solid rgba(227, 231, 238, 0.95);
@@ -795,7 +796,9 @@ button {
   display: grid;
   min-height: auto;
   align-content: start;
-  padding: 12px 14px 14px;
+  padding: 10px 10px 20px;
+  color: inherit;
+  text-decoration: none;
 }
 
 .product-card-title {
@@ -828,7 +831,69 @@ button {
 }
 
 .product-meta-row svg {
-  color: var(--teal);
+  color: #747880;
+}
+
+.product-bottom-row {
+  margin-top: 6px;
+}
+
+.product-bottom-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-owner,
+.product-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #747880;
+  line-height: 13px;
+}
+
+.product-owner svg {
+  color: #e5a100;
+  flex-shrink: 0;
+}
+
+.product-location svg {
+  color: #9a9da3;
+  flex-shrink: 0;
+}
+
+.product-icon-actions {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  display: flex;
+}
+
+.product-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: #7a7f8a;
+  cursor: pointer;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+
+.product-icon-btn:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+.product-icon-btn:last-child {
+  border-radius: 0;
+}
+
+.product-icon-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .card-price {
@@ -1158,7 +1223,7 @@ button {
 
 .category-layout {
   display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: 18px;
   align-items: start;
   margin-top: 14px;

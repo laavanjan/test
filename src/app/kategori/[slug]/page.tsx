@@ -75,7 +75,7 @@ export default async function CategoryPage({
         </div>
 
         <div className="category-layout">
-          <aside className="filter-sidebar" aria-label="Ürün filtreleri">
+          {/* <aside className="filter-sidebar" aria-label="Ürün filtreleri">
             <div>
               <p>
                 <SlidersHorizontal size={16} />
@@ -112,7 +112,7 @@ export default async function CategoryPage({
                 Stokta
               </label>
             </fieldset>
-          </aside>
+          </aside> */}
 
           <div className="category-results">
             <div className="category-filterbar" aria-label="Aktif filtreler">
