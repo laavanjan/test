@@ -106,20 +106,36 @@ export default async function ProductPage({
         </section>
 
         <section className="shell faq-strip">
-          <details open>
-            <summary>Teslimat nasıl gerçekleşir?</summary>
+          <h2>Sıkça Sorulan Sorular</h2>
+          <details>
+            <summary>Varsapp nedir?</summary>
             <p>
-              Ürün, seçtiğiniz tarihte adresinize teslim edilir. Kiralama süresi
-              bittikten +1 gün sonra ürün kapınızdan teslim alınabilir ya da
-              size en yakın kargo şubesine ücretsiz gönderim kodu ile teslim
-              edebilirsiniz.
+              Varsapp, ihtiyacınız olan ürünleri satın almadan önce kiralayarak
+              deneyimleyebileceğiniz bir platformdur.
             </p>
           </details>
           <details>
-            <summary>Varsapp güvenli kiralama sistemi nedir?</summary>
+            <summary>Varsapp hangi şehirlerde hizmet veriyor?</summary>
+            <p>Tüm Türkiye&apos;de hizmet veriyoruz!</p>
+          </details>
+          <details>
+            <summary>Sipariş süreci nasıl işliyor?</summary>
+            <p>
+              Ürün kiralamak için öncelikle sitemize ücretsiz üye olmanız
+              gerekmektedir. Üyelik sonrası, seçtiğiniz üründe teslim ve iade
+              tarihlerini belirleyip sepete ekleyerek ödeme adımını
+              tamamlayabilirsiniz. Ürün, seçtiğiniz tarihte adresinize teslim
+              edilir. Kiralama süresi bittikten +1 gün sonra ürün kapınızdan
+              teslim alınabilir ya da size en yakın kargo şubesine ücretsiz
+              gönderim kodu ile teslim edebilirsiniz.
+            </p>
+          </details>
+          <details>
+            <summary>Varsapp güvence sistemi nedir?</summary>
             <p>
               Kiraladığınız ürünlerin güvenli bir şekilde sizlere ulaşmasını ve
-              kullanılmasını sağlayan mock rezervasyon sistemidir.
+              kullanılmasını sağlayan bir sistemdir. Ürünler sizlere ulaşmadan
+              önce kontrol edilerek kişiye özel hazırlanır ve kargolanır.
             </p>
           </details>
         </section>
