@@ -2763,8 +2763,8 @@ button {
 
 .footer-app h2 {
   margin: 0 0 8px;
-  font-size: 22px;
-  font-weight: 900;
+  font-size: 17px;
+  font-weight: 700;
 }
 
 .footer-app p {
@@ -2801,8 +2801,8 @@ button {
 }
 
 .footer-brand img {
-  width: auto;
-  height: auto;
+  width: 126px;
+  height: 30px;
   object-fit: contain;
 }
 
@@ -2856,8 +2856,8 @@ button {
 
 .footer-column h3 {
   margin: 0 0 8px;
-  font-size: 17px;
-  font-weight: 900;
+  font-size: 15px;
+  font-weight: 700;
 }
 
 .footer-column a {
