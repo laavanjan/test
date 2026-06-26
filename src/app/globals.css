@@ -1074,6 +1074,7 @@ button {
   background: #fff;
   padding: 28px 24px 24px;
   gap: 12px;
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
 }
 
 .comment-stars {
@@ -1101,14 +1102,16 @@ button {
 
 .comment-card h3 {
   margin: 0 0 4px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--ink);
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
 }
 
 .comment-card span {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12px;
+  font-family: var(--font-montserrat), Montserrat, sans-serif;
 }
 
 .whatsapp {
