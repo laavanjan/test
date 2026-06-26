@@ -101,7 +101,7 @@ export default async function CategoryPage({
               <legend>Güvence</legend>
               <label>
                 <Truck size={15} />
-                Kargo dahil
+                Kargo ücretsiz
               </label>
               <label>
                 <ShieldCheck size={15} />
@@ -125,7 +125,7 @@ export default async function CategoryPage({
               </Link>
               <button type="button">
                 <Truck size={16} />
-                Kargo dahil
+                Kargo ücretsiz
               </button>
               <button type="button">
                 <ShieldCheck size={16} />

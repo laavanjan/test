@@ -40,7 +40,6 @@ export default async function Home() {
 
       <ProductSection
         title="En Çok Kiralanan Ürünler ⭐"
-        subtitle="Hafta sonu, tatil ve ev ihtiyaçları için hızlı teslim edilen seçenekler."
         marker="/assets/ui/feature-safe.png"
         products={products.slice(0, 8)}
       />
@@ -63,7 +62,6 @@ export default async function Home() {
 
       <ProductSection
         title="Popüler Ürünler"
-        subtitle="Temizlik, teknoloji ve hobi ekipmanlarında sık tercih edilenler."
         marker="/assets/ui/feature-cargo.png"
         products={products.slice(0, 10)}
       />
@@ -129,22 +127,17 @@ export default async function Home() {
 
 function ProductSection({
   title,
-  subtitle,
   marker,
   products,
 }: {
   title: string;
-  subtitle: string;
   marker: string;
   products: Product[];
 }) {
   return (
     <section className="product-section shell">
       <div className="section-title">
-        <div>
-          <h2>{title}</h2>
-          <p>{subtitle}</p>
-        </div>
+        <h2>{title}</h2>
         <Image src={marker} alt="" width={34} height={34} />
       </div>
       <div className="product-grid">
