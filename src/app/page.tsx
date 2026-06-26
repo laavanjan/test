@@ -64,14 +64,14 @@ export default async function Home() {
         products={products.slice(0, 10)}
       />
 
-      <section className="use-case-strip shell" aria-label="Kullanım senaryoları">
+      {/* <section className="use-case-strip shell" aria-label="Kullanım senaryoları">
         {quickUseCases.map((item) => (
           <article key={item.label}>
             <span>{item.label}</span>
             <strong>{item.value}</strong>
           </article>
         ))}
-      </section>
+      </section> */}
 
       <section className="comments shell">
         <div className="comments-heading">
