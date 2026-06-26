@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CalendarDays, Crown, Heart, Map, ShoppingCart, Truck, User } from "lucide-react";
+import { ArrowRight, Crown, Heart, Map, ShoppingCart, Truck, User } from "lucide-react";
 import type { Product } from "@/data/products";
 
 export function ProductCard({ product }: { product: Product }) {
@@ -35,10 +35,6 @@ export function ProductCard({ product }: { product: Product }) {
           </Link>
         </div>
         <div className="product-meta-row" aria-label="Kiralama bilgileri">
-          {/* <span>
-            <CalendarDays size={13} />
-            {product.minDays} gün min.
-          </span> */}
           <span>
             <Truck size={13} />
             Kargo ücretsiz

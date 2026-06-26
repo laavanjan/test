@@ -3,7 +3,7 @@ import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 import { HeroSlider } from "@/components/HeroSlider";
 import { PageShell } from "@/components/PageShell";
-import { ProductCard } from "@/components/ProductCard";
+import { HomeProductCard } from "@/components/HomeProductCard";
 import { AdvantagesRow } from "@/components/AdvantagesRow";
 import type { Product } from "@/data/products";
 import { getStoreProducts } from "@/lib/store-catalog";
@@ -137,7 +137,7 @@ function ProductSection({
       </div>
       <div className="product-grid">
         {products.map((product) => (
-          <ProductCard product={product} key={`${title}-${product.slug}`} />
+          <HomeProductCard product={product} key={`${title}-${product.slug}`} />
         ))}
       </div>
     </section>
