@@ -12,7 +12,7 @@ export type AdminCatalogProduct = Product & {
   discountPercent: number;
   discountPrice: string;
   isActive: boolean;
-  source: "override" | "static";
+  source: "override" | "static" | "custom";
   stock: number;
   updatedAt: string;
 };
@@ -182,11 +182,17 @@ export async function getAdminCatalogProducts({
 }
 
 export async function listAdminCatalogProducts() {
-  const overrides = await readProductOverrides();
-  const categoryOverrides = await readCategoryOverrides();
+  const [overrides, categoryOverrides, customRows] = await Promise.all([
+    readProductOverrides(),
+    readCategoryOverrides(),
+    supabaseSelect<{ badge: string | null; category: string; category_slug: string; created_at: string; description: string; featured: boolean; id: string; image: string; location: string; min_days: number; name: string; old_price: string | null; owner: string; price: string; slug: string }[]>(
+      "custom_products?order=created_at.desc"
+    ).catch(() => [] as never[]),
+  ]);
+
   const now = new Date().toISOString();
 
-  return products.map((product): AdminCatalogProduct => {
+  const staticProducts = products.map((product): AdminCatalogProduct => {
     const override = overrides.get(product.slug);
     const categoryOverride = categoryOverrides.get(product.categorySlug);
     const data = override?.data || {};
@@ -211,6 +217,37 @@ export async function listAdminCatalogProducts() {
       updatedAt: override?.updated_at || now,
     };
   });
+
+  const staticSlugs = new Set(staticProducts.map((p) => p.slug));
+
+  const customProducts: AdminCatalogProduct[] = (customRows ?? [])
+    .filter((row) => !staticSlugs.has(row.slug))
+    .map((row) => ({
+      adminNote: "",
+      badge: row.badge ?? undefined,
+      category: row.category,
+      categorySlug: row.category_slug,
+      description: row.description ? row.description.split("\n").filter(Boolean) : [],
+      discountPercent: 0,
+      discountPrice: "",
+      featured: row.featured,
+      gallery: [row.image],
+      image: row.image,
+      isActive: true,
+      location: row.location,
+      minDays: row.min_days,
+      name: row.name,
+      oldPrice: row.old_price ?? undefined,
+      owner: row.owner,
+      price: row.price,
+      sku: row.id,
+      slug: row.slug,
+      source: "custom",
+      stock: 1,
+      updatedAt: row.created_at,
+    }));
+
+  return [...staticProducts, ...customProducts];
 }
 
 export async function updateAdminProductOverride(

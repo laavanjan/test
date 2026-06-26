@@ -1,6 +1,6 @@
 import { headers } from "next/headers";
 import { isAdminRequestAuthorized, adminUnauthorizedResponse } from "@/lib/admin-auth";
-import { supabaseInsert, supabaseSelect } from "@/lib/supabase-admin";
+import { supabaseDelete, supabaseInsert, supabaseSelect } from "@/lib/supabase-admin";
 
 export type CustomProductRow = {
   badge: string | null;
@@ -68,6 +68,25 @@ export async function POST(req: Request) {
     return Response.json({ ok: true, slug });
   } catch (error) {
     return Response.json({ error: "Ürün kaydedilemedi.", detail: String(error) }, { status: 500 });
+  }
+}
+
+export async function DELETE(req: Request) {
+  if (!isAdminRequestAuthorized(await headers())) {
+    return adminUnauthorizedResponse();
+  }
+
+  const { slug } = await req.json();
+
+  if (!slug) {
+    return Response.json({ error: "Slug gerekli." }, { status: 400 });
+  }
+
+  try {
+    await supabaseDelete(`custom_products?slug=eq.${encodeURIComponent(slug)}`);
+    return Response.json({ ok: true });
+  } catch (error) {
+    return Response.json({ error: "Ürün silinemedi.", detail: String(error) }, { status: 500 });
   }
 }
 

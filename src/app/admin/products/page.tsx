@@ -5,6 +5,7 @@ import { ArrowRight, Filter, Package, Search, Sparkles } from "lucide-react";
 import { AdminLocked } from "@/components/AdminLocked";
 import { AdminShell } from "@/components/AdminShell";
 import { AdminProductCreateDrawer } from "@/components/AdminProductCreateDrawer";
+import { AdminDeleteProductButton } from "@/components/AdminDeleteProductButton";
 import { isAdminAuthConfigured, isAdminRequestAuthorized } from "@/lib/admin-auth";
 import { getAdminCatalogProducts, listAdminCategories } from "@/lib/admin-catalog";
 
@@ -122,6 +123,11 @@ export default async function AdminProductsPage({
                       <Package className="h-3 w-3" />
                       {product.sku}
                     </span>
+                    {product.source === "custom" ? (
+                      <span className="inline-flex items-center gap-1 rounded-full border border-violet-100 bg-violet-50 px-3 py-1 text-xs font-black text-violet-600">
+                        ✦ Özel Ürün
+                      </span>
+                    ) : null}
                     {product.discountPercent > 0 || product.discountPrice ? (
                       <span className="inline-flex items-center gap-1 rounded-full border border-rose-100 bg-rose-50 px-3 py-1 text-xs font-black text-rose-600">
                         <Sparkles className="h-3 w-3" />
@@ -175,6 +181,9 @@ export default async function AdminProductsPage({
                   >
                     Gör
                   </Link>
+                  {product.source === "custom" ? (
+                    <AdminDeleteProductButton slug={product.slug} />
+                  ) : null}
                 </div>
               </form>
             </article>
