@@ -9,11 +9,47 @@ import {
   listAdminCatalogProducts,
   listAdminCategories,
 } from "@/lib/admin-catalog";
+import { supabaseSelect } from "@/lib/supabase-admin";
+import type { CustomProductRow } from "@/app/api/admin/custom-products/route";
+
+async function getCustomProducts(): Promise<Product[]> {
+  try {
+    const rows = await supabaseSelect<CustomProductRow[]>("custom_products?order=created_at.desc");
+    if (!rows?.length) return [];
+
+    return rows.map((row) => ({
+      badge: row.badge ?? undefined,
+      category: row.category,
+      categorySlug: row.category_slug,
+      description: row.description ? row.description.split("\n").filter(Boolean) : [],
+      featured: row.featured,
+      gallery: [row.image],
+      image: row.image,
+      location: row.location,
+      minDays: row.min_days,
+      name: row.name,
+      oldPrice: row.old_price ?? undefined,
+      owner: row.owner,
+      price: row.price,
+      sku: row.id,
+      slug: row.slug,
+    }));
+  } catch {
+    return [];
+  }
+}
 
 export async function getStoreProducts(): Promise<Product[]> {
-  const products = await listAdminCatalogProducts();
+  const [catalogProducts, customProducts] = await Promise.all([
+    listAdminCatalogProducts(),
+    getCustomProducts(),
+  ]);
 
-  return products.filter((product) => product.isActive);
+  const staticActive = catalogProducts.filter((product) => product.isActive);
+  const staticSlugs = new Set(staticActive.map((p) => p.slug));
+  const uniqueCustom = customProducts.filter((p) => !staticSlugs.has(p.slug));
+
+  return [...staticActive, ...uniqueCustom];
 }
 
 export async function getStoreProduct(slug: string) {
@@ -42,15 +78,11 @@ export async function getStoreCategories() {
 }
 
 export async function getStoreProductsByCategory(slug: string) {
-  const activeProducts = await getStoreProducts();
+  const allProducts = await getStoreProducts();
 
   if (slug === "tum-kategoriler") {
-    return activeProducts;
+    return allProducts;
   }
 
-  const activeBySlug = new Map(activeProducts.map((product) => [product.slug, product]));
-
-  return staticProductsByCategory(slug)
-    .map((product) => activeBySlug.get(product.slug))
-    .filter((product): product is Product => Boolean(product));
+  return allProducts.filter((product) => product.categorySlug === slug);
 }

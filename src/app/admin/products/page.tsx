@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Filter, Package, Search, Sparkles } from "lucide-react";
 import { AdminLocked } from "@/components/AdminLocked";
 import { AdminShell } from "@/components/AdminShell";
+import { AdminProductCreateDrawer } from "@/components/AdminProductCreateDrawer";
 import { isAdminAuthConfigured, isAdminRequestAuthorized } from "@/lib/admin-auth";
 import { getAdminCatalogProducts, listAdminCategories } from "@/lib/admin-catalog";
 
@@ -42,14 +43,17 @@ export default async function AdminProductsPage({
               Statik katalogdaki ürünleri yönet, fiyat ve indirim override&apos;larını kaydet.
             </p>
           </div>
-          <Link
-            className="inline-flex h-10 w-fit items-center gap-2 rounded-xl bg-slate-900 px-4 text-sm font-black text-white shadow-lg shadow-slate-200 transition hover:bg-slate-800"
-            href="/admin/categories"
-            style={{ color: "#ffffff" }}
-          >
-            Kategoriler
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="flex items-center gap-3">
+            <AdminProductCreateDrawer />
+            <Link
+              className="inline-flex h-10 w-fit items-center gap-2 rounded-xl bg-slate-900 px-4 text-sm font-black text-white shadow-lg shadow-slate-200 transition hover:bg-slate-800"
+              href="/admin/categories"
+              style={{ color: "#ffffff" }}
+            >
+              Kategoriler
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </header>
 
         <section className="grid gap-4 md:grid-cols-4">
