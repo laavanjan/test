@@ -334,6 +334,50 @@ button {
   color: var(--primary);
 }
 
+.user-menu-trigger {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 45px;
+  margin-top: 25px;
+}
+
+.user-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 8px;
+  color: #444850;
+  cursor: pointer;
+  transition: border-color 150ms ease, color 150ms ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.user-icon-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.user-name {
+  display: block;
+  color: #2c3036;
+  font-size: 0.7rem;
+  font-weight: 600;
+  max-width: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-word;
+  text-align: center;
+  line-height: 1.2;
+}
+
 .header-account {
   color: #2c3036;
   font-size: 0.9rem;

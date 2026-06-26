@@ -9,10 +9,10 @@ import {
   LogIn,
   TentTree,
   UserPlus,
+  UserCircle,
 } from "lucide-react";
 import { CartBadge } from "@/components/CartBadge";
 import { LocationSelector } from "@/components/LocationSelector";
-import { LogoutButton } from "@/components/LogoutButton";
 import { SearchBox } from "@/components/SearchBox";
 import { getCurrentCustomerAccount } from "@/lib/customer-auth";
 import { getStoreCategories } from "@/lib/store-catalog";
@@ -54,9 +54,13 @@ export async function Header() {
               <Link className="icon-only" href="/hesabim/favorilerim" aria-label="Favoriler">
                 <Heart size={20} />
               </Link>
-              <span className="header-account">{account.name}</span>
-              <LogoutButton />
               <CartBadge />
+              <div className="user-menu-trigger">
+                <button className="user-icon-btn" type="button">
+                  <UserCircle size={20} />
+                </button>
+                <span className="user-name">{account.name}</span>
+              </div>
             </>
           ) : (
             <>
