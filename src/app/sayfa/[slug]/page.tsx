@@ -52,8 +52,8 @@ export default async function StaticPage({
             <p><strong>2. Ücretsiz Kargo:</strong> Kargo süreci kiralama süresine dahil değildir. Ürünleriniz kargo ile tamamen ücretsiz olarak gönderilir.</p>
             <p><strong>3. Kolay Teslim Etme:</strong> Kiralama süresi bittikten bir gün sonra ürün kapınızdan alınabilir ya da ücretsiz gönderim kodu ile en yakın kargo şubesine teslim edilebilir.</p>
           </div>
-          <div style={{ position: "relative", width: "100%", maxWidth: "520px", height: "340px", margin: "32px auto", overflow: "hidden", borderRadius: "8px", border: "1px solid #edf0f4" }}>
-            <Image src="/assets/ui/how-it-works.png" alt="Teslimat Süreci" fill style={{ objectFit: "contain", padding: "12px" }} />
+          <div style={{ margin: "32px auto", borderRadius: "8px", border: "1px solid #edf0f4", overflow: "hidden" }}>
+            <Image src="/assets/ui/how-it-works.png" alt="Teslimat Süreci" width={1200} height={400} style={{ width: "100%", height: "auto", display: "block" }} />
           </div>
         </section>
       </PageShell>

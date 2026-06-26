@@ -3023,7 +3023,6 @@ button {
   }
 
   .feature-row,
-  .product-grid,
   .use-case-strip,
   .step-grid,
   .comment-grid,
@@ -3032,6 +3031,10 @@ button {
   .checkout-summary,
   .direct-payment-form {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .direct-payment-form {
@@ -3220,9 +3223,28 @@ button {
     height: 76px !important;
   }
 
-  .feature-row,
-  .product-grid {
+  .feature-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product-grid {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 12px;
+    padding-bottom: 8px;
+  }
+
+  .product-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-grid .product-card {
+    flex: 0 0 200px;
+    scroll-snap-align: start;
   }
 
   .rental-planner {
