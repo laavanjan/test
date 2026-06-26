@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarDays, Crown, Heart, Map, ShoppingCart, Truck, User } from "lucide-react";
+import { ArrowRight, CalendarDays, Crown, Heart, Map, ShoppingCart, Truck, User } from "lucide-react";
 import type { Product } from "@/data/products";
 
 export function ProductCard({ product }: { product: Product }) {
@@ -21,15 +21,18 @@ export function ProductCard({ product }: { product: Product }) {
           sizes="(max-width: 768px) 50vw, 25vw"
         />
       </Link>
-      <Link className="product-card-body" href={`/urun/${product.slug}`}>
-        <span className="product-card-title">
+      <div className="product-card-body">
+        <Link className="product-card-title" href={`/urun/${product.slug}`}>
           {product.name}
-        </span>
+        </Link>
         <div className="card-price">
           <div>
             <strong>{product.price}</strong>
             <span>/gün</span>
           </div>
+          <Link className="card-cta" href={`/urun/${product.slug}`} aria-label={`${product.name} ürününü kirala`}>
+            Kirala <ArrowRight size={14} />
+          </Link>
         </div>
         <div className="product-meta-row" aria-label="Kiralama bilgileri">
           {/* <span>
@@ -53,7 +56,7 @@ export function ProductCard({ product }: { product: Product }) {
             </span>
           </div>
         </div>
-      </Link>
+      </div>
       <div className="product-icon-actions">
         <button className="product-icon-btn" type="button" aria-label="Favorilere ekle">
           <Heart size={17} />
