@@ -1050,53 +1050,65 @@ button {
   line-height: 1.35;
 }
 
-.comments-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.comments-heading h2 {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.comments-heading img {
-  object-fit: contain;
+.comments-title {
+  margin: 0 0 24px;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--ink);
 }
 
 .comment-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 16px;
+  gap: 20px;
 }
 
 .comment-card {
-  min-height: 132px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 12px;
   background: #fff;
-  padding: 16px;
+  padding: 28px 24px 24px;
+  gap: 12px;
+}
+
+.comment-stars {
+  font-size: 24px;
+  color: #f5c518;
+  letter-spacing: 3px;
+  text-align: center;
+  width: 100%;
 }
 
 .comment-card p {
-  margin: 0 0 12px;
+  margin: 0;
   color: #4a4d55;
-  line-height: 1.45;
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+  flex: 1;
+}
+
+.comment-author {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
 }
 
 .comment-card h3 {
   margin: 0 0 4px;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 .comment-card span {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .whatsapp {

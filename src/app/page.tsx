@@ -74,16 +74,16 @@ export default async function Home() {
       </section> */}
 
       <section className="comments shell">
-        <div className="comments-heading">
-          <h2>Kullanıcı Yorumları</h2>
-          <Image src="/assets/ui/comments-banner.png" alt="" width={190} height={114} />
-        </div>
+        <h2 className="comments-title">Kullanıcı Yorumları</h2>
         <div className="comment-grid">
           {comments.map(([name, product, quote]) => (
             <article className="comment-card" key={name}>
+              <div className="comment-stars">★★★★★</div>
               <p>{quote}</p>
-              <h3>{name}</h3>
-              <span>{product}</span>
+              <div className="comment-author">
+                <h3>{name}</h3>
+                <span>{product}</span>
+              </div>
             </article>
           ))}
         </div>
