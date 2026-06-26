@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Montserrat } from "next/font/google";
-
-const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat" });
 
 export const metadata: Metadata = {
   title: "Varsapp - İhtiyacın varsa kirala!",
@@ -17,7 +14,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className="h-full">
-      <body className={`min-h-full antialiased ${montserrat.variable}`}>{children}</body>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+      </head>
+      <body className="min-h-full antialiased">{children}</body>
     </html>
   );
 }

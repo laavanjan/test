@@ -139,7 +139,7 @@ export default async function AdminPage({
             </div>
             <div className="mt-5 grid gap-2">
               {recentOrders.slice(0, 5).map((order, index) => (
-                <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-xl border border-slate-100 bg-slate-50/70 px-3 py-2" key={`${order.source}-${order.id}`}>
+                <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 rounded-xl border border-slate-100 bg-slate-50/70 px-3 py-2" key={`${order.source}-${order.id}-${index}`}>
                   <span className="grid h-8 w-8 place-items-center rounded-lg bg-white text-xs font-black text-slate-500 shadow-sm">
                     {index + 1}
                   </span>
@@ -380,8 +380,8 @@ function OrdersTable({ orders }: { orders: AdminOrder[] }) {
           </tr>
         </thead>
         <tbody className="divide-y divide-slate-100">
-          {orders.map((order) => (
-            <tr className="transition hover:bg-slate-50/60" key={`${order.source}-${order.id}`}>
+          {orders.map((order, index) => (
+            <tr className="transition hover:bg-slate-50/60" key={`${order.source}-${order.id}-${index}`}>
               <td className="px-5 py-4 align-top">
                 <strong className="block font-black text-slate-900">{order.platformOrderNo}</strong>
                 <span className="mt-1 block text-xs font-semibold text-slate-400">{order.status}</span>
