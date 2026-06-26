@@ -55,12 +55,12 @@ export async function Header() {
                 <Heart size={20} />
               </Link>
               <CartBadge />
-              <div className="user-menu-trigger">
-                <button className="user-icon-btn" type="button">
+              <Link className="user-menu-trigger" href="/hesabim" aria-label="Hesabım">
+                <span className="user-icon-btn">
                   <UserCircle size={20} />
-                </button>
+                </span>
                 <span className="user-name">{account.name}</span>
-              </div>
+              </Link>
             </>
           ) : (
             <>

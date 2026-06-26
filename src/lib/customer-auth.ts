@@ -102,6 +102,64 @@ export async function registerCustomerAccount({
   return rows[0];
 }
 
+export async function updateCustomerAccount(
+  id: string,
+  updates: {
+    city?: string;
+    currentPassword?: string;
+    email?: string;
+    name?: string;
+    newPassword?: string;
+    phone?: string;
+  },
+) {
+  const patch: Record<string, string> = { updated_at: new Date().toISOString() };
+
+  if (typeof updates.name === "string" && updates.name.trim()) {
+    patch.name = updates.name.trim();
+  }
+  if (typeof updates.phone === "string") {
+    patch.phone = updates.phone.trim() || "-";
+  }
+  if (typeof updates.city === "string") {
+    patch.city = updates.city.trim() || "-";
+  }
+  if (typeof updates.email === "string" && updates.email.trim()) {
+    const normalizedEmail = normalizeCustomerEmail(updates.email);
+    const existing = await findCustomerAccountByEmail(normalizedEmail);
+    if (existing && existing.id !== id) {
+      throw new AuthError("Bu e-posta zaten kullanılıyor.", "email_exists", 409);
+    }
+    patch.email = normalizedEmail;
+  }
+  if (typeof updates.newPassword === "string" && updates.newPassword) {
+    assertPassword(updates.newPassword);
+    const rows = await supabaseSelect<CustomerAccountRow[]>(
+      `customer_accounts?select=*&id=eq.${encodeURIComponent(id)}&limit=1`,
+    );
+    const account = rows?.[0];
+    if (account?.password_hash && account?.password_salt) {
+      if (!updates.currentPassword) {
+        throw new AuthError("Mevcut şifrenizi girin.", "current_password_required", 400);
+      }
+      if (!verifyPassword(updates.currentPassword, account.password_salt, account.password_hash)) {
+        throw new AuthError("Mevcut şifre hatalı.", "invalid_current_password", 401);
+      }
+    }
+    const passwordRecord = hashPassword(updates.newPassword);
+    patch.password_hash = passwordRecord.hash;
+    patch.password_salt = passwordRecord.salt;
+  }
+
+  await supabasePatch(`customer_accounts?id=eq.${encodeURIComponent(id)}`, patch);
+
+  const rows = await supabaseSelect<CustomerAccountRow[]>(
+    `customer_accounts?select=*&id=eq.${encodeURIComponent(id)}&limit=1`,
+  );
+
+  return rows?.[0] ? publicAccount(rows[0]) : null;
+}
+
 export async function loginCustomerAccount(email: string, password: string) {
   const account = await findCustomerAccountByEmail(email);
 

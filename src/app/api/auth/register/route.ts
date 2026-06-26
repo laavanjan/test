@@ -1,10 +1,12 @@
 import {
   AuthError,
   createCustomerSession,
+  normalizeCustomerEmail,
   publicAccount,
   registerCustomerAccount,
   setCustomerSessionCookie,
 } from "@/lib/customer-auth";
+import { markInvitationAccepted } from "@/lib/customer-invitations";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -23,6 +25,9 @@ export async function POST(request: Request) {
     });
     const session = await createCustomerSession(account.id);
     await setCustomerSessionCookie(session.token, session.expiresAt);
+
+    // Mark any pending invitations for this email as accepted (fire-and-forget)
+    markInvitationAccepted(normalizeCustomerEmail(String(body.email || ""))).catch(() => {});
 
     return Response.json({ account: publicAccount(account) });
   } catch (error) {
