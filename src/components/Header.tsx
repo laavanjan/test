@@ -7,11 +7,11 @@ import {
   Home,
   Laptop,
   LogIn,
+  ShoppingCart,
   TentTree,
   UserPlus,
   UserCircle,
 } from "lucide-react";
-import { CartBadge } from "@/components/CartBadge";
 import { LocationSelector } from "@/components/LocationSelector";
 import { SearchBox } from "@/components/SearchBox";
 import { getCurrentCustomerAccount } from "@/lib/customer-auth";
@@ -44,7 +44,7 @@ export async function Header() {
           />
         </Link>
 
-        <LocationSelector />
+        {/* <LocationSelector /> */}
 
         <SearchBox />
 
@@ -54,7 +54,9 @@ export async function Header() {
               <Link className="icon-only" href="/hesabim/favorilerim" aria-label="Favoriler">
                 <Heart size={20} />
               </Link>
-              <CartBadge />
+              <Link className="icon-only" href="/sepet" aria-label="Sepet">
+                <ShoppingCart size={20} />
+              </Link>
               <Link className="user-menu-trigger" href="/hesabim" aria-label="Hesabım">
                 <span className="user-icon-btn">
                   <UserCircle size={20} />

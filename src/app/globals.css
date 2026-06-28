@@ -73,9 +73,9 @@ button {
 
 .topbar {
   display: grid;
-  grid-template-columns: 145px 180px minmax(260px, 1fr) auto;
+  grid-template-columns: 145px minmax(500px, 1fr) auto;
   align-items: center;
-  gap: 18px;
+  gap: 92px;
   min-height: 82px;
 }
 
@@ -366,7 +366,7 @@ button {
 
 .user-name {
   display: block;
-  color: #2c3036;
+  color: #EB3b5A;
   font-size: 0.7rem;
   font-weight: 600;
   max-width: 50px;
