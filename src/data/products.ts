@@ -58,12 +58,11 @@ export const products: Product[] = [
     "price": "650,00 TL",
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/128/71uvpoebaul-ac-sl1500.jpg",
     "gallery": [
-      "https://www.varsapp.com/idea/iq/19/myassets/products/128/71uvpoebaul-ac-sl1500.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/128/71uvpoebaul-ac-sl1500.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/128/71uvpoebaul-ac-sl1500_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/128/71z92spzggl-ac-sl1500.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/128/71z92spzggl-ac-sl1500_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/128/71z92spzggl-ac-sl1500_min.jpg",
+    
     ],
     "minDays": 3,
     "sku": "3208_33379743",
@@ -925,11 +924,11 @@ export const products: Product[] = [
     "price": "450,00 TL",
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on.jpg",
     "gallery": [
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-205-expires-on.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-205-expires-on.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-205-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/itiwit-pack-decouverte-sup-96-8862497-000-expires-on-23.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/572/itiwit-pack-decouverte-sup-96-8862497-000-expires-on-23.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/572/itiwit-pack-decouverte-sup-96-8862497-000-expires-on-23_min.jpg"
     ],
     "minDays": 3,
