@@ -1,10 +1,6 @@
 import "server-only";
 
-import {
-  categories,
-  productsByCategory as staticProductsByCategory,
-  type Product,
-} from "@/data/products";
+import { categories, type Product } from "@/data/products";
 import {
   listAdminCatalogProducts,
   listAdminCategories,

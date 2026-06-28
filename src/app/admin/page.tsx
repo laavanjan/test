@@ -8,7 +8,6 @@ import {
   CreditCard,
   Database,
   RefreshCw,
-  Search,
   ShoppingCart,
   TrendingUp,
   UsersRound,

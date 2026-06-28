@@ -20,7 +20,7 @@ export type CustomProductRow = {
   slug: string;
 };
 
-export async function GET(req: Request) {
+export async function GET() {
   if (!isAdminRequestAuthorized(await headers())) {
     return adminUnauthorizedResponse();
   }
