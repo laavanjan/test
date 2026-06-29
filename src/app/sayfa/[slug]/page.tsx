@@ -46,8 +46,8 @@ export default async function StaticPage({
     return (
       <PageShell>
         <div style={{ background: "#fff", width: "100%" }}>
-        <section className="static-page shell delivery-process-page" style={{ padding: "48px 0" }}>
-          <h1 style={{ fontSize: "22px", fontWeight: 200, color: "#0d3349", marginBottom: "16px" }}>Varsapp Teslimat Süreci Nasıl Yapılıyor?</h1>
+        <section className="static-page shell delivery-process-page" style={{ padding: "48px 0", border: "none" }}>
+          <h1 style={{ fontSize: "22px", fontWeight: 600, color: "#0d3349", marginBottom: "16px" }}>Varsapp Teslimat Süreci Nasıl Yapılıyor?</h1>
           
 
           <div style={{ borderRadius: "12px", overflow: "hidden", marginBottom: "32px" }}>
