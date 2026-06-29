@@ -1876,18 +1876,17 @@ button {
 
 .product-card-title {
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   width: 100%;
-  text-overflow: ellipsis;
-  height: calc(16px * 1.4);
   color: #3C3B3B;
   font-size: 14px;
   font-family: sans-serif;
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 8px;
+  text-overflow: ellipsis;
   text-decoration: none;
 }
 
@@ -2061,16 +2060,15 @@ button {
 }
 
 .home-product-card .product-card-title {
-  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   overflow: hidden;
-  height: calc(14px * 1.45 * 3);
   color: #252831;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.45;
   margin-bottom: 0;
-  white-space: normal;
-  text-overflow: clip;
 }
 
 .home-product-card .home-card-price {
