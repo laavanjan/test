@@ -34,12 +34,12 @@ export function ProductCard({ product }: { product: Product }) {
             Kirala <ArrowRight size={14} />
           </Link> */}
         </div>
-        {/* <div className="product-meta-row" aria-label="Kiralama bilgileri">
+        <div className="product-meta-row" aria-label="Kiralama bilgileri">
           <span>
             <Truck size={13} />
             Kargo ücretsiz
           </span>
-        </div> */}
+        </div>
         <div className="product-bottom-row">
           <div className="product-bottom-info">
             <span className="product-owner">
