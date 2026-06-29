@@ -10,12 +10,12 @@ import { getStoreProducts } from "@/lib/store-catalog";
 
 export const dynamic = "force-dynamic";
 
-const steps = [
-  ["Denemek istediğin ürünü seç", "Kategorileri gez, ihtiyacına uygun ürünü bul."],
-  ["Sana uygun tarihleri belirle", "Kiralama başlangıç ve bitiş tarihlerini seç."],
-  ["Siparişin kargolansın", "Ürün seçtiğin tarihte adresine teslim edilir."],
-  ["İster süreni uzat", "Kiralama bitince ücretsiz iade süreci başlar."],
-];
+// const steps = [
+//   ["Denemek istediğin ürünü seç", "Kategorileri gez, ihtiyacına uygun ürünü bul."],
+//   ["Sana uygun tarihleri belirle", "Kiralama başlangıç ve bitiş tarihlerini seç."],
+//   ["Siparişin kargolansın", "Ürün seçtiğin tarihte adresine teslim edilir."],
+//   ["İster süreni uzat", "Kiralama bitince ücretsiz iade süreci başlar."],
+// ];
 
 const comments = [
   ["Merve E.", "PlayStation 5 Oyun Konsolu", "Oğlumun doğum günü için kiraladım. Arkadaşları ile içinde bulunan ücretsiz oyunlar sayesinde çok eğlendiler."],
@@ -48,7 +48,14 @@ export default async function Home() {
           <strong>Varsapp</strong> Nasıl Çalışır?
         </h2>
         <button className="tab-button" type="button">Kiralayan için</button>
-        <div className="step-grid">
+        <Image
+          src="/assets/ui/how-it-works.png"
+          alt="Varsapp Nasıl Çalışır"
+          width={1200}
+          height={400}
+          priority
+        />
+        {/* <div className="step-grid">
           {steps.map(([title, text], index) => (
             <article className="step-card" key={title}>
               <span>{index + 1}</span>
@@ -56,7 +63,7 @@ export default async function Home() {
               <p>{text}</p>
             </article>
           ))}
-        </div>
+        </div> */}
       </section>
 
       <ProductSection
