@@ -34,7 +34,7 @@ export default async function StaticPage({
             </details>
             <details style={{ border: "1px solid rgba(227, 231, 238, 0.95)", borderRadius: "8px", background: "#fff", padding: "16px", marginBottom: "12px" }}>
               <summary style={{ fontSize: "15px", fontWeight: 750, color: "#33363d", cursor: "pointer", userSelect: "none" }}>Kiraladığım üründe hasar oluşursa ne olur?</summary>
-              <p style={{ margin: "12px 0 0", fontSize: "14px", lineHeight: "1.6", color: "#5d6675" }}>Varsapp güvence kapsamındaki ürünlerimizde, normal kullanım kaynaklı oluşabilecek hafif çizik ve yıpranmalar güvencemiz altındadır.</p>
+              {/* <p style={{ margin: "12px 0 0", fontSize: "14px", lineHeight: "1.6", color: "#5d6675" }}>Varsapp güvence kapsamındaki ürünlerimizde, normal kullanım kaynaklı oluşabilecek hafif çizik ve yıpranmalar güvencemiz altındadır.</p> */}
             </details>
           </div>
         </section>
@@ -95,31 +95,18 @@ export default async function StaticPage({
   }
 
   if (slug === "varsapp-kullanici-yorumlari") {
-    const reviews = [
-      { name: "Merve E.", product: "Instax Mini 9", rating: 5, date: "Haziran 2026", text: "Doğum günü partisi için Instax kiraladık, anında fotoğraflar harika bir hava kattı. Kargo çok hızlı geldi, kutulama özenliydi." },
-      { name: "Sibel Y.", product: "Bissell Koltuk Yıkama", rating: 5, date: "Mayıs 2026", text: "Evdeki tüm koltukları tertemiz yaptı. 3 günlük süre fazlasıyla yetti. İade koduyla kolayca kargoya teslim ettim." },
-      { name: "Tuğba E.", product: "PlayStation 5 Konsol", rating: 5, date: "Nisan 2026", text: "İlk defa kiralama yaptım ve 3 gün daha dursa mı diye düşündüm. Çok memnun kaldık." },
-      { name: "Hakan A.", product: "Anker Nebula Projeksiyon", rating: 4, date: "Mart 2026", text: "Bahçe sineması yapmak için kiraladım. Görüntü kalitesi akşam karanlığında harika. Kurulumu da çok basitti." }
-    ];
-
     return (
       <PageShell>
         <section className="static-page shell reviews-page" style={{ padding: "48px 0" }}>
-          <h1 style={{ fontSize: "28px", fontWeight: 800, marginBottom: "16px" }}>Kullanıcılarımızın Yorumları</h1>
-          <p style={{ color: "#5d6675", marginBottom: "32px" }}>Varsapp kullanıcıları ürünü satın almadan önce deneyebildiği için memnuniyet odaklı bir kiralama deneyimi yaşar. İşte bazı müşteri yorumları:</p>
-          <div className="reviews-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "20px" }}>
-            {reviews.map((review, i) => (
-              <div key={i} style={{ border: "1px solid #edf0f4", borderRadius: "8px", padding: "20px", background: "#fff", boxShadow: "0 1px 3px rgba(0,0,0,0.02)" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
-                  <strong style={{ color: "#33363d" }}>{review.name}</strong>
-                  <span style={{ color: "#ffb020" }}>{"★".repeat(review.rating)}</span>
-                </div>
-                <div style={{ fontSize: "12px", color: "#9a9da5", marginBottom: "8px" }}>
-                  {review.product} kiraladı - {review.date}
-                </div>
-                <p style={{ fontSize: "14px", color: "#5d6675", lineHeight: "1.5", margin: 0 }}>“{review.text}”</p>
-              </div>
-            ))}
+          <h1 style={{ fontSize: "28px", fontWeight: 800, marginBottom: "24px" }}>Kullanıcılarımızın Yorumları</h1>
+          <div style={{ borderRadius: "12px", overflow: "hidden" }}>
+            <Image
+              src="/assets/ui/usercomment.webp"
+              alt="Kullanıcı Yorumları"
+              width={1200}
+              height={600}
+              style={{ width: "100%", height: "auto", display: "block" }}
+            />
           </div>
         </section>
       </PageShell>
