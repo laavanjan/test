@@ -1824,9 +1824,7 @@ button {
   display: block;
   height: 320px;
   overflow: hidden;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(246, 248, 251, 0.92)),
-    #f6f8fb;
+  background: #fff;
 }
 
 .product-media img {
