@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { UserCircle } from "lucide-react";
 import { UserSidebar } from "@/components/UserSidebar";
-import type { Customer } from "@/lib/customer-auth";
+import type { CustomerAccount } from "@/lib/customer-auth";
 
 interface HeaderClientProps {
-  account: Customer;
+  account: CustomerAccount;
 }
 
 export function HeaderClient({ account }: HeaderClientProps) {

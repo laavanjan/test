@@ -5,10 +5,10 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { useRouter } from "next/navigation";
-import type { Customer } from "@/lib/customer-auth";
+import type { CustomerAccount } from "@/lib/customer-auth";
 
 interface UserSidebarProps {
-  account: Customer;
+  account: CustomerAccount;
   isOpen: boolean;
   onClose: () => void;
 }
