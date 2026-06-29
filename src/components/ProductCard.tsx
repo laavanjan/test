@@ -30,9 +30,9 @@ export function ProductCard({ product }: { product: Product }) {
             <strong>{product.price}</strong>
             <span>/gün</span>
           </div>
-          <Link className="card-cta" href={`/urun/${product.slug}`} aria-label={`${product.name} ürününü kirala`}>
+          {/* <Link className="card-cta" href={`/urun/${product.slug}`} aria-label={`${product.name} ürününü kirala`}>
             Kirala <ArrowRight size={14} />
-          </Link>
+          </Link> */}
         </div>
         {/* <div className="product-meta-row" aria-label="Kiralama bilgileri">
           <span>
