@@ -70,16 +70,11 @@ export function AdminShell({ authConfigured, children }: AdminShellProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [activeHref, setActiveHref] = useState(pathname);
+  const currentActiveHref = activeHref.startsWith(`${pathname}#`) ? activeHref : pathname;
 
   useEffect(() => {
     window.localStorage.setItem("varsapp-admin-sidebar-collapsed", isCollapsed ? "1" : "0");
   }, [isCollapsed]);
-
-  useEffect(() => {
-    if (!activeHref.startsWith(pathname + "#")) {
-      setActiveHref(pathname);
-    }
-  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -149,7 +144,7 @@ export function AdminShell({ authConfigured, children }: AdminShellProps) {
               <div className="space-y-1">
                 {group.items.map((item) => {
                   const Icon = item.icon;
-                  const isActive = !item.disabled && item.href === activeHref;
+                  const isActive = !item.disabled && item.href === currentActiveHref;
                   const classes = [
                     "group flex h-10 items-center gap-3 rounded-xl px-3 text-sm font-bold transition",
                     isActive

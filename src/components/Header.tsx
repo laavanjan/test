@@ -12,7 +12,6 @@ import {
   UserPlus,
   UserCircle,
 } from "lucide-react";
-import { LocationSelector } from "@/components/LocationSelector";
 import { SearchBox } from "@/components/SearchBox";
 import { getCurrentCustomerAccount } from "@/lib/customer-auth";
 import { getStoreCategories } from "@/lib/store-catalog";

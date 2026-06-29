@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
+
+const montserrat = Montserrat({
+  display: "swap",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Varsapp - İhtiyacın varsa kirala!",
@@ -13,12 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" className="h-full">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-      </head>
+    <html lang="tr" className={`${montserrat.className} h-full`}>
       <body className="min-h-full antialiased">{children}</body>
     </html>
   );

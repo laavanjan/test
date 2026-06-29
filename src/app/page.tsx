@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 import { HeroSlider } from "@/components/HeroSlider";
@@ -21,12 +20,6 @@ const comments = [
   ["Merve E.", "PlayStation 5 Oyun Konsolu", "Oğlumun doğum günü için kiraladım. Arkadaşları ile içinde bulunan ücretsiz oyunlar sayesinde çok eğlendiler."],
   ["Sibel Y.", "Halı ve Koltuk Yıkama Makinesi", "Üç gün çok olur diye düşünmüştüm, ama kullanınca ideal olduğunu anlıyorsunuz. Kargolama aşaması da çok kolay oldu."],
   ["Tuğba E.", "Halı ve Koltuk Yıkama Makinesi + SC3 Buharlı Temizlik", "İlk defa kiralama yaptım ve 3 gün daha dursa mı diye düşündüm. Bu ikili gayet güzel."],
-];
-
-const quickUseCases = [
-  { label: "Hafta sonu planları", value: "Kano, kamera, oyun konsolu" },
-  { label: "Ev ihtiyaçları", value: "Temizlik ve bakım ekipmanları" },
-  { label: "Denemeden alma", value: "Teknoloji ve hobi ürünleri" },
 ];
 
 export default async function Home() {
@@ -70,15 +63,6 @@ export default async function Home() {
         title="Popüler Ürünler"
         products={products.slice(0, 10)}
       />
-
-      {/* <section className="use-case-strip shell" aria-label="Kullanım senaryoları">
-        {quickUseCases.map((item) => (
-          <article key={item.label}>
-            <span>{item.label}</span>
-            <strong>{item.value}</strong>
-          </article>
-        ))}
-      </section> */}
 
       <section className="comments shell">
         <h2 className="comments-title">Kullanıcı Yorumları</h2>
