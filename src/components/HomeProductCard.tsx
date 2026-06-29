@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Truck } from "lucide-react";
 import type { Product } from "@/data/products";
 
 export function HomeProductCard({ product }: { product: Product }) {
@@ -18,6 +19,12 @@ export function HomeProductCard({ product }: { product: Product }) {
         <Link className="product-card-title" href={`/urun/${product.slug}`}>
           {product.name}
         </Link>
+         <div className="product-meta-row">
+          <span>
+            <Truck size={13} />
+            Kargo ücretsiz
+          </span>
+        </div>
         <div className="home-card-price">
           <strong>{product.price}</strong>
           <span>/gün</span>
