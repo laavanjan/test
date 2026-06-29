@@ -97,7 +97,7 @@ export default async function StaticPage({
   if (slug === "varsapp-kullanici-yorumlari") {
     return (
       <PageShell>
-        <section className="static-page shell reviews-page" style={{ padding: "48px 0" }}>
+        <section className="static-page shell reviews-page" style={{ padding: "48px 0", border: "none", boxShadow: "none" }}>
           <h1 style={{ fontSize: "28px", fontWeight: 400, marginBottom: "24px" }}>Varsapp Kullanıcı Yorumları</h1>
           <div style={{ borderRadius: "12px", overflow: "hidden", marginBottom: "24px" }}>
             <Image
