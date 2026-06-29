@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { SearchBox } from "@/components/SearchBox";
 import { HeaderClient } from "@/components/HeaderClient";
+import { LocationSelectorConditional } from "@/components/LocationSelectorConditional";
 import { getCurrentCustomerAccount } from "@/lib/customer-auth";
 import { getStoreCategories } from "@/lib/store-catalog";
 
@@ -44,7 +45,7 @@ export async function Header() {
           />
         </Link>
 
-        {/* <LocationSelector /> */}
+        <LocationSelectorConditional />
 
         <SearchBox />
 
