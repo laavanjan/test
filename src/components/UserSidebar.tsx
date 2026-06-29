@@ -50,7 +50,7 @@ export function UserSidebar({ account, isOpen, onClose }: UserSidebarProps) {
         </button>
 
         <div className="sidebar-header">
-          <h2>Hello,</h2>
+          <h2>Merhaba,</h2>
           <p className="sidebar-username">{account.name}</p>
         </div>
 
