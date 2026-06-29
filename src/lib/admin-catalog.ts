@@ -561,7 +561,7 @@ function normalizeProductPatch(data: ProductOverrideData) {
     adminNote: data.adminNote?.trim() || "",
     discountPercent: clampNumber(data.discountPercent, 0, 100),
     discountPrice: data.discountPrice?.trim() || "",
-    minDays: clampNumber(data.minDays, 1, 365),
+    minDays: clampNumber(data.minDays, 3, 365),
     stock: clampNumber(data.stock, 0, 9999),
   };
 }
@@ -569,7 +569,7 @@ function normalizeProductPatch(data: ProductOverrideData) {
 function normalizeSettings(value: Partial<AdminCatalogSettings>): AdminCatalogSettings {
   return {
     adminNotes: value.adminNotes?.trim() || "",
-    defaultMinDays: clampNumber(value.defaultMinDays, 1, 365),
+    defaultMinDays: clampNumber(value.defaultMinDays, 3, 365),
     freeCargo: value.freeCargo ?? true,
     storeEditMode: value.storeEditMode === "live" ? "live" : "preview",
   };

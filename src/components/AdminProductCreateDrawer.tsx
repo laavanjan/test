@@ -201,7 +201,7 @@ export function AdminProductCreateDrawer() {
                     <input name="oldPrice" value={form.oldPrice} onChange={handleChange} placeholder="600,00 TL" className={inputCls} />
                   </Field>
                   <Field label="Min. Gün" required>
-                    <input name="minDays" type="number" min="1" max="365" value={form.minDays} onChange={handleChange} required className={inputCls} />
+                    <input name="minDays" type="number" min="3" max="365" value={form.minDays} onChange={handleChange} required className={inputCls} />
                   </Field>
                 </div>
 

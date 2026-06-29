@@ -151,7 +151,7 @@ export default async function AdminProductsPage({
                   <AdminInput label="İndirim %" name="discountPercent" type="number" value={String(product.discountPercent)} />
                   <AdminInput label="İndirimli fiyat" name="discountPrice" value={product.discountPrice} />
                   <AdminInput label="Stok" name="stock" type="number" value={String(product.stock)} />
-                  <AdminInput label="Min gün" name="minDays" type="number" value={String(product.minDays)} />
+                  <AdminInput label="Min gün" name="minDays" type="number" min="3" value={String(product.minDays)} />
                   <AdminInput label="Badge" name="badge" value={product.badge || ""} />
                   <label className="grid gap-1 text-xs font-black uppercase tracking-wide text-slate-400">
                     Durum
@@ -220,11 +220,13 @@ export default async function AdminProductsPage({
 
 function AdminInput({
   label,
+  min,
   name,
   type = "text",
   value,
 }: {
   label: string;
+  min?: string;
   name: string;
   type?: "number" | "text";
   value: string;
@@ -235,6 +237,7 @@ function AdminInput({
       <input
         className="h-10 rounded-xl border border-slate-200 bg-slate-50 px-3 text-sm font-bold normal-case tracking-normal text-slate-700 outline-none focus:bg-white"
         defaultValue={value}
+        min={min}
         name={name}
         type={type}
       />

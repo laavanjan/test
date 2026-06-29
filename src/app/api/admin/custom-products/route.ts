@@ -55,7 +55,7 @@ export async function POST(req: Request) {
     featured: Boolean(featured),
     image,
     location,
-    min_days: Number(minDays) || 3,
+    min_days: Math.max(3, Number(minDays) || 3),
     name,
     old_price: oldPrice || null,
     owner,

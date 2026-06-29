@@ -66,7 +66,7 @@ export function RentalDatePicker({ minDays, onChange }: RentalDatePickerProps) {
           <input
             type="date"
             value={endDate}
-            min={addDaysToDateValue(startDate, 1)}
+            min={addDaysToDateValue(startDate, minDays)}
             onChange={(event) => handleEndChange(event.target.value)}
           />
           <CalendarDays size={18} />
