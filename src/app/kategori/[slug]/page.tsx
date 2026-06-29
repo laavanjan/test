@@ -1,8 +1,35 @@
 import Link from "next/link";
-import { CalendarDays, ChevronDown, PackageCheck, ShieldCheck, SlidersHorizontal, Truck } from "lucide-react";
+import { CalendarDays, PackageCheck, ShieldCheck, SlidersHorizontal, Truck } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
 import { ProductCard } from "@/components/ProductCard";
+import { SortDropdown } from "@/components/SortDropdown";
 import { getStoreCategories, getStoreProductsByCategory } from "@/lib/store-catalog";
+import type { Product } from "@/data/products";
+
+const VALID_SORT = ["en-dusuk-fiyat", "en-yuksek-fiyat", "yeni-eklenenler", "a-dan-z-ye", "z-den-a-ya"] as const;
+type SortOption = typeof VALID_SORT[number];
+
+function parsePrice(price: string): number {
+  return parseFloat(price.replace(/\./g, "").replace(",", ".")) || 0;
+}
+
+function sortProducts(products: Product[], sort: SortOption | undefined): Product[] {
+  const sorted = [...products];
+  switch (sort) {
+    case "en-dusuk-fiyat":
+      return sorted.sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+    case "en-yuksek-fiyat":
+      return sorted.sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+    case "a-dan-z-ye":
+      return sorted.sort((a, b) => a.name.localeCompare(b.name, "tr"));
+    case "z-den-a-ya":
+      return sorted.sort((a, b) => b.name.localeCompare(a.name, "tr"));
+    case "yeni-eklenenler":
+      return sorted; // keep DB fetch order (already newest-first)
+    default:
+      return sorted.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+  }
+}
 
 export const dynamic = "force-dynamic";
 
@@ -11,10 +38,11 @@ export default async function CategoryPage({
   searchParams,
 }: {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ tarih?: string }>;
+  searchParams: Promise<{ tarih?: string; sirala?: string }>;
 }) {
   const { slug } = await params;
-  const { tarih } = await searchParams;
+  const { tarih, sirala } = await searchParams;
+  const activeSort = sirala && (VALID_SORT as readonly string[]).includes(sirala) ? (sirala as SortOption) : undefined;
   const [storeCategories, list] = await Promise.all([
     getStoreCategories(),
     getStoreProductsByCategory(slug),
@@ -25,11 +53,12 @@ export default async function CategoryPage({
       : storeCategories.find((item) => item.slug === slug);
   const activeDateFilter =
     tarih === "bu-hafta" || tarih === "hafta-sonu" ? tarih : undefined;
-  const filteredList = activeDateFilter
+  const dateFiltered = activeDateFilter
     ? list.filter((product) =>
         activeDateFilter === "hafta-sonu" ? product.minDays <= 3 : product.minDays <= 7,
       )
     : list;
+  const filteredList = sortProducts(dateFiltered, activeSort);
   const baseHref = `/kategori/${category?.slug ?? slug}`;
   const dateFilters = [
     { href: `${baseHref}?tarih=bu-hafta`, icon: CalendarDays, label: "Bu hafta müsait", value: "bu-hafta" },
@@ -69,9 +98,7 @@ export default async function CategoryPage({
               {activeDateFilter ? " Tarih filtresi aktif." : ""}
             </span> */}
           </div>
-          <button type="button">
-            Önerilen sıralama <ChevronDown size={18} />
-          </button>
+          <SortDropdown current={activeSort ?? ""} tarih={tarih} />
         </div>
 
         <div className="category-layout">
