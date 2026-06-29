@@ -74,7 +74,7 @@ export default async function StaticPage({
                 textDecoration: "none",
               }}
             >
-              Ürünleri Keşfet
+              Tüm Sayfalar
             </a>
           </div>
 
@@ -98,8 +98,8 @@ export default async function StaticPage({
     return (
       <PageShell>
         <section className="static-page shell reviews-page" style={{ padding: "48px 0" }}>
-          <h1 style={{ fontSize: "28px", fontWeight: 800, marginBottom: "24px" }}>Kullanıcılarımızın Yorumları</h1>
-          <div style={{ borderRadius: "12px", overflow: "hidden" }}>
+          <h1 style={{ fontSize: "28px", fontWeight: 400, marginBottom: "24px" }}>Varsapp Kullanıcı Yorumları</h1>
+          <div style={{ borderRadius: "12px", overflow: "hidden", marginBottom: "24px" }}>
             <Image
               src="/assets/ui/usercomment.webp"
               alt="Kullanıcı Yorumları"
@@ -107,6 +107,18 @@ export default async function StaticPage({
               height={600}
               style={{ width: "100%", height: "auto", display: "block" }}
             />
+          </div>
+          <div style={{ borderRadius: "12px", overflow: "hidden" }}>
+            <Image
+              src="/assets/ui/usercomment2.png"
+              alt="Kullanıcı Yorumları 2"
+              width={1200}
+              height={600}
+              style={{ width: "100%", height: "auto", display: "block" }}
+            />
+          </div>
+          <div style={{ marginTop: "32px", display: "flex", justifyContent: "flex-end" }}>
+            <a href="/sayfa" className="tum-sayfalar-btn">Tüm Sayfalar</a>
           </div>
         </section>
       </PageShell>
