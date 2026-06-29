@@ -10,18 +10,29 @@ import {
 } from "@/lib/supabase-admin";
 
 export type CustomerAccount = {
+  address: string;
   city: string;
+  country: string;
   created_at: string;
+  district: string;
   email: string;
+  iban: string;
   id: string;
   last_login_at?: string | null;
+  mobile_phone: string;
   name: string;
   phone: string;
+  referral_source: string;
   source: "ideasoft" | "self_signup" | "paytr" | "manual";
   status: "imported" | "active" | "disabled";
+  surname: string;
+  tax_number: string;
+  tax_office: string;
+  tr_identity_number: string;
 };
 
 type CustomerAccountRow = CustomerAccount & {
+  metadata: Record<string, unknown> | null;
   password_hash: string | null;
   password_salt: string | null;
 };
@@ -105,15 +116,25 @@ export async function registerCustomerAccount({
 export async function updateCustomerAccount(
   id: string,
   updates: {
+    address?: string;
     city?: string;
+    country?: string;
     currentPassword?: string;
+    district?: string;
     email?: string;
+    iban?: string;
+    mobile_phone?: string;
     name?: string;
     newPassword?: string;
     phone?: string;
+    referral_source?: string;
+    surname?: string;
+    tax_number?: string;
+    tax_office?: string;
+    tr_identity_number?: string;
   },
 ) {
-  const patch: Record<string, string> = { updated_at: new Date().toISOString() };
+  const patch: Record<string, unknown> = { updated_at: new Date().toISOString() };
 
   if (typeof updates.name === "string" && updates.name.trim()) {
     patch.name = updates.name.trim();
@@ -132,23 +153,41 @@ export async function updateCustomerAccount(
     }
     patch.email = normalizedEmail;
   }
-  if (typeof updates.newPassword === "string" && updates.newPassword) {
-    assertPassword(updates.newPassword);
+
+  const metaKeys = ["address", "country", "district", "iban", "mobile_phone", "referral_source", "surname", "tax_number", "tax_office", "tr_identity_number"] as const;
+  const hasMetaUpdate = metaKeys.some((k) => typeof updates[k] === "string");
+
+  if (typeof updates.newPassword === "string" && updates.newPassword || hasMetaUpdate) {
     const rows = await supabaseSelect<CustomerAccountRow[]>(
       `customer_accounts?select=*&id=eq.${encodeURIComponent(id)}&limit=1`,
     );
     const account = rows?.[0];
-    if (account?.password_hash && account?.password_salt) {
-      if (!updates.currentPassword) {
-        throw new AuthError("Mevcut şifrenizi girin.", "current_password_required", 400);
+
+    if (typeof updates.newPassword === "string" && updates.newPassword) {
+      assertPassword(updates.newPassword);
+      if (account?.password_hash && account?.password_salt) {
+        if (!updates.currentPassword) {
+          throw new AuthError("Mevcut şifrenizi girin.", "current_password_required", 400);
+        }
+        if (!verifyPassword(updates.currentPassword, account.password_salt, account.password_hash)) {
+          throw new AuthError("Mevcut şifre hatalı.", "invalid_current_password", 401);
+        }
       }
-      if (!verifyPassword(updates.currentPassword, account.password_salt, account.password_hash)) {
-        throw new AuthError("Mevcut şifre hatalı.", "invalid_current_password", 401);
-      }
+      const passwordRecord = hashPassword(updates.newPassword);
+      patch.password_hash = passwordRecord.hash;
+      patch.password_salt = passwordRecord.salt;
     }
-    const passwordRecord = hashPassword(updates.newPassword);
-    patch.password_hash = passwordRecord.hash;
-    patch.password_salt = passwordRecord.salt;
+
+    if (hasMetaUpdate) {
+      const currentMeta: Record<string, unknown> = (account?.metadata as Record<string, unknown>) ?? {};
+      const newMeta = { ...currentMeta };
+      for (const key of metaKeys) {
+        if (typeof updates[key] === "string") {
+          newMeta[key] = updates[key];
+        }
+      }
+      patch.metadata = newMeta;
+    }
   }
 
   await supabasePatch(`customer_accounts?id=eq.${encodeURIComponent(id)}`, patch);
@@ -255,16 +294,28 @@ export async function clearCustomerSession() {
 }
 
 export function publicAccount(account: CustomerAccountRow): CustomerAccount {
+  const meta = (account.metadata as Record<string, unknown>) ?? {};
+  const s = (k: string) => (typeof meta[k] === "string" ? (meta[k] as string) : "");
   return {
+    address: s("address"),
     city: account.city,
+    country: s("country") || "Turkey",
     created_at: account.created_at,
+    district: s("district"),
     email: account.email,
+    iban: s("iban"),
     id: account.id,
     last_login_at: account.last_login_at,
+    mobile_phone: s("mobile_phone"),
     name: account.name,
     phone: account.phone,
+    referral_source: s("referral_source"),
     source: account.source,
     status: account.status,
+    surname: s("surname"),
+    tax_number: s("tax_number"),
+    tax_office: s("tax_office"),
+    tr_identity_number: s("tr_identity_number"),
   };
 }
 

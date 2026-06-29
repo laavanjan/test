@@ -560,6 +560,161 @@ button {
   font-weight: 700;
 }
 
+/* Profile form */
+.profile-page {
+  width: 100%;
+}
+
+.profile-page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 20px;
+}
+
+.profile-form {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.profile-section-header {
+  background: #f5f6f8;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3a3d45;
+}
+
+.profile-section-header:first-child {
+  border-top: none;
+}
+
+.profile-row {
+  display: flex;
+  align-items: flex-start;
+  padding: 14px 20px;
+  gap: 16px;
+  border-bottom: 1px solid #f0f1f3;
+}
+
+.profile-row:last-child {
+  border-bottom: none;
+}
+
+.profile-label {
+  flex: 0 0 220px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #3a3d45;
+  padding-top: 11px;
+  min-height: 20px;
+}
+
+.req {
+  color: #ef3c63;
+}
+
+.profile-input {
+  flex: 1;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0 12px;
+  font-size: 13px;
+  color: #33363d;
+  background: #fff;
+  appearance: auto;
+}
+
+.profile-input:focus {
+  outline: none;
+  border-color: rgba(239, 60, 99, 0.55);
+  box-shadow: 0 0 0 3px rgba(239, 60, 99, 0.08);
+}
+
+.profile-textarea {
+  height: auto;
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+.profile-input-group {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+}
+
+.profile-input-group .profile-input {
+  flex: 1;
+}
+
+.profile-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #3a3d45;
+  cursor: pointer;
+  padding-top: 11px;
+}
+
+.profile-checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.profile-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 20px;
+  background: #fafbfc;
+  border-top: 1px solid var(--line);
+}
+
+.profile-btn-back {
+  height: 40px;
+  padding: 0 28px;
+  border-radius: 4px;
+  border: none;
+  background: #f5c242;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.profile-btn-back:hover {
+  background: #e6b130;
+}
+
+.profile-btn-save {
+  height: 40px;
+  padding: 0 28px;
+  border-radius: 4px;
+  border: none;
+  background: #ef3c63;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.profile-btn-save:hover {
+  background: #d8294f;
+}
+
+.profile-btn-save:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
 .account-empty {
   display: grid;
   justify-items: center;

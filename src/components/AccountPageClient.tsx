@@ -136,41 +136,109 @@ export function AccountPageClient({
   );
 }
 
+const TR_CITIES = [
+  "Adana","Adıyaman","Afyonkarahisar","Ağrı","Amasya","Ankara","Antalya","Artvin",
+  "Aydın","Balıkesir","Bilecik","Bingöl","Bitlis","Bolu","Burdur","Bursa","Çanakkale",
+  "Çankırı","Çorum","Denizli","Diyarbakır","Edirne","Elazığ","Erzincan","Erzurum",
+  "Eskişehir","Gaziantep","Giresun","Gümüşhane","Hakkari","Hatay","Isparta","Mersin",
+  "İstanbul","İzmir","Kars","Kastamonu","Kayseri","Kırklareli","Kırşehir","Kocaeli",
+  "Konya","Kütahya","Malatya","Manisa","Kahramanmaraş","Mardin","Muğla","Muş",
+  "Nevşehir","Niğde","Ordu","Rize","Sakarya","Samsun","Siirt","Sinop","Sivas",
+  "Tekirdağ","Tokat","Trabzon","Tunceli","Şanlıurfa","Uşak","Van","Yozgat","Zonguldak",
+  "Aksaray","Bayburt","Karaman","Kırıkkale","Batman","Şırnak","Bartın","Ardahan",
+  "Iğdır","Yalova","Karabük","Kilis","Osmaniye","Düzce",
+];
+
+const REFERRAL_OPTIONS = [
+  { label: "Select", value: "" },
+  { label: "Social Media", value: "social_media" },
+  { label: "Friend Recommendation", value: "friend" },
+  { label: "Google / Search Engine", value: "google" },
+  { label: "TV / Radio", value: "tv_radio" },
+  { label: "Advertisement", value: "advertisement" },
+  { label: "Other", value: "other" },
+];
+
 function ProfileTab({ account }: { account: CustomerAccount }) {
   const router = useRouter();
 
   const [name, setName] = useState(account.name);
+  const [surname, setSurname] = useState(account.surname);
   const [email, setEmail] = useState(account.email);
   const [phone, setPhone] = useState(account.phone === "-" ? "" : account.phone);
-  const [city, setCity] = useState(account.city === "-" ? "" : account.city);
-  const [saving, setSaving] = useState(false);
-  const [infoMessage, setInfoMessage] = useState<{ text: string; type: "success" | "error" } | null>(null);
+  const [mobilePhone, setMobilePhone] = useState(account.mobile_phone);
+  const [trId, setTrId] = useState(account.tr_identity_number);
+  const [referralSource, setReferralSource] = useState(account.referral_source);
 
+  const [country, setCountry] = useState(account.country || "Turkey");
+  const [city, setCity] = useState(account.city === "-" ? "" : account.city);
+  const [district, setDistrict] = useState(account.district);
+  const [address, setAddress] = useState(account.address);
+  const [iban, setIban] = useState(account.iban);
+  const [taxNumber, setTaxNumber] = useState(account.tax_number);
+  const [taxOffice, setTaxOffice] = useState(account.tax_office);
+
+  const [wantNewPassword, setWantNewPassword] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [savingPassword, setSavingPassword] = useState(false);
-  const [passwordMessage, setPasswordMessage] = useState<{ text: string; type: "success" | "error" } | null>(null);
 
-  async function handleInfoSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const [saving, setSaving] = useState(false);
+  const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null);
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (saving) return;
+
+    if (wantNewPassword && newPassword !== confirmPassword) {
+      setMessage({ text: "New passwords do not match.", type: "error" });
+      return;
+    }
+
     setSaving(true);
-    setInfoMessage(null);
+    setMessage(null);
 
     try {
+      const body: Record<string, string> = {
+        address,
+        city,
+        country,
+        district,
+        email,
+        iban,
+        mobile_phone: mobilePhone,
+        name,
+        phone,
+        referral_source: referralSource,
+        surname,
+        tax_number: taxNumber,
+        tax_office: taxOffice,
+        tr_identity_number: trId,
+      };
+
+      if (wantNewPassword && newPassword) {
+        body.currentPassword = currentPassword;
+        body.newPassword = newPassword;
+      }
+
       const response = await fetch("/api/auth/me", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ city, email, name, phone }),
+        body: JSON.stringify(body),
       });
       const data = await response.json();
-      if (!response.ok) throw new Error(data?.error || "Profil güncellenemedi.");
-      setInfoMessage({ text: "Profiliniz güncellendi.", type: "success" });
+      if (!response.ok) throw new Error(data?.error || "Profile could not be updated.");
+      setMessage({ text: "Your profile has been updated.", type: "success" });
+      if (wantNewPassword) {
+        setWantNewPassword(false);
+        setCurrentPassword("");
+        setNewPassword("");
+        setConfirmPassword("");
+      }
       router.refresh();
     } catch (error) {
-      setInfoMessage({
-        text: error instanceof Error ? error.message : "Profil güncellenemedi.",
+      setMessage({
+        text: error instanceof Error ? error.message : "Profile could not be updated.",
         type: "error",
       });
     } finally {
@@ -178,134 +246,134 @@ function ProfileTab({ account }: { account: CustomerAccount }) {
     }
   }
 
-  async function handlePasswordSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (savingPassword) return;
-
-    if (newPassword !== confirmPassword) {
-      setPasswordMessage({ text: "Yeni şifreler eşleşmiyor.", type: "error" });
-      return;
-    }
-
-    setSavingPassword(true);
-    setPasswordMessage(null);
-
-    try {
-      const response = await fetch("/api/auth/me", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ currentPassword, newPassword }),
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data?.error || "Şifre değiştirilemedi.");
-      setPasswordMessage({ text: "Şifreniz güncellendi.", type: "success" });
-      setCurrentPassword("");
-      setNewPassword("");
-      setConfirmPassword("");
-    } catch (error) {
-      setPasswordMessage({
-        text: error instanceof Error ? error.message : "Şifre değiştirilemedi.",
-        type: "error",
-      });
-    } finally {
-      setSavingPassword(false);
-    }
-  }
-
   return (
-    <div className="account-panel">
-      <h1>Üyelik Bilgilerim</h1>
+    <div className="profile-page">
+      <h1 className="profile-page-title">Update My Profile</h1>
 
-      <form className="account-form" onSubmit={handleInfoSubmit}>
-        <label>
-          <span>Ad Soyad</span>
-          <input
-            type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          <span>E-posta</span>
-          <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-          />
-        </label>
-        <label>
-          <span>Telefon</span>
-          <input
-            type="tel"
-            value={phone}
-            onChange={(event) => setPhone(event.target.value)}
-            placeholder="(5XX) XXX XX XX"
-          />
-        </label>
-        <label>
-          <span>Şehir</span>
-          <input
-            type="text"
-            value={city}
-            onChange={(event) => setCity(event.target.value)}
-            placeholder="Şehir"
-          />
-        </label>
+      <form className="profile-form" onSubmit={handleSubmit}>
+        <div className="profile-section-header">My Member Information</div>
 
-        {infoMessage && (
-          <p className={`auth-message ${infoMessage.type}`}>{infoMessage.text}</p>
+        <div className="profile-row">
+          <label className="profile-label" htmlFor="pf-name">Name <span className="req">*</span></label>
+          <input id="pf-name" className="profile-input" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+        </div>
+
+        <div className="profile-row">
+          <label className="profile-label" htmlFor="pf-surname">Surname <span className="req">*</span></label>
+          <input id="pf-surname" className="profile-input" type="text" value={surname} onChange={(e) => setSurname(e.target.value)} required />
+        </div>
+
+        <div className="profile-row">
+          <label className="profile-label" htmlFor="pf-email">Email <span className="req">*</span></label>
+          <input id="pf-email" className="profile-input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        </div>
+
+        <div className="profile-row">
+          <label className="profile-label" htmlFor="pf-phone">Phone</label>
+          <input id="pf-phone" className="profile-input" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="(XXX) XXX XX XX" />
+        </div>
+
+        <div className="profile-row">
+          <label className="profile-label" htmlFor="pf-mobile">Mobile Phone <span className="req">*</span></label>
+          <input id="pf-mobile" className="profile-input" type="tel" value={mobilePhone} onChange={(e) => setMobilePhone(e.target.value)} placeholder="+90 (XXX) XXX XX XX" required />
+        </div>
+
+        <div className="profile-row">
+          <label className="profile-label" htmlFor="pf-trid">TR Identity Number <span className="req">*</span></label>
+          <input id="pf-trid" className="profile-input" type="text" value={trId} onChange={(e) => setTrId(e.target.value)} required maxLength={11} />
+        </div>
+
+        <div className="profile-row">
+          <label className="profile-label" htmlFor="pf-referral">Welcome! Can we find out where he heard us?</label>
+          <select id="pf-referral" className="profile-input" value={referralSource} onChange={(e) => setReferralSource(e.target.value)}>
+            {REFERRAL_OPTIONS.map((o) => (
+              <option key={o.value} value={o.value}>{o.label}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="profile-section-header">Edit Address</div>
+
+        <div className="profile-row">
+          <label className="profile-label">Country / City</label>
+          <div className="profile-input-group">
+            <select className="profile-input" value={country} onChange={(e) => setCountry(e.target.value)}>
+              <option value="Turkey">Turkey</option>
+            </select>
+            <select className="profile-input" value={city} onChange={(e) => setCity(e.target.value)}>
+              <option value="">Select city</option>
+              {TR_CITIES.map((c) => (
+                <option key={c} value={c}>{c}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="profile-row">
+          <label className="profile-label" htmlFor="pf-district">District</label>
+          <input id="pf-district" className="profile-input" type="text" value={district} onChange={(e) => setDistrict(e.target.value)} />
+        </div>
+
+        <div className="profile-row">
+          <label className="profile-label" htmlFor="pf-address">Address</label>
+          <textarea id="pf-address" className="profile-input profile-textarea" value={address} onChange={(e) => setAddress(e.target.value)} rows={4} />
+        </div>
+
+        <div className="profile-row">
+          <label className="profile-label" htmlFor="pf-iban">IBAN</label>
+          <input id="pf-iban" className="profile-input" type="text" value={iban} onChange={(e) => setIban(e.target.value)} />
+        </div>
+
+        <div className="profile-row">
+          <label className="profile-label" htmlFor="pf-taxno">Tax Number</label>
+          <input id="pf-taxno" className="profile-input" type="text" value={taxNumber} onChange={(e) => setTaxNumber(e.target.value)} />
+        </div>
+
+        <div className="profile-row">
+          <label className="profile-label" htmlFor="pf-taxoffice">Tax Office</label>
+          <input id="pf-taxoffice" className="profile-input" type="text" value={taxOffice} onChange={(e) => setTaxOffice(e.target.value)} />
+        </div>
+
+        <div className="profile-section-header">Password Change</div>
+
+        <div className="profile-row">
+          <label className="profile-label" />
+          <label className="profile-checkbox-label">
+            <input type="checkbox" checked={wantNewPassword} onChange={(e) => setWantNewPassword(e.target.checked)} />
+            I Want to Set a New Password
+          </label>
+        </div>
+
+        {wantNewPassword && (
+          <>
+            <div className="profile-row">
+              <label className="profile-label" htmlFor="pf-curpw">Current Password</label>
+              <input id="pf-curpw" className="profile-input" type="password" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} required={wantNewPassword} />
+            </div>
+            <div className="profile-row">
+              <label className="profile-label" htmlFor="pf-newpw">New Password</label>
+              <input id="pf-newpw" className="profile-input" type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required={wantNewPassword} minLength={8} />
+            </div>
+            <div className="profile-row">
+              <label className="profile-label" htmlFor="pf-confirmpw">New Password (Again)</label>
+              <input id="pf-confirmpw" className="profile-input" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required={wantNewPassword} minLength={8} />
+            </div>
+          </>
         )}
 
-        <button className="rent-button" type="submit" disabled={saving}>
-          {saving ? "Kaydediliyor..." : "Bilgileri Güncelle"}
-        </button>
-      </form>
-
-      <div className="account-section-divider">
-        <h2>Şifre Değiştir</h2>
-      </div>
-
-      <form className="account-form" onSubmit={handlePasswordSubmit}>
-        <label>
-          <span>Mevcut Şifre</span>
-          <input
-            type="password"
-            value={currentPassword}
-            onChange={(event) => setCurrentPassword(event.target.value)}
-            required
-          />
-        </label>
-        <div />
-        <label>
-          <span>Yeni Şifre</span>
-          <input
-            type="password"
-            value={newPassword}
-            onChange={(event) => setNewPassword(event.target.value)}
-            required
-            minLength={8}
-          />
-        </label>
-        <label>
-          <span>Yeni Şifre (Tekrar)</span>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(event) => setConfirmPassword(event.target.value)}
-            required
-            minLength={8}
-          />
-        </label>
-
-        {passwordMessage && (
-          <p className={`auth-message ${passwordMessage.type}`}>{passwordMessage.text}</p>
+        {message && (
+          <div className="profile-row">
+            <label className="profile-label" />
+            <p className={`auth-message ${message.type}`}>{message.text}</p>
+          </div>
         )}
 
-        <button className="rent-button" type="submit" disabled={savingPassword}>
-          {savingPassword ? "Kaydediliyor..." : "Şifreyi Güncelle"}
-        </button>
+        <div className="profile-form-actions">
+          <button type="button" className="profile-btn-back" onClick={() => router.push("/")}>Back</button>
+          <button type="submit" className="profile-btn-save" disabled={saving}>
+            {saving ? "Saving..." : "Save"}
+          </button>
+        </div>
       </form>
     </div>
   );
