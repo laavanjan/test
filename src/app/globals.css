@@ -2165,11 +2165,7 @@ button {
   gap: 20px;
   min-height: 94px;
   margin-top: 10px;
-  border: 1px solid rgba(227, 231, 238, 0.95);
-  border-radius: 8px;
-  background: var(--surface);
   padding: 18px;
-  box-shadow: var(--shadow-sm);
 }
 
 .section-kicker {
@@ -2247,7 +2243,7 @@ button {
 
 .category-layout {
   display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
   align-items: start;
   margin-top: 14px;

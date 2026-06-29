@@ -62,12 +62,12 @@ export default async function CategoryPage({
 
         <div className="category-toolbar">
           <div>
-            <p className="section-kicker">Kiralık ürünler</p>
-            <h1>{category.name}</h1>
-            <span>
+            {/* <p className="section-kicker">Kiralık ürünler</p> */}
+            {/* <h1>{category.name}</h1> */}
+            {/* <span>
               {filteredList.length} ürün, minimum 3 günlük kiralama ve ücretsiz kargo seçenekleri.
               {activeDateFilter ? " Tarih filtresi aktif." : ""}
-            </span>
+            </span> */}
           </div>
           <button type="button">
             Önerilen sıralama <ChevronDown size={18} />
@@ -75,7 +75,7 @@ export default async function CategoryPage({
         </div>
 
         <div className="category-layout">
-          <aside className="filter-sidebar" aria-label="Ürün filtreleri">
+          {/* <aside className="filter-sidebar" aria-label="Ürün filtreleri">
             <div>
               <p>
                 <SlidersHorizontal size={16} />
@@ -112,10 +112,10 @@ export default async function CategoryPage({
                 Stokta
               </label>
             </fieldset>
-          </aside>
+          </aside> */}
 
           <div className="category-results">
-            <div className="category-filterbar" aria-label="Aktif filtreler">
+            {/* <div className="category-filterbar" aria-label="Aktif filtreler">
               <Link
                 className={activeDateFilter ? "active" : undefined}
                 href={`${baseHref}?tarih=bu-hafta`}
@@ -135,7 +135,7 @@ export default async function CategoryPage({
                 <PackageCheck size={16} />
                 Stokta
               </button>
-            </div>
+            </div> */}
 
             {filteredList.length > 0 ? (
               <div className="product-grid category-grid">
