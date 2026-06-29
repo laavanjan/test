@@ -1205,11 +1205,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/006/1695201106-906114.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/006/1695201106-906114.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/006/1695201106-906114_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/006/1695201106-906114_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/006/1695201107-418176.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/006/1695201107-418176_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/006/1695201107-418176_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/006/1695201109-807304.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/006/1695201109-807304_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/006/1695201109-807304_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_67163576",
@@ -1228,11 +1228,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/844/1744070781-138938.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/844/1744070781-138938.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/844/1744070781-138938_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/844/1744070781-138938_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/844/1744070784-552908.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/844/1744070784-552908_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/844/1744070784-552908_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/844/1744070787-489532.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/844/1744070787-489532_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/844/1744070787-489532_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_78488373",
@@ -1251,11 +1251,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/686/1740732631-624632.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/686/1740732631-624632.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/686/1740732631-624632_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/686/1740732631-624632_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/686/1740732634-612911.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/686/1740732634-612911_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/686/1740732634-612911_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/686/1740732637-897515.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/686/1740732637-897515_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/686/1740732637-897515_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_41989160",
@@ -1274,11 +1274,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/824/1743848174-143058.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/824/1743848174-143058.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/824/1743848174-143058_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/824/1743848174-143058_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/824/1743848177-151578.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/824/1743848177-151578_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/824/1743848177-151578_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/824/1743848179-272616.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/824/1743848179-272616_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/824/1743848179-272616_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_20962407",
@@ -1320,11 +1320,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/461/1735996893-673511.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/461/1735996893-673511.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/461/1735996893-673511_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/461/1735996893-673511_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/461/1735996896-420504.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/461/1735996896-420504_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/461/1735996896-420504_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/461/1735996899-832924.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/461/1735996899-832924_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/461/1735996899-832924_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_43434076",
@@ -1343,11 +1343,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/520/1736937146-785614.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/520/1736937146-785614.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/520/1736937146-785614_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/520/1736937146-785614_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/520/1736937150-805369.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/520/1736937150-805369_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/520/1736937150-805369_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/520/1736937154-691865.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/520/1736937154-691865_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/520/1736937154-691865_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_24065698",
@@ -1412,11 +1412,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/470/1773222461-117472.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/470/1773222461-117472.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/470/1773222461-117472_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/470/1773222461-117472_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/470/1773222463-909160.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/470/1773222463-909160_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/470/1773222463-909160_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/470/1773222466-503959.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/470/1773222466-503959_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/470/1773222466-503959_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_43371385",
@@ -1435,11 +1435,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/354/1764151770-678343.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/354/1764151770-678343.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/354/1764151770-678343_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/354/1764151770-678343_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/354/1764151772-580023.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/354/1764151772-580023_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/354/1764151772-580023_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/354/1764151775-817789.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/354/1764151775-817789_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/354/1764151775-817789_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_85480414",
@@ -1481,11 +1481,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/607/1738576713-268579.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/607/1738576713-268579.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/607/1738576713-268579_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/607/1738576713-268579_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/607/1738576716-434149.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/607/1738576716-434149_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/607/1738576716-434149_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/607/1738576718-335211.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/607/1738576718-335211_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/607/1738576718-335211_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_63024061",
@@ -1527,11 +1527,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/960/sc3-easyfix-cam-silme-aparatli.png",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/960/sc3-easyfix-cam-silme-aparatli.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/960/sc3-easyfix-cam-silme-aparatli_min.png",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/960/sc3-easyfix-cam-silme-aparatli_min.png",
       "https://www.varsapp.com/idea/iq/19/myassets/products/960/1693987768-914657.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/960/1693987768-914657_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/960/1693987768-914657_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/960/1693987769-612041.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/960/1693987769-612041_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/960/1693987769-612041_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_13102773",
@@ -1573,11 +1573,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/346/1734472248-367576.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/346/1734472248-367576.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/346/1734472248-367576_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/346/1734472248-367576_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/346/1734472251-206957.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/346/1734472251-206957_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/346/1734472251-206957_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/518/4326_min.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/515/1736934193-615031_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/515/1736934193-615031_min.jpg"
     ],
     "minDays": 3,
     "sku": "42993_93104432",
@@ -1642,11 +1642,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/628/1738922782-147687.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/628/1738922782-147687.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/628/1738922782-147687_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/628/1738922782-147687_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/628/1738922786-980545.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/628/1738922786-980545_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/628/1738922786-980545_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/628/1738922789-864137.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/628/1738922789-864137_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/628/1738922789-864137_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_32112256",
@@ -1712,11 +1712,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/264/1758883325-900217.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/264/1758883325-900217.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/264/1758883325-900217_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/264/1758883325-900217_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/264/1758883328-524604.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/264/1758883328-524604_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/264/1758883328-524604_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/264/1758883330-479956.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/264/1758883330-479956_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/264/1758883330-479956_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_81278105",
