@@ -209,11 +209,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/730/ikili-urun-tasarimi-10.png",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/730/ikili-urun-tasarimi-10.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/730/ikili-urun-tasarimi-10_min.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/730/1703192320-965951.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/730/1703192320-965951_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/730/ikili-urun-tasarimi-10_min.png",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/730/1703192320-965951.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/730/1703192320-965951_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_71649433",
@@ -284,11 +284,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/466/1673873936-367926.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/466/1673873936-367926.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/466/1673873936-367926_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/570/itiwit-sup-100-l-compact-blanc-et-bleu-8642807-000-expires-on-23-01-2034-1_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/558/1774518362-743181_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/466/1673873936-367926_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/570/itiwit-sup-100-l-compact-blanc-et-bleu-8642807-000-expires-on-23-01-2034-1_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/558/1774518362-743181_min.jpg"
     ],
     "minDays": 3,
     "sku": "4958_66468876",
@@ -353,12 +353,12 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/060/buharli-robotik.png",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/060/buharli-robotik.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/060/buharli-robotik_min.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/060/1706449624-959068.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/060/1706449624-959068_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
-    ],
+    //   "https://www.varsapp.com/idea/iq/19/myassets/products/060/buharli-robotik_min.png",
+    //   "https://www.varsapp.com/idea/iq/19/myassets/products/060/1706449624-959068.jpg",
+    //   "https://www.varsapp.com/idea/iq/19/myassets/products/060/1706449624-959068_min.jpg",
+    //   "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
+    //   "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
+     ],
     "minDays": 3,
     "sku": "3208_63071908",
     "owner": "Varsapp",
@@ -399,11 +399,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/083/1696867790-508813.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/083/1696867790-508813.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/083/1696867790-508813_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/083/1696867790-508813_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/083/1696867792-140089.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/083/1696867792-140089_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/520/1736937146-785614_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/988/ikili-urun-tasarimi-3_min.png"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/083/1696867792-140089_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/520/1736937146-785614_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/988/ikili-urun-tasarimi-3_min.png"
     ],
     "minDays": 3,
     "sku": "3208_41926108",
@@ -540,13 +540,13 @@ export const products: Product[] = [
     "price": "520,00 TL",
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/508/decathlon-ikili-paket.png",
     "gallery": [
-      "https://www.varsapp.com/idea/iq/19/myassets/products/508/decathlon-ikili-paket.png",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/508/decathlon-ikili-paket.png",
       "https://www.varsapp.com/idea/iq/19/myassets/products/508/decathlon-ikili-paket_min.png",
       "https://www.varsapp.com/idea/iq/19/myassets/products/508/screenshot-2026-04-17-at-14-42-01.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/508/screenshot-2026-04-17-at-14-42-01_min.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
-    ],
+    //   "https://www.varsapp.com/idea/iq/19/myassets/products/508/screenshot-2026-04-17-at-14-42-01_min.png",
+    //   "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
+    //   "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
+     ],
     "minDays": 3,
     "sku": "3208_13544844",
     "owner": "Varsapp",
