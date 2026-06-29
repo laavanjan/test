@@ -126,7 +126,12 @@ export function Footer() {
       <div className="footer-bottom-wrap">
         <div className="shell footer-bottom">
           <span>Copyright © 2024 varsapp.com - Tüm Hakları Saklıdır.</span>
-          <Image src="/assets/ui/ssl-banka-logolar.png" alt="ssl-banka-logo" width={460} height={148} />
+          <div className="footer-bottom-images">
+            <Image src="/assets/ui/ssl-banka-logolar.png" alt="ssl-banka-logo" width={460} height={148} />
+            <a href="https://etbis.eticaret.gov.tr/sitedogrulama/4814540232075570" target="_blank" rel="noreferrer" aria-label="ETBİS Site Doğrulama">
+              <Image src="/assets/ui/QR code.jpg" alt="QR Code" width={148} height={148} />
+            </a>
+          </div>
         </div>
         <div className="footer-credit">
           <a href="https://www.ideasoft.com.tr/?utm_source=www.varsapp.com&utm_medium=referral" target="_blank" rel="noreferrer">

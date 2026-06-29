@@ -81,7 +81,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="faq-section shell">
+      {/* <section className="faq-section shell">
         <h2>Sıkça Sorulan Sorular</h2>
         <div className="faq-list">
           <details>
@@ -105,7 +105,7 @@ export default async function Home() {
             <p>Varsapp güvence kapsamındaki ürünlerimizde, normal kullanım kaynaklı oluşabilecek hafif çizik ve yıpranmalar güvencemiz altındadır.</p>
           </details>
         </div>
-      </section>
+      </section> */}
 
       <Link className="whatsapp" href="/" aria-label="WhatsApp ile iletişime geç">
         <MessageCircle size={20} />
