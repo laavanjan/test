@@ -35,10 +35,10 @@ export const products: Product[] = [
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/988/ikili-urun-tasarimi-3.png",
       "https://www.varsapp.com/idea/iq/19/myassets/products/988/ikili-urun-tasarimi-3_min.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/988/1705908893-456322.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/988/1705908893-456322.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/988/1705908893-456322_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_59739597",
@@ -83,11 +83,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/279/1759395890-159896.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/279/1759395890-159896.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/279/1759395890-159896_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/279/1759395890-159896_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/279/1759395892-375431.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/279/1759395892-375431_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/279/1759395892-375431_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/279/1759395895-917445.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/279/1759395895-917445_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/279/1759395895-917445_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_64592123",
@@ -108,11 +108,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/277/1759395682-558746.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/277/1759395682-558746.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/277/1759395682-558746_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/277/1759395682-558746_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/277/1759395685-619621.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/277/1759395685-619621_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/277/1759395685-619621_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/277/1759395686-246098.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/277/1759395686-246098_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/277/1759395686-246098_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_62129263",
@@ -133,11 +133,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/275/1759395104-197809.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/275/1759395104-197809.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/275/1759395104-197809_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/275/1759395104-197809_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/275/1759395111-292338.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/275/1759395111-292338_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/275/1759395111-292338_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/275/1759395118-205074.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/275/1759395118-205074_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/275/1759395118-205074_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_30903148",
