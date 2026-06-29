@@ -5,6 +5,7 @@ import { HeroSlider } from "@/components/HeroSlider";
 import { PageShell } from "@/components/PageShell";
 import { HomeProductCard } from "@/components/HomeProductCard";
 import { AdvantagesRow } from "@/components/AdvantagesRow";
+import { CommentsCarousel } from "@/components/CommentsCarousel";
 import type { Product } from "@/data/products";
 import { getStoreProducts } from "@/lib/store-catalog";
 
@@ -18,9 +19,11 @@ export const dynamic = "force-dynamic";
 // ];
 
 const comments = [
-  ["Merve E.", "PlayStation 5 Oyun Konsolu", "Oğlumun doğum günü için kiraladım. Arkadaşları ile içinde bulunan ücretsiz oyunlar sayesinde çok eğlendiler."],
-  ["Sibel Y.", "Halı ve Koltuk Yıkama Makinesi", "Üç gün çok olur diye düşünmüştüm, ama kullanınca ideal olduğunu anlıyorsunuz. Kargolama aşaması da çok kolay oldu."],
-  ["Tuğba E.", "Halı ve Koltuk Yıkama Makinesi + SC3 Buharlı Temizlik", "İlk defa kiralama yaptım ve 3 gün daha dursa mı diye düşündüm. Bu ikili gayet güzel."],
+  ["Merve E.", "PlayStation 5 Oyun Konsolu", "Oğlumun doğum günü için kiraladım. Arkadaşları ile içinde bulunan ücretsiz oyunlar sayesinde çok eğlendiler. Tüm hizmetleriniz için teşekkür ederim."],
+  ["Sibel Y.", "Halı ve Koltuk Yıkama Makinesi", "Üç gün çok olur diye düşünmüştüm, ama kullanınca ideal olduğunu anlıyorsunuz. Kargolama aşaması da çok kolay oldu. Sizi çok sevdim. Hizmetiniz için teşekkürler. Tekrar tekrar yolumuz kesişecek 😊"],
+  ["Tuğba E.", "Halı ve Koltuk Yıkama Makinesi + SC3 Buharlı Temizlik", "İlk defa kiralama yaptım ve 3 gün daha dursa mı diye düşündüm. Bu ikili gayet güzel. Halı, koltuk, cam, kapı, pencere ne gelirse aklınıza mis gibi temizliyor."],
+  ["Enes T.", "Bood Kule Parti Hoparlör + PlayStation 4", "Yılbaşı için paket olarak ürün kiraladım. Kiraladığımdan beri severek kullandım. Varsapp ailesine teşekkürler."],
+  ["Hakan Z.", "Oculus Quest 3 VR Gözlük", "Yeni çıkan VR gözlüğün diğerlerinden nasıl bir farkı var diye denemek için kiraladım. Zonguldak'ta adresime teslim edildi dönüşte kargo şubesine ücretsiz bıraktım. Tüm süreçler çok açıklayıcıydı."],
 ];
 
 export default async function Home() {
@@ -65,21 +68,7 @@ export default async function Home() {
         products={products.slice(0, 10)}
       />
 
-      <section className="comments shell">
-        <h2 className="comments-title">Kullanıcı Yorumları</h2>
-        <div className="comment-grid">
-          {comments.map(([name, product, quote]) => (
-            <article className="comment-card" key={name}>
-              <div className="comment-stars">★★★★★</div>
-              <p>{quote}</p>
-              <div className="comment-author">
-                <h3>{name}</h3>
-                <span>{product}</span>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+      <CommentsCarousel comments={comments} />
 
       {/* <section className="faq-section shell">
         <h2>Sıkça Sorulan Sorular</h2>

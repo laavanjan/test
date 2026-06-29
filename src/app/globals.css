@@ -1954,6 +1954,68 @@ button {
   margin-bottom: 24px;
 }
 
+.comments-carousel {
+  position: relative;
+  padding: 0 56px;
+}
+
+.comments-track {
+  overflow: hidden;
+  width: 100%;
+}
+
+.comments-slider {
+  display: flex;
+  transition: transform 0.8s ease;
+}
+
+.comment-card-slide {
+  flex: 0 0 calc(100% / 3);
+  box-sizing: border-box;
+  padding: 0 10px;
+  display: flex;
+}
+
+.comment-card-slide .comment-card {
+  flex: 1;
+}
+
+.comments-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: #343944;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: border-color 150ms ease, color 150ms ease;
+  z-index: 2;
+}
+
+.comments-arrow.left {
+  left: 0;
+}
+
+.comments-arrow.right {
+  right: 0;
+}
+
+.comments-arrow:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.comments-arrow:disabled {
+  cursor: default;
+}
+
 .use-case-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
