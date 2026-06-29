@@ -1783,8 +1783,8 @@ export const products: Product[] = [
       "https://www.varsapp.com/idea/iq/19/myassets/products/114/1674555127-645762.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/114/1674555127-645762_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/910/1728469044-497576_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/647/10_min.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/963/varsapp-ai_min.png"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/647/10_min.png",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/963/varsapp-ai_min.png"
     ],
     "minDays": 3,
     "sku": "3208_4",
@@ -1803,11 +1803,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/104/1674572940-478592.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/104/1674572940-478592.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/104/1674572940-478592_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/570/itiwit-sup-100-l-compact-blanc-et-bleu-8642807-000-expires-on-23-01-2034-1_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/557/1774518362-743181_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/104/1674572940-478592_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/570/itiwit-sup-100-l-compact-blanc-et-bleu-8642807-000-expires-on-23-01-2034-1_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/557/1774518362-743181_min.jpg"
     ],
     "minDays": 3,
     "sku": "4453_11627774",
@@ -1872,11 +1872,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/942/2.png",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/942/2.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/942/2_min.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/570/itiwit-sup-100-l-compact-blanc-et-bleu-8642807-000-expires-on-23-01-2034-1_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/558/1774518362-743181_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/942/2_min.png",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/570/itiwit-sup-100-l-compact-blanc-et-bleu-8642807-000-expires-on-23-01-2034-1_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/558/1774518362-743181_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_8",
@@ -1917,13 +1917,13 @@ export const products: Product[] = [
     "price": "430,00 TL",
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/452/1674552126-415449.jpg",
     "gallery": [
-      "https://www.varsapp.com/idea/iq/19/myassets/products/452/1674552126-415449.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/452/1674552126-415449.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/452/1674552126-415449_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/452/1674552128-879821.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/452/1674552128-879821.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/452/1674552128-879821_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/520/1736937146-785614_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/988/ikili-urun-tasarimi-3_min.png"
-    ],
+    //   "https://www.varsapp.com/idea/iq/19/myassets/products/520/1736937146-785614_min.jpg",
+    //   "https://www.varsapp.com/idea/iq/19/myassets/products/988/ikili-urun-tasarimi-3_min.png"
+     ],
     "minDays": 3,
     "sku": "3208_41319102",
     "owner": "Varsapp",
@@ -1941,11 +1941,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/341/1721657906-116790.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/341/1721657906-116790.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/341/1721657906-116790_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/570/itiwit-sup-100-l-compact-blanc-et-bleu-8642807-000-expires-on-23-01-2034-1_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/557/1774518362-743181_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/341/1721657906-116790_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/570/itiwit-sup-100-l-compact-blanc-et-bleu-8642807-000-expires-on-23-01-2034-1_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/557/1774518362-743181_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_56517395",
@@ -1964,11 +1964,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/746/1742295603-615388.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/746/1742295603-615388.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/746/1742295603-615388_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/570/itiwit-sup-100-l-compact-blanc-et-bleu-8642807-000-expires-on-23-01-2034-1_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/558/1774518362-743181_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/746/1742295603-615388_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/570/itiwit-sup-100-l-compact-blanc-et-bleu-8642807-000-expires-on-23-01-2034-1_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/558/1774518362-743181_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_58564148",
@@ -1986,13 +1986,13 @@ export const products: Product[] = [
     "price": "240,00 TL",
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/380/1721977705-168204.jpg",
     "gallery": [
-      "https://www.varsapp.com/idea/iq/19/myassets/products/380/1721977705-168204.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/380/1721977705-168204.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/380/1721977705-168204_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/380/2024-07-26-14-05-11.png",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/380/2024-07-26-14-05-11.png",
       "https://www.varsapp.com/idea/iq/19/myassets/products/380/2024-07-26-14-05-11_min.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
-    ],
+    //   "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
+    //   "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
+     ],
     "minDays": 3,
     "sku": "3208_62465684",
     "owner": "Varsapp",
@@ -2010,12 +2010,12 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/381/1721977875-211840.jpg",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/381/1721977875-211840.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/381/1721977875-211840_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/381/1721977875-211840_min.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/381/2024-07-26-14-03-57.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/381/2024-07-26-14-03-57_min.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
-    ],
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/381/2024-07-26-14-03-57_min.png",
+    //   "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
+    //   "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
+     ],
     "minDays": 3,
     "sku": "3208_99022156",
     "owner": "Varsapp",
@@ -2170,12 +2170,12 @@ export const products: Product[] = [
     "price": "320,00 TL",
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/376/1721976799-555183.jpg",
     "gallery": [
-      "https://www.varsapp.com/idea/iq/19/myassets/products/376/1721976799-555183.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/376/1721976799-555183.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/376/1721976799-555183_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/376/1721976802-421978.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/376/1721976802-421978.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/376/1721976802-421978_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_68565174",
@@ -2240,12 +2240,12 @@ export const products: Product[] = [
     "price": "670,00 TL",
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/468/1558n-spotclean-pro-front.png",
     "gallery": [
-      "https://www.varsapp.com/idea/iq/19/myassets/products/468/1558n-spotclean-pro-front.png",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/468/1558n-spotclean-pro-front.png",
       "https://www.varsapp.com/idea/iq/19/myassets/products/468/1558n-spotclean-pro-front_min.png",
       "https://www.varsapp.com/idea/iq/19/myassets/products/468/1558n-spotclean-pro-cleaning-area-rug.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/468/1558n-spotclean-pro-cleaning-area-rug_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/468/1558n-spotclean-pro-cleaning-area-rug-1.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/468/1558n-spotclean-pro-cleaning-area-rug-1_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/468/1558n-spotclean-pro-cleaning-area-rug_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/468/1558n-spotclean-pro-cleaning-area-rug-1.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/468/1558n-spotclean-pro-cleaning-area-rug-1_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_65562720",
@@ -2265,11 +2265,11 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/079/stil-sahibi.png",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/079/stil-sahibi.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/079/stil-sahibi_min.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/079/1706518980-273081.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/079/1706518980-273081_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/079/stil-sahibi_min.png",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/079/1706518980-273081.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/079/1706518980-273081_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/571/decathlon-kayak-tribord-100-3p-pe26-8940857-8902418-8771802-8771803-8851505-8790375-205-expires-on-20-01-2030_min.jpg"
     ],
     "minDays": 3,
     "sku": "3208_59508842",
