@@ -4400,9 +4400,16 @@ a.tum-sayfalar-btn:hover {
 }
 
 @media (max-width: 1100px) {
-  /* hide location in the crowded flex topbar — re-shown at ≤860px in grid row 2 */
-  .topbar .location-selector {
+  /* icon-only: hide city name text and chevron, keep the pin button */
+  .topbar .location-button span,
+  .topbar .location-button svg:last-child {
     display: none;
+  }
+
+  .topbar .location-button {
+    width: 42px;
+    padding: 0;
+    justify-content: center;
   }
 
   .product-grid {
