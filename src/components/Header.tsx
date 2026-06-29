@@ -13,6 +13,7 @@ import {
   UserCircle,
 } from "lucide-react";
 import { SearchBox } from "@/components/SearchBox";
+import { HeaderClient } from "@/components/HeaderClient";
 import { getCurrentCustomerAccount } from "@/lib/customer-auth";
 import { getStoreCategories } from "@/lib/store-catalog";
 
@@ -56,12 +57,7 @@ export async function Header() {
               <Link className="icon-only" href="/sepet" aria-label="Sepet">
                 <ShoppingCart size={20} />
               </Link>
-              <Link className="user-menu-trigger" href="/hesabim" aria-label="Hesabım">
-                <span className="user-icon-btn">
-                  <UserCircle size={20} />
-                </span>
-                <span className="user-name">{account.name}</span>
-              </Link>
+              <HeaderClient account={account} />
             </>
           ) : (
             <>
