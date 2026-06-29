@@ -2814,6 +2814,10 @@ button {
   font-weight: 600;
 }
 
+.date-picker-mock input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
 .availability-strip {
   display: flex;
   align-items: center;

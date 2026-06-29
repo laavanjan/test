@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { CalendarDays } from "lucide-react";
 import {
   addDaysToDateValue,
@@ -21,6 +21,8 @@ export function RentalDatePicker({ minDays, onChange }: RentalDatePickerProps) {
   const [endDate, setEndDate] = useState(addDaysToDateValue(today, minDays));
   const days = useMemo(() => countRentalDays(startDate, endDate), [startDate, endDate]);
   const error = validateRentalDates({ startDate, endDate, minDays });
+  const startRef = useRef<HTMLInputElement>(null);
+  const endRef = useRef<HTMLInputElement>(null);
 
   function updateDates(nextStart: string, nextEnd: string) {
     setStartDate(nextStart);
@@ -54,22 +56,24 @@ export function RentalDatePicker({ minDays, onChange }: RentalDatePickerProps) {
         <label>
           <span>Başlangıç</span>
           <input
+            ref={startRef}
             type="date"
             value={startDate}
             min={today}
             onChange={(event) => handleStartChange(event.target.value)}
           />
-          <CalendarDays size={18} />
+          <CalendarDays size={18} onClick={() => startRef.current?.showPicker()} style={{ cursor: "pointer" }} />
         </label>
         <label>
           <span>Bitiş</span>
           <input
+            ref={endRef}
             type="date"
             value={endDate}
             min={addDaysToDateValue(startDate, minDays)}
             onChange={(event) => handleEndChange(event.target.value)}
           />
-          <CalendarDays size={18} />
+          <CalendarDays size={18} onClick={() => endRef.current?.showPicker()} style={{ cursor: "pointer" }} />
         </label>
       </div>
       <p className={`date-picker-summary${error ? " error" : ""}`}>
