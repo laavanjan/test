@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   Check,
+  ClipboardList,
   Copy,
   Gift,
   Link2,
@@ -54,11 +55,12 @@ import { formatDateDisplay } from "@/lib/rental-dates";
 import { formatKurusAsCurrency } from "@/lib/money";
 import type { CustomerAccount } from "@/lib/customer-auth";
 
-type TabKey = "profil" | "siparisler" | "sepet" | "davet" | "cikis";
+type TabKey = "profil" | "siparisler" | "abonelikler" | "sepet" | "davet" | "cikis";
 
 const tabs: { icon: typeof UserCircle; key: TabKey; label: string }[] = [
   { icon: UserCircle, key: "profil", label: "Profilim" },
   { icon: Package, key: "siparisler", label: "Siparişlerim" },
+  { icon: ClipboardList, key: "abonelikler", label: "Subscriptions" },
   { icon: ShoppingCart, key: "sepet", label: "Sepetim" },
   { icon: UserPlus, key: "davet", label: "Arkadaşını Davet Et" },
   { icon: LogOut, key: "cikis", label: "Çıkış Yap" },
@@ -126,6 +128,7 @@ export function AccountPageClient({
             <ProfileTab account={account} />
           )}
           {activeTab === "siparisler" && <OrdersTab />}
+          {activeTab === "abonelikler" && <SubscriptionsTab />}
           {activeTab === "sepet" && <ShoppingTab />}
           {activeTab === "davet" && (
             <InviteTab accountId={account.id} referralCode={referralCode} />
@@ -389,6 +392,18 @@ function OrdersTab() {
         <Link className="rent-button" href="/">
           Ürünleri keşfet
         </Link>
+      </div>
+    </div>
+  );
+}
+
+function SubscriptionsTab() {
+  return (
+    <div className="account-panel">
+      <h1>Subscriptions</h1>
+      <div className="account-empty">
+        <ClipboardList size={36} />
+        <p>No subscriptions found.</p>
       </div>
     </div>
   );
