@@ -4716,6 +4716,53 @@ a.tum-sayfalar-btn:hover {
     display: none;
   }
 
+  /* ── Comments carousel — single card on mobile ── */
+  .comments {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .comments-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .comments-carousel {
+    padding: 0 44px;
+  }
+
+  .comment-card {
+    padding: 20px 16px 18px;
+    gap: 10px;
+  }
+
+  .comment-stars {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .comment-card p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .comment-author {
+    margin-top: 12px;
+  }
+
+  .comments-arrow {
+    width: 34px;
+    height: 34px;
+  }
+
+  .comments-arrow.left {
+    left: 0;
+  }
+
+  .comments-arrow.right {
+    right: 0;
+  }
+
   .hero {
     height: 145px;
   }

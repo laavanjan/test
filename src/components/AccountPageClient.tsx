@@ -153,13 +153,13 @@ const TR_CITIES = [
 ];
 
 const REFERRAL_OPTIONS = [
-  { label: "Select", value: "" },
-  { label: "Social Media", value: "social_media" },
-  { label: "Friend Recommendation", value: "friend" },
-  { label: "Google / Search Engine", value: "google" },
-  { label: "TV / Radio", value: "tv_radio" },
-  { label: "Advertisement", value: "advertisement" },
-  { label: "Other", value: "other" },
+  { label: "Seçiniz", value: "" },
+  { label: "Sosyal Medya", value: "social_media" },
+  { label: "Arkadaş Tavsiyesi", value: "friend" },
+  { label: "Google / Arama Motoru", value: "google" },
+  { label: "TV / Radyo", value: "tv_radio" },
+  { label: "Reklam", value: "advertisement" },
+  { label: "Diğer", value: "other" },
 ];
 
 function ProfileTab({ account }: { account: CustomerAccount }) {
@@ -194,7 +194,7 @@ function ProfileTab({ account }: { account: CustomerAccount }) {
     if (saving) return;
 
     if (wantNewPassword && newPassword !== confirmPassword) {
-      setMessage({ text: "New passwords do not match.", type: "error" });
+      setMessage({ text: "Yeni şifreler eşleşmiyor.", type: "error" });
       return;
     }
 
@@ -230,8 +230,8 @@ function ProfileTab({ account }: { account: CustomerAccount }) {
         body: JSON.stringify(body),
       });
       const data = await response.json();
-      if (!response.ok) throw new Error(data?.error || "Profile could not be updated.");
-      setMessage({ text: "Your profile has been updated.", type: "success" });
+      if (!response.ok) throw new Error(data?.error || "Profil güncellenemedi.");
+      setMessage({ text: "Profiliniz güncellendi.", type: "success" });
       if (wantNewPassword) {
         setWantNewPassword(false);
         setCurrentPassword("");
@@ -241,7 +241,7 @@ function ProfileTab({ account }: { account: CustomerAccount }) {
       router.refresh();
     } catch (error) {
       setMessage({
-        text: error instanceof Error ? error.message : "Profile could not be updated.",
+        text: error instanceof Error ? error.message : "Profil güncellenemedi.",
         type: "error",
       });
     } finally {
@@ -251,43 +251,43 @@ function ProfileTab({ account }: { account: CustomerAccount }) {
 
   return (
     <div className="profile-page">
-      <h1 className="profile-page-title">Update My Profile</h1>
+      <h1 className="profile-page-title">Profilimi Güncelle</h1>
 
       <form className="profile-form" onSubmit={handleSubmit}>
-        <div className="profile-section-header">My Member Information</div>
+        <div className="profile-section-header">Üyelik Bilgilerim</div>
 
         <div className="profile-row">
-          <label className="profile-label" htmlFor="pf-name">Name <span className="req">*</span></label>
+          <label className="profile-label" htmlFor="pf-name">Ad <span className="req">*</span></label>
           <input id="pf-name" className="profile-input" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
         </div>
 
         <div className="profile-row">
-          <label className="profile-label" htmlFor="pf-surname">Surname <span className="req">*</span></label>
+          <label className="profile-label" htmlFor="pf-surname">Soyad <span className="req">*</span></label>
           <input id="pf-surname" className="profile-input" type="text" value={surname} onChange={(e) => setSurname(e.target.value)} required />
         </div>
 
         <div className="profile-row">
-          <label className="profile-label" htmlFor="pf-email">Email <span className="req">*</span></label>
+          <label className="profile-label" htmlFor="pf-email">E-posta <span className="req">*</span></label>
           <input id="pf-email" className="profile-input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         </div>
 
         <div className="profile-row">
-          <label className="profile-label" htmlFor="pf-phone">Phone</label>
+          <label className="profile-label" htmlFor="pf-phone">Telefon</label>
           <input id="pf-phone" className="profile-input" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="(XXX) XXX XX XX" />
         </div>
 
         <div className="profile-row">
-          <label className="profile-label" htmlFor="pf-mobile">Mobile Phone <span className="req">*</span></label>
+          <label className="profile-label" htmlFor="pf-mobile">Cep Telefonu <span className="req">*</span></label>
           <input id="pf-mobile" className="profile-input" type="tel" value={mobilePhone} onChange={(e) => setMobilePhone(e.target.value)} placeholder="+90 (XXX) XXX XX XX" required />
         </div>
 
         <div className="profile-row">
-          <label className="profile-label" htmlFor="pf-trid">TR Identity Number <span className="req">*</span></label>
+          <label className="profile-label" htmlFor="pf-trid">TC Kimlik Numarası <span className="req">*</span></label>
           <input id="pf-trid" className="profile-input" type="text" value={trId} onChange={(e) => setTrId(e.target.value)} required maxLength={11} />
         </div>
 
         <div className="profile-row">
-          <label className="profile-label" htmlFor="pf-referral">Welcome! Can we find out where he heard us?</label>
+          <label className="profile-label" htmlFor="pf-referral">Bizi nereden duydunuz?</label>
           <select id="pf-referral" className="profile-input" value={referralSource} onChange={(e) => setReferralSource(e.target.value)}>
             {REFERRAL_OPTIONS.map((o) => (
               <option key={o.value} value={o.value}>{o.label}</option>
@@ -295,16 +295,16 @@ function ProfileTab({ account }: { account: CustomerAccount }) {
           </select>
         </div>
 
-        <div className="profile-section-header">Edit Address</div>
+        <div className="profile-section-header">Adres Düzenle</div>
 
         <div className="profile-row">
-          <label className="profile-label">Country / City</label>
+          <label className="profile-label">Ülke / Şehir</label>
           <div className="profile-input-group">
             <select className="profile-input" value={country} onChange={(e) => setCountry(e.target.value)}>
-              <option value="Turkey">Turkey</option>
+              <option value="Turkey">Türkiye</option>
             </select>
             <select className="profile-input" value={city} onChange={(e) => setCity(e.target.value)}>
-              <option value="">Select city</option>
+              <option value="">Şehir seçiniz</option>
               {TR_CITIES.map((c) => (
                 <option key={c} value={c}>{c}</option>
               ))}
@@ -313,12 +313,12 @@ function ProfileTab({ account }: { account: CustomerAccount }) {
         </div>
 
         <div className="profile-row">
-          <label className="profile-label" htmlFor="pf-district">District</label>
+          <label className="profile-label" htmlFor="pf-district">İlçe</label>
           <input id="pf-district" className="profile-input" type="text" value={district} onChange={(e) => setDistrict(e.target.value)} />
         </div>
 
         <div className="profile-row">
-          <label className="profile-label" htmlFor="pf-address">Address</label>
+          <label className="profile-label" htmlFor="pf-address">Adres</label>
           <textarea id="pf-address" className="profile-input profile-textarea" value={address} onChange={(e) => setAddress(e.target.value)} rows={4} />
         </div>
 
@@ -328,37 +328,37 @@ function ProfileTab({ account }: { account: CustomerAccount }) {
         </div>
 
         <div className="profile-row">
-          <label className="profile-label" htmlFor="pf-taxno">Tax Number</label>
+          <label className="profile-label" htmlFor="pf-taxno">Vergi Numarası</label>
           <input id="pf-taxno" className="profile-input" type="text" value={taxNumber} onChange={(e) => setTaxNumber(e.target.value)} />
         </div>
 
         <div className="profile-row">
-          <label className="profile-label" htmlFor="pf-taxoffice">Tax Office</label>
+          <label className="profile-label" htmlFor="pf-taxoffice">Vergi Dairesi</label>
           <input id="pf-taxoffice" className="profile-input" type="text" value={taxOffice} onChange={(e) => setTaxOffice(e.target.value)} />
         </div>
 
-        <div className="profile-section-header">Password Change</div>
+        <div className="profile-section-header">Şifre Değiştir</div>
 
         <div className="profile-row">
           <label className="profile-label" />
           <label className="profile-checkbox-label">
             <input type="checkbox" checked={wantNewPassword} onChange={(e) => setWantNewPassword(e.target.checked)} />
-            I Want to Set a New Password
+            Yeni Şifre Belirlemek İstiyorum
           </label>
         </div>
 
         {wantNewPassword && (
           <>
             <div className="profile-row">
-              <label className="profile-label" htmlFor="pf-curpw">Current Password</label>
+              <label className="profile-label" htmlFor="pf-curpw">Mevcut Şifre</label>
               <input id="pf-curpw" className="profile-input" type="password" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} required={wantNewPassword} />
             </div>
             <div className="profile-row">
-              <label className="profile-label" htmlFor="pf-newpw">New Password</label>
+              <label className="profile-label" htmlFor="pf-newpw">Yeni Şifre</label>
               <input id="pf-newpw" className="profile-input" type="password" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} required={wantNewPassword} minLength={8} />
             </div>
             <div className="profile-row">
-              <label className="profile-label" htmlFor="pf-confirmpw">New Password (Again)</label>
+              <label className="profile-label" htmlFor="pf-confirmpw">Yeni Şifre (Tekrar)</label>
               <input id="pf-confirmpw" className="profile-input" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required={wantNewPassword} minLength={8} />
             </div>
           </>
@@ -372,9 +372,9 @@ function ProfileTab({ account }: { account: CustomerAccount }) {
         )}
 
         <div className="profile-form-actions">
-          <button type="button" className="profile-btn-back" onClick={() => router.push("/")}>Back</button>
+          <button type="button" className="profile-btn-back" onClick={() => router.push("/")}>Geri</button>
           <button type="submit" className="profile-btn-save" disabled={saving}>
-            {saving ? "Saving..." : "Save"}
+            {saving ? "Kaydediliyor..." : "Kaydet"}
           </button>
         </div>
       </form>
