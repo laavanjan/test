@@ -38,6 +38,7 @@ export default async function Home() {
       <ProductSection
         title="En Çok Kiralanan Ürünler ⭐"
         products={products.slice(0, 8)}
+        featured={true}
       />
 
       <section className="how shell">
@@ -107,12 +108,14 @@ export default async function Home() {
 function ProductSection({
   title,
   products,
+  featured,
 }: {
   title: string;
   products: Product[];
+  featured?: boolean;
 }) {
   return (
-    <section className="product-section shell">
+    <section className={`product-section shell ${featured ? "featured-products" : ""}`}>
       <div className="section-title">
         <h2>{title}</h2>
       </div>

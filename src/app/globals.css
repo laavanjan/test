@@ -1763,6 +1763,12 @@ button {
   margin-top: 18px;
 }
 
+.featured-products .product-card-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
 .section-title {
   display: flex;
   align-items: center;
