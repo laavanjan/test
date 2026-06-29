@@ -133,11 +133,11 @@ export function Footer() {
             </a>
           </div>
         </div>
-        <div className="footer-credit">
+        {/* <div className="footer-credit">
           <a href="https://www.ideasoft.com.tr/?utm_source=www.varsapp.com&utm_medium=referral" target="_blank" rel="noreferrer">
             ideasoft e-ticaret paketleri ile hazırlandı.
           </a>
-        </div>
+        </div> */}
       </div>
     </footer>
   );
