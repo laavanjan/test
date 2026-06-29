@@ -45,8 +45,40 @@ export default async function StaticPage({
   if (slug === "varsapp-teslimat-sureci-nasil-yapiliyor") {
     return (
       <PageShell>
-        <section className="static-page shell delivery-process-page" style={{ padding: "48px 0", textAlign: "center" }}>
-          <h1 style={{ fontSize: "28px", fontWeight: 800, marginBottom: "24px" }}>Teslimat Süreci Nasıl Yapılıyor?</h1>
+        <div style={{ background: "#fff", width: "100%" }}>
+        <section className="static-page shell delivery-process-page" style={{ padding: "48px 0" }}>
+          <h1 style={{ fontSize: "22px", fontWeight: 200, color: "#0d3349", marginBottom: "16px" }}>Varsapp Teslimat Süreci Nasıl Yapılıyor?</h1>
+          
+
+          <div style={{ borderRadius: "12px", overflow: "hidden", marginBottom: "32px" }}>
+            <Image
+              src="/assets/ui/TeslimatSurecinizdeYaninizdayiz.png"
+              alt="Teslimat Sürecinde Yanınızdayız"
+              width={1200}
+              height={600}
+              style={{ width: "100%", height: "auto", display: "block" }}
+            />
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <a
+              href="/"
+              style={{
+                display: "inline-block",
+                backgroundColor: "var(--primary)",
+                color: "#fff",
+                fontWeight: 700,
+                fontSize: "15px",
+                padding: "12px 28px",
+                borderRadius: "8px",
+                textDecoration: "none",
+              }}
+            >
+              Ürünleri Keşfet
+            </a>
+          </div>
+
+          {/*
           <div style={{ maxWidth: "600px", margin: "24px auto", lineHeight: "1.8", color: "#5d6675", textAlign: "left" }}>
             <p><strong>1. Kolay Rezervasyon:</strong> Ürünler seçtiğiniz tarih aralığı için adınıza rezerve edilir.</p>
             <p><strong>2. Ücretsiz Kargo:</strong> Kargo süreci kiralama süresine dahil değildir. Ürünleriniz kargo ile tamamen ücretsiz olarak gönderilir.</p>
@@ -55,7 +87,9 @@ export default async function StaticPage({
           <div style={{ margin: "32px auto", borderRadius: "8px", border: "1px solid #edf0f4", overflow: "hidden" }}>
             <Image src="/assets/ui/how-it-works.png" alt="Teslimat Süreci" width={1200} height={400} style={{ width: "100%", height: "auto", display: "block" }} />
           </div>
+          */}
         </section>
+        </div>
       </PageShell>
     );
   }
