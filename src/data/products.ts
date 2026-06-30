@@ -34,7 +34,7 @@ export const products: Product[] = [
     "image": "https://www.varsapp.com/idea/iq/19/myassets/products/988/ikili-urun-tasarimi-3.png",
     "gallery": [
       "https://www.varsapp.com/idea/iq/19/myassets/products/988/ikili-urun-tasarimi-3.png",
-      "https://www.varsapp.com/idea/iq/19/myassets/products/988/ikili-urun-tasarimi-3_min.png",
+      // "https://www.varsapp.com/idea/iq/19/myassets/products/988/ikili-urun-tasarimi-3_min.png",
       // "https://www.varsapp.com/idea/iq/19/myassets/products/988/1705908893-456322.jpg",
       "https://www.varsapp.com/idea/iq/19/myassets/products/988/1705908893-456322_min.jpg",
       // "https://www.varsapp.com/idea/iq/19/myassets/products/572/decathlon-pack-decouverte-sup-96-8862497-000-expires-on_min.jpg",

@@ -2629,6 +2629,7 @@ button {
 .primary-product-image img {
   object-fit: contain;
   padding: 18px;
+  transform: scale(1.8);
 }
 
 .thumb-row {
