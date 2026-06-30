@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ChevronDown, LocateFixed } from "lucide-react";
+import { ChevronDown, LocateFixed,MapPin } from "lucide-react";
 
 const CITIES = [
   "Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Aksaray", "Amasya", "Ankara",
@@ -70,7 +70,7 @@ export function LocationSelector() {
   return (
     <div className={`location-selector${open ? " open" : ""}`} ref={rootRef}>
       <button className="location-button" type="button" onClick={() => setOpen((value) => !value)}>
-        <LocateFixed size={20} />
+        <MapPin size={20} />
         <span>{city}</span>
         <ChevronDown size={16} />
       </button>
