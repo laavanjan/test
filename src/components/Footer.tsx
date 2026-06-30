@@ -57,7 +57,7 @@ export function Footer() {
           title="Hakkımızda"
           links={[
             { href: "/sayfa/basinda-biz", label: "Basında Biz" },
-            { href: "/", label: "Hakkımızda" },
+            { href: "/sayfa/hakkimizda", label: "Hakkımızda" },
             { href: "https://www.varsapp.com/blog", label: "Blog Yazıları" },
             { href: "/sayfa/iletisim", label: "İletişim" },
           ]}

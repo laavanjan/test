@@ -111,10 +111,13 @@ button {
 .location-button,
 .search-box,
 .header-button,
-.cart-pill,
-.icon-only {
+.cart-pill {
   border: 1px solid var(--line);
   background: var(--surface);
+  color: var(--foreground);
+}
+
+.icon-only {
   color: var(--foreground);
 }
 
@@ -318,7 +321,7 @@ button {
 
 .header-actions {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
 }
 
@@ -370,7 +373,7 @@ button {
   align-items: center;
   gap: 2px;
   min-width: 45px;
-  margin-top: 0;
+  margin: 0;
 }
 
 .user-icon-btn {
@@ -379,18 +382,15 @@ button {
   justify-content: center;
   width: 34px;
   height: 34px;
-  border: 1px solid var(--line);
-  background: var(--surface);
   border-radius: 8px;
   color: #444850;
   cursor: pointer;
-  transition: border-color 150ms ease, color 150ms ease;
+  transition: color 150ms ease;
   padding: 0;
   flex-shrink: 0;
 }
 
 .user-icon-btn:hover {
-  border-color: var(--primary);
   color: var(--primary);
 }
 
@@ -3337,6 +3337,71 @@ a.tum-sayfalar-btn:hover {
   .contact-hero h1 {
     font-size: 24px;
   }
+}
+
+/* ── Hakkımızda page ──────────────────────────────────────── */
+
+.hakkimizda-page {
+  padding-top: 24px;
+}
+
+.hakkimizda-title {
+  margin: 8px 0 24px;
+  color: var(--ink);
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.hakkimizda-hero {
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.hakkimizda-quotes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.hakkimizda-quote-card {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  padding: 32px 28px;
+  text-align: center;
+}
+
+.hakkimizda-quote-card h3 {
+  margin: 0 0 16px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.hakkimizda-quote-card p {
+  margin: 0;
+  color: #5d6675;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .hakkimizda-quotes {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hakkimizda-page .press-read-more {
+  background: #000;
+  color: #fff;
+}
+
+.hakkimizda-page .press-read-more:hover {
+  background: #222;
 }
 
 /* ── Press/Basında Biz page ──────────────────────────────── */
