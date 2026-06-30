@@ -4821,61 +4821,10 @@ a.tum-sayfalar-btn:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .product-section {
-    overflow-x: hidden;
-  }
-
   .product-grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 10px;
-    padding-bottom: 10px;
-    padding-right: 16px;
-  }
-
-  .product-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .product-grid .product-card,
-  .product-grid .home-product-card {
-    flex: 0 0 148px;
-    min-width: 148px;
-    max-width: 148px;
-    width: 148px;
-    scroll-snap-align: start;
-  }
-
-  .product-grid .home-product-card .product-media {
-    height: 138px;
-  }
-
-  .product-grid .home-product-card .product-card-body {
-    padding: 8px 10px 12px;
-  }
-
-  .product-grid .home-product-card .product-card-title {
-    font-size: 12px;
-    height: auto;
-    -webkit-line-clamp: 2;
-    white-space: normal;
-  }
-
-  .product-grid .home-product-card .home-card-price {
-    margin-top: 6px;
-  }
-
-  .product-grid .home-product-card .home-card-price strong {
-    font-size: 14px;
-  }
-
-  .product-grid .home-product-card .home-card-price span {
-    font-size: 11px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
   }
 
   .rental-planner {
