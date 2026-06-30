@@ -18,6 +18,12 @@ export function getTodayDateValue() {
   return formatDateInputValue(new Date());
 }
 
+export const MIN_DAYS_FROM_TODAY = 2;
+
+export function getEarliestStartDate() {
+  return addDaysToDateValue(getTodayDateValue(), MIN_DAYS_FROM_TODAY);
+}
+
 export function addDaysToDateValue(value: string, days: number) {
   const date = new Date(`${value}T12:00:00`);
   date.setDate(date.getDate() + days);
@@ -42,14 +48,14 @@ export function validateRentalDates({
   endDate: string;
   minDays: number;
 }) {
-  const today = getTodayDateValue();
+  const earliestStart = getEarliestStartDate();
 
   if (!startDate || !endDate) {
     return "Başlangıç ve bitiş tarihlerini seçmelisin.";
   }
 
-  if (startDate < today) {
-    return "Başlangıç tarihi bugünden önce olamaz.";
+  if (startDate < earliestStart) {
+    return `Başlangıç tarihi en erken ${formatDateDisplay(earliestStart)} olabilir.`;
   }
 
   if (endDate <= startDate) {

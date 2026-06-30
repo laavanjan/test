@@ -56,7 +56,7 @@ export function Footer() {
         <FooterColumn
           title="Hakkımızda"
           links={[
-            { href: "/", label: "Basında Biz" },
+            { href: "/sayfa/basinda-biz", label: "Basında Biz" },
             { href: "/", label: "Hakkımızda" },
             { href: "https://www.varsapp.com/blog", label: "Blog Yazıları" },
             { href: "/sayfa/iletisim", label: "İletişim" },

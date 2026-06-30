@@ -1,7 +1,7 @@
 "use client";
 
 import { findProduct, type Product } from "@/data/products";
-import { addDaysToDateValue, countRentalDays, getTodayDateValue } from "@/lib/rental-dates";
+import { addDaysToDateValue, countRentalDays, getEarliestStartDate } from "@/lib/rental-dates";
 import { parseTurkishLiraToKurus } from "@/lib/money";
 
 export type StoredCartItem = {
@@ -43,7 +43,7 @@ export function writeCartItems(items: StoredCartItem[]) {
 }
 
 export function createDefaultCartItem(product: Product): StoredCartItem {
-  const startDate = getTodayDateValue();
+  const startDate = getEarliestStartDate();
   const endDate = addDaysToDateValue(startDate, product.minDays);
 
   return {

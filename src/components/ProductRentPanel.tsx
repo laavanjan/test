@@ -4,17 +4,17 @@ import { useMemo, useState } from "react";
 import type { Product } from "@/data/products";
 import { RentalDatePicker } from "@/components/RentalDatePicker";
 import { RentProductButton } from "@/components/RentProductButton";
-import { addDaysToDateValue, getTodayDateValue } from "@/lib/rental-dates";
+import { addDaysToDateValue, getEarliestStartDate } from "@/lib/rental-dates";
 
 type ProductRentPanelProps = {
   product: Product;
 };
 
 export function ProductRentPanel({ product }: ProductRentPanelProps) {
-  const today = getTodayDateValue();
+  const earliestStart = getEarliestStartDate();
   const [dates, setDates] = useState({
-    startDate: today,
-    endDate: addDaysToDateValue(today, product.minDays),
+    startDate: earliestStart,
+    endDate: addDaysToDateValue(earliestStart, product.minDays),
     days: product.minDays,
   });
 
@@ -25,7 +25,7 @@ export function ProductRentPanel({ product }: ProductRentPanelProps) {
 
   return (
     <>
-      <RentalDatePicker minDays={product.minDays} onChange={setDates} />
+      <RentalDatePicker minDays={product.minDays} onChange={setDates} productSlug={product.slug} />
 
       <div className="rental-total-card">
         <span>Ücretsiz kargo dahil toplam</span>

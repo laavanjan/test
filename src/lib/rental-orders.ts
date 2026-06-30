@@ -4,7 +4,7 @@ import { formatKurusAsPaytrPrice, parseTurkishLiraToKurus } from "@/lib/money";
 import {
   addDaysToDateValue,
   countRentalDays,
-  getTodayDateValue,
+  getEarliestStartDate,
   validateRentalDates,
 } from "@/lib/rental-dates";
 
@@ -96,7 +96,7 @@ export function getMockRentalCart(
   product = products[0],
   dates?: { days?: number; endDate?: string; startDate?: string },
 ): RentalCart {
-  const startDate = dates?.startDate || getTodayDateValue();
+  const startDate = dates?.startDate || getEarliestStartDate();
   const endDate = dates?.endDate || addDaysToDateValue(startDate, product.minDays);
   const days = dates?.days || countRentalDays(startDate, endDate);
   const error = validateRentalDates({ startDate, endDate, minDays: product.minDays });
