@@ -161,8 +161,20 @@ button {
   border: 0;
   outline: 0;
   background: transparent;
-  padding: 0 22px;
+  padding: 0 22px 0 60px;
   color: #45484f;
+  text-align: center;
+}
+
+.search-box input:not(:placeholder-shown) {
+  text-align: left;
+}
+
+.search-box input::placeholder {
+  color: #45484f;
+  font-weight: 600;
+  text-align: center;
+  opacity: 1;
 }
 
 .search-box button {
@@ -5311,10 +5323,6 @@ a.tum-sayfalar-btn:hover {
     height: 76px !important;
   }
 
-  .feature-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .product-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -5359,10 +5367,50 @@ a.tum-sayfalar-btn:hover {
     display: none;
   }
 
+  .feature-row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+  }
+
   .feature-card {
-    min-height: 52px;
-    padding-inline: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    text-align: center;
+    min-height: 64px;
+    padding: 8px 4px;
+    gap: 4px;
     font-size: 14px;
+  }
+
+  .feature-copy {
+    text-align: center;
+  }
+
+  .feature-title {
+    font-size: 11px;
+    line-height: 13px;
+    font-weight: 750;
+    word-spacing: 100vw;
+  }
+
+  .feature-visual {
+    width: 22px;
+    height: 22px;
+  }
+
+  .arrow-icon,
+  .feature-card .feature-description-inline {
+    display: none;
+  }
+
+  .feature-card.active {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card.active .feature-visual,
+  .feature-card.active .feature-title {
+    display: block;
   }
 
   .product-media {
