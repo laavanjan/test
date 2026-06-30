@@ -2630,7 +2630,7 @@ button {
 
 .primary-product-image {
   position: relative;
-  height: 390px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   border: 1px solid #edf0f4;
   border-radius: 8px;
@@ -2641,8 +2641,7 @@ button {
 
 .primary-product-image img {
   object-fit: contain;
-  padding: 18px;
-  transform: scale(1.8);
+  padding: 12px;
 }
 
 .thumb-row {
@@ -4638,9 +4637,6 @@ a.tum-sayfalar-btn:hover {
     padding: 16px;
   }
 
-  .primary-product-image {
-    height: 360px;
-  }
 
   .cart-layout {
     grid-template-columns: 1fr;
@@ -5024,10 +5020,6 @@ a.tum-sayfalar-btn:hover {
 
   .product-panel {
     gap: 18px;
-  }
-
-  .primary-product-image {
-    height: 290px;
   }
 
   .product-summary {
