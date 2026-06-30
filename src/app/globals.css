@@ -5051,23 +5051,7 @@ a.tum-sayfalar-btn:hover {
   }
 
   .mobile-rent-bar {
-    position: fixed;
-    right: 12px;
-    bottom: 12px;
-    left: 12px;
-    z-index: 40;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    border: 1px solid rgba(239, 60, 99, 0.18);
-    border-radius: 12px;
-    background: var(--primary);
-    padding: 10px 12px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    box-shadow: 0 18px 42px rgba(23, 26, 34, 0.18);
+    display: none;
   }
 
   .mobile-rent-bar span {
