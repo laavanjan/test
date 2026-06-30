@@ -121,7 +121,7 @@ export default async function StaticPage({
             />
           </div>
           <div style={{ marginTop: "32px", display: "flex", justifyContent: "flex-end" }}>
-            <a href="/sayfa" className="tum-sayfalar-btn">Tüm Sayfalar</a>
+            <a href="/" className="tum-sayfalar-btn">Tüm Sayfalar</a>
           </div>
         </section>
       </PageShell>
