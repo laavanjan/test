@@ -1,6 +1,6 @@
 import "server-only";
 
-import { categories, type Product } from "@/data/products";
+import { categories, supplementalCategoryMemberships, type Product } from "@/data/products";
 import {
   listAdminCatalogProducts,
   listAdminCategories,
@@ -80,5 +80,9 @@ export async function getStoreProductsByCategory(slug: string) {
     return allProducts;
   }
 
-  return allProducts.filter((product) => product.categorySlug === slug);
+  const supplemental = supplementalCategoryMemberships[slug];
+
+  return allProducts.filter(
+    (product) => product.categorySlug === slug || supplemental?.has(product.slug),
+  );
 }

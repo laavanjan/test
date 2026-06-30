@@ -2539,7 +2539,7 @@ export function findProduct(slug: string) {
   return products.find((product) => product.slug === slug);
 }
 
-const supplementalCategoryMemberships: Record<string, Set<string>> = {
+export const supplementalCategoryMemberships: Record<string, Set<string>> = {
   decathlon: new Set([
     "bundle-stand-up-paddle-l-boy-beyaz-mavi-10-100",
     "decathlon-10-6-sisirilebilir-stand-up-paddle",
