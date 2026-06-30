@@ -1,5 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Mail } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
+import { SOCIAL_LINKS } from "@/lib/social-links";
 
 export const dynamic = "force-dynamic";
 
@@ -159,6 +162,64 @@ export default async function StaticPage({
             <p>Ürünle birlikte gelen veya dijital olarak paylaşılan kullanım kılavuzunu inceleyiniz. Özellikle elektronik ve buharlı temizlik makinelerini kılavuza uygun voltaj ve su doluluk seviyelerinde çalıştırınız.</p>
             <h3 style={{ color: "#33363d", marginTop: "24px", marginBottom: "12px" }}>3. Teslim Etme Hazırlığı</h3>
             <p>Kiralama süreniz bittiğinde, ürünü temiz ve tüm aparatlarıyla birlikte size ulaştığı koruyucu orijinal kutusuna koyarak paketleyiniz. Kutunun üzerine size iletilen ücretsiz gönderi barkodunu yapıştırmayı unutmayınız.</p>
+          </div>
+        </section>
+      </PageShell>
+    );
+  }
+
+  if (slug === "iletisim") {
+    return (
+      <PageShell>
+        <section className="static-page shell contact-page" style={{ border: "none", boxShadow: "none" }}>
+          <div className="breadcrumbs">
+            <Link href="/">Anasayfa</Link>
+            <span>-</span>
+            <Link href="/sayfa">Sayfalar</Link>
+            <span>-</span>
+            <strong>İletişim</strong>
+          </div>
+
+          <div className="contact-hero">
+            <h1>Bizimle iletişime geçin</h1>
+            <p>Sorularınız, önerileriniz veya yardım talepleriniz için her zaman yanınızdayız</p>
+          </div>
+
+          <div className="contact-card">
+            <div className="contact-form-panel">
+              <div className="contact-form-row">
+                <input type="text" placeholder="Adınız ve Soyadınız" aria-label="Adınız ve Soyadınız" />
+                <input type="email" placeholder="E-posta adresiniz" aria-label="E-posta adresiniz" />
+              </div>
+              <div className="contact-form-row">
+                <input type="text" placeholder="Konu" aria-label="Konu" />
+                <input type="tel" placeholder="Telefon numarası" aria-label="Telefon numarası" />
+              </div>
+              <textarea placeholder="Mesajınız" aria-label="Mesajınız" />
+              <button type="button" className="contact-submit">
+                Mesajı Gönder
+              </button>
+            </div>
+
+            <div className="contact-info-panel">
+              <h2>İletişim Bilgilerimiz</h2>
+              <a className="contact-info-row" href="mailto:info@varsapp.com">
+                <Mail size={18} />
+                info@varsapp.com
+              </a>
+              <p className="contact-info-hours">Pazartesi - Cumartesi: 9:00 - 17:00</p>
+              <div className="contact-socials">
+                {SOCIAL_LINKS.map(({ href, label, svg }) => (
+                  <a href={href} key={label} target="_blank" rel="noreferrer" aria-label={label}>
+                    {svg}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div style={{ marginTop: "32px", display: "flex", justifyContent: "flex-end" }}>
+            <a href="/sayfa" className="tum-sayfalar-btn">Tüm Sayfalar</a>
           </div>
         </section>
       </PageShell>
