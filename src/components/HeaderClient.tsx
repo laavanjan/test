@@ -22,7 +22,7 @@ export function HeaderClient({ account }: HeaderClientProps) {
         <span className="user-icon-btn">
           <UserCircle size={20} />
         </span>
-        <span className="user-name">{account.name}</span>
+        <span className="user-name">Hesabım</span>
       </button>
 
       <UserSidebar
