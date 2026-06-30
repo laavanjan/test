@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { SearchBox } from "@/components/SearchBox";
 import { HeaderClient } from "@/components/HeaderClient";
+import { CategoryDrawer } from "@/components/CategoryDrawer";
 import { LocationSelectorConditional } from "@/components/LocationSelectorConditional";
 import { getCurrentCustomerAccount } from "@/lib/customer-auth";
 import { getStoreCategories } from "@/lib/store-catalog";
@@ -35,6 +36,8 @@ export async function Header() {
   return (
     <header className="site-header">
       <div className="topbar shell">
+        <CategoryDrawer categories={categories} />
+
         <Link className="logo-link" href="/" aria-label="Varsapp ana sayfa">
           <Image
             src="/assets/ui/logo.png"

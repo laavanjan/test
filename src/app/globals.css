@@ -84,6 +84,19 @@ button {
   margin: 0 auto;
 }
 
+.hamburger-trigger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: #444850;
+  flex-shrink: 0;
+}
+
 .logo-link {
   display: flex;
   align-items: center;
@@ -1881,9 +1894,9 @@ button {
   overflow: hidden;
   width: 100%;
   color: #3C3B3B;
-  font-size: 14px;
+  font-size: 12px;
   font-family: sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.4;
   margin-bottom: 8px;
   text-overflow: ellipsis;
@@ -4399,6 +4412,51 @@ a.tum-sayfalar-btn:hover {
   background: #e0b000;
 }
 
+/* ── Category Drawer (mobile hamburger menu) ────────────── */
+
+.category-drawer {
+  position: fixed;
+  top: 0;
+  left: -340px;
+  width: 340px;
+  max-width: 82vw;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  transition: left 300ms ease;
+  padding: 24px 0;
+  overflow-y: auto;
+}
+
+.category-drawer.open {
+  left: 0;
+}
+
+.category-drawer-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-drawer-nav a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--line);
+  color: var(--foreground);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.category-drawer-nav a svg {
+  flex-shrink: 0;
+  color: #444850;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -4452,6 +4510,16 @@ a.tum-sayfalar-btn:hover {
   }
 }
 
+@media (max-width: 990px) {
+  .category-nav {
+    display: none;
+  }
+
+  .hamburger-trigger {
+    display: inline-flex;
+  }
+}
+
 @media (max-width: 860px) {
   .shell {
     width: min(100% - 24px, 1220px);
@@ -4459,7 +4527,7 @@ a.tum-sayfalar-btn:hover {
 
   .topbar {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto auto 1fr;
     grid-template-rows: auto auto auto;
     gap: 10px 16px;
     align-items: center;
@@ -4467,8 +4535,13 @@ a.tum-sayfalar-btn:hover {
     padding: 12px 0;
   }
 
-  .logo-link {
+  .hamburger-trigger {
     grid-column: 1;
+    grid-row: 1;
+  }
+
+  .logo-link {
+    grid-column: 2;
     grid-row: 1;
   }
 
@@ -4515,7 +4588,7 @@ a.tum-sayfalar-btn:hover {
   }
 
   .header-actions {
-    grid-column: 2;
+    grid-column: 3;
     grid-row: 1;
     justify-content: flex-end;
     gap: 12px;
@@ -4652,15 +4725,20 @@ a.tum-sayfalar-btn:hover {
 @media (max-width: 620px) {
   .topbar {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto auto 1fr;
     grid-template-rows: auto auto auto;
     gap: 8px 12px;
     align-items: center;
     padding: 10px 0;
   }
 
-  .logo-link {
+  .hamburger-trigger {
     grid-column: 1;
+    grid-row: 1;
+  }
+
+  .logo-link {
+    grid-column: 2;
     grid-row: 1;
   }
 
@@ -4708,7 +4786,7 @@ a.tum-sayfalar-btn:hover {
 
   /* actions sit right of logo in row 1 */
   .header-actions {
-    grid-column: 2;
+    grid-column: 3;
     grid-row: 1;
     justify-content: flex-end;
     gap: 10px;
